@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { Flex } from '../Box';
 
 export const StyledModal = styled.div`

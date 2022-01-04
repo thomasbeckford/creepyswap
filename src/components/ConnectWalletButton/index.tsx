@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { useWeb3React } from '@web3-react/core';
+
 import useAuth from '../../hooks/useAuth';
-import { useWalletModal } from '../WalletModal';
 import { Button } from '../Button';
+import { useWalletModal } from '../WalletModal';
 
 const ConnectButton: React.FC = () => {
 	const { login, logout } = useAuth();

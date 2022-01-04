@@ -1,5 +1,6 @@
 import styled, { DefaultTheme } from 'styled-components';
 import { space, layout, variant } from 'styled-system';
+
 import { scaleVariants, styleVariants } from './theme';
 import { BaseButtonProps } from './types';
 

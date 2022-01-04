@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Container, Description, Title } from './styled';
 
 type CardProps = {

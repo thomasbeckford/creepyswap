@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { Meta } from '../../layout/Meta';
 import { Main } from '../../templates/Main';
-import { PageContent } from './../styled';
+import { PageContent } from '../styled';
 
 const Swap = () => (
 	<Main meta={<Meta title="Swap" description="" />}>

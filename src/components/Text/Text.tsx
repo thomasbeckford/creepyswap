@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { TextProps } from './types';
 
 const Text = styled.div<TextProps>`

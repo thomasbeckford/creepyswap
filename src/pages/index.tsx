@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
-import { Meta } from '../layout/Meta';
-import { Main } from '../templates/Main';
-import Card from '../components/Card';
-import useEagerConnect from '../hooks/useEagerConnect';
-import { HomeContainer } from './styled';
+
+import { useWeb3React } from '@web3-react/core';
 import { useDispatch } from 'react-redux';
 
+import Card from '../components/Card';
+import useEagerConnect from '../hooks/useEagerConnect';
+import { Meta } from '../layout/Meta';
 import { fetchInSpiritDataAsync } from '../redux/actions';
-import { useWeb3React } from '@web3-react/core';
+import { Main } from '../templates/Main';
+import { HomeContainer } from './styled';
 
 const Index = () => {
 	const { account } = useWeb3React();

@@ -1,6 +1,8 @@
 import { useCallback, useContext, useEffect } from 'react';
+
 import { Context } from '../../providers/modal';
-import { Handler } from './types';
+
+type Handler = () => void;
 
 const useModal = (
 	modal: React.ReactNode,

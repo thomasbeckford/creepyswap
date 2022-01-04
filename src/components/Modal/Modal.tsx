@@ -1,9 +1,9 @@
 import React from 'react';
 
 // import Heading from "../../components/Heading/Heading";
-import Flex from '../../components/Box/Flex';
 import { ArrowBackIcon, CloseIcon } from '../../../public/svg';
-import { IconButton } from '../../components/Button';
+import Flex from '../Box/Flex';
+import { IconButton } from '../Button';
 import { StyledModal, ModalHeader, ModalTitle } from './styled';
 
 interface Props {

@@ -1,10 +1,7 @@
 {
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
-	"jest.autoRun": {
-		"watch": false,
-		"onSave": "test-file"
-	},
+
 	"search.exclude": {
 		"package-lock.json": true
 	},

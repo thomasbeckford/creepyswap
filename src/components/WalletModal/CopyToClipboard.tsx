@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import styled from 'styled-components';
-import Text from '../../components/Text/Text';
+
 import { CopyIcon } from '../../../public/svg';
+import Text from '../Text/Text';
 
 interface Props {
 	toCopy: string;

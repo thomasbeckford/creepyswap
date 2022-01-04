@@ -1,11 +1,12 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
-import Text from '../../components/Text/Text';
-import LinkExternal from '../../components/Link/LinkExternal';
-import Flex from '../../components/Box/Flex';
-import { Modal } from './../Modal';
+
+import { CONNECTOR_LOCAL_STORAGE_KEY } from '../../constants';
+import Flex from '../Box/Flex';
+import Button from '../Button/Button';
+import LinkExternal from '../Link/LinkExternal';
+import { Modal } from '../Modal';
+import Text from '../Text/Text';
 import CopyToClipboard from './CopyToClipboard';
-import { CONNECTOR_LOCAL_STORAGE_KEY } from './../../constants';
 
 interface Props {
 	account: string;

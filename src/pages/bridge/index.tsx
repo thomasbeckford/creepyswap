@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Meta } from '../../layout/Meta';
 import { Main } from '../../templates/Main';
 import { PageContent } from '../styled';

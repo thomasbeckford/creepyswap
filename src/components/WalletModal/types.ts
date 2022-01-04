@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { SvgProps } from '../../../public/svg/types';
 
 export enum ConnectorNames {

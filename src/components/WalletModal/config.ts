@@ -1,10 +1,10 @@
-import Metamask from './icons/Metamask';
+import BinanceChain from './icons/BinanceChain';
 import MathWallet from './icons/MathWallet';
+import Metamask from './icons/Metamask';
+import SafePalWallet from './icons/SafePalWallet';
 import TokenPocket from './icons/TokenPocket';
 import TrustWallet from './icons/TrustWallet';
 import WalletConnect from './icons/WalletConnect';
-import BinanceChain from './icons/BinanceChain';
-import SafePalWallet from './icons/SafePalWallet';
 import { Config, ConnectorNames } from './types';
 
 const connectors: Config[] = [

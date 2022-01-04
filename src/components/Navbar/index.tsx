@@ -1,8 +1,12 @@
-import Link from 'next/link';
 import React, { useState } from 'react';
+
+import Link from 'next/link';
+import router from 'next/router';
 
 import navigation from '../../templates/navigation';
 // import ConnectButton from '../ConnectWalletButton';
+import { Button } from '../Button';
+import { Logo } from '../logo';
 import { Toggle } from '../Toggle';
 import {
 	ImageContainer,
@@ -12,9 +16,6 @@ import {
 	RightContainer,
 	Wrapper,
 } from './styled';
-import router from 'next/router';
-import { Button } from '../Button';
-import { Logo } from '../logo';
 
 export default function NavBar() {
 	const [selected, setSelected] = useState<string | undefined>(router?.route);

@@ -1,11 +1,13 @@
 import React from 'react';
+
 import styled from 'styled-components';
-import { Link } from '../../components/Link';
+
 import { HelpIcon } from '../../../public/svg';
+import { Link } from '../Link';
 import { Modal } from '../Modal';
-import WalletCard from './WalletCard';
 import config from './config';
 import { Login } from './types';
+import WalletCard from './WalletCard';
 
 interface Props {
 	login: Login;

@@ -1,13 +1,13 @@
 import { Web3ReactProvider } from '@web3-react/core';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import { ThemeProvider } from '../providers/theme';
-import { ModalProvider } from '../providers/modal';
-
-import { getLibrary } from '../utils/Web3React';
-import { GlobalStyle } from '../styles/globalStyles';
-import { store } from '../redux/store';
 import { Provider } from 'react-redux';
+
+import { ModalProvider } from '../providers/modal';
+import { ThemeProvider } from '../providers/theme';
+import { store } from '../redux/store';
+import { GlobalStyle } from '../styles/globalStyles';
+import { getLibrary } from '../utils/Web3React';
 
 declare global {
 	interface Window {

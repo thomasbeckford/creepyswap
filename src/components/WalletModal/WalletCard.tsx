@@ -1,7 +1,8 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
-import Text from '../../components/Text/Text';
+
 import { CONNECTOR_LOCAL_STORAGE_KEY } from '../../constants';
+import Button from '../Button/Button';
+import Text from '../Text/Text';
 import { Login, Config } from './types';
 
 interface Props {
