@@ -1,1 +1,1 @@
-export { fetchInSpiritDataAsync } from './inCreepy';
+export { fetchInSpiritDataAsync } from './creepy';

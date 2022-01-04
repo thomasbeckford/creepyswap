@@ -130,7 +130,7 @@ export interface PriceState {
 export interface State {
 	farms: FarmsState;
 	boostedFarms: FarmsV2State;
-	inCreepy: any;
+	creepy: any;
 	// toasts: ToastsState;
 	prices: PriceState;
 	pools: PoolsState;

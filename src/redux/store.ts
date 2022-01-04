@@ -1,10 +1,10 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import inCreepy from './inCreepy';
+import creepy from './creepy';
 
 export const store = configureStore({
 	devTools: process.env.NODE_ENV !== 'production',
 	reducer: {
-		inCreepy,
+		creepy,
 	},
 });
 
