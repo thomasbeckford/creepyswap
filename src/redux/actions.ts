@@ -1,0 +1,1 @@
+export { fetchInSpiritDataAsync } from './inCreepy';
