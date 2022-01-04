@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
 import Svg from '../svg';
 import { SvgProps } from '../types';
 
