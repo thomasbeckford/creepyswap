@@ -8,7 +8,7 @@ import useEagerConnect from '../hooks/useEagerConnect'
 import { Meta } from '../layout/Meta'
 import { fetchInSpiritDataAsync } from '../redux/actions'
 import { Main } from '../templates/Main'
-import { HomeContainer } from './styled'
+import { HomeContainer } from '../styles/styled'
 
 function Index() {
   const { account } = useWeb3React()
@@ -19,9 +19,7 @@ function Index() {
     if (account) {
       dispatch(fetchInSpiritDataAsync(account))
     }
-  }, [account])
-
-  console.log('test')
+  }, [account, dispatch])
 
   return (
     <Main

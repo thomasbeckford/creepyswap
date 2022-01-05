@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Meta } from '../../layout/Meta'
 import { Main } from '../../templates/Main'
-import { PageContent } from '../styled'
+import { PageContent } from '../../styles/styled'
 
 function Liquidity() {
   return (

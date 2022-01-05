@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
-import NavBar from '../components/Navbar'
+import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Wrapper, Children } from './styled'
 
@@ -13,7 +13,7 @@ type IMainProps = {
 const Main = ({ meta, children }: IMainProps) => (
   <Wrapper>
     {meta}
-    <NavBar />
+    <Navbar />
     <LazyMotion features={domAnimation}>
       <AnimatePresence exitBeforeEnter>
         <m.div

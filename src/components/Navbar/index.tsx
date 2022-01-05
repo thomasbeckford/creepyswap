@@ -17,7 +17,7 @@ import {
   Wrapper,
 } from './styled'
 
-export default function NavBar() {
+export default function Navbar() {
   const [selected, setSelected] = useState<string | undefined>(router?.route)
 
   return (
