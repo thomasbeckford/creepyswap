@@ -35,12 +35,19 @@ export const NavItem = styled.li<{
 	a {
 		color: ${({ theme, selected, path }) =>
 			selected === path ? theme.colors.green : theme.colors.white};
-		transition: color 0.1s ease-in-out;
 		text-decoration: none;
 		padding: 0.4rem 1rem;
-		border-radius: 0.5rem;
-		background: ${({ theme, selected, path }) =>
-			selected === path ? theme.colors.ciTrans15 : 'none'};
+		border-radius: 8px;
+		text-decoration: ${({ selected, path }) =>
+			selected === path ? 'underline' : 'none'};
+		text-decoration-style: wavy;
+		transition: all 0.3s ease-in-out;
+	}
+
+	a:hover {
+		background: ${({ theme }) => theme.colors.ciTrans15};
+		transition: background 0.4s;
+		transition: color 0.4s;
 	}
 `;
 

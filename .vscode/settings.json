@@ -1,24 +1,5 @@
 {
-	"editor.tabSize": 2,
-	"editor.detectIndentation": false,
-
-	"search.exclude": {
-		"package-lock.json": true
-	},
-	// Multiple language settings for json and jsonc files
-	"[json][jsonc]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
 	"eslint.options": {
-		"configFile": ".eslintrc"
-	},
-	"editor.codeActionsOnSave": [
-		"source.addMissingImports", // VSCode
-		"source.formatDocument", // Extension: Format Code Action
-		"source.fixAll.eslint", // Extension: ESLint
-		"source.fixAll.stylelint" // Extension: StyleLint
-	],
-	"editor.formatOnSave": true // Enabled via codeActionsOnSave (known order)
-	// "eslint.format.enable": false, // Do not mess with this!!
+		"configFile": ".eslintrc.js"
+	}
 }
