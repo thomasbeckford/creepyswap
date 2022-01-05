@@ -14,6 +14,7 @@ import {
   NavItem,
   NavList,
   RightContainer,
+  Title,
   Wrapper,
 } from './styled'
 
@@ -25,7 +26,9 @@ export default function Navbar() {
       <ImageContainer>
         <Logo />
       </ImageContainer>
+
       <NavContainer>
+        <Title>CreepySwap</Title>
         <NavList>
           {navigation.map(({ title, index, path }) => (
             <NavItem

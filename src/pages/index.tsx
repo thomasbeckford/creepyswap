@@ -8,7 +8,13 @@ import useEagerConnect from '../hooks/useEagerConnect'
 import { Meta } from '../layout/Meta'
 import { fetchInSpiritDataAsync } from '../redux/actions'
 import { Main } from '../templates/Main'
-import { HomeContainer } from '../styles/styled'
+import {
+  CardContainer,
+  HomeContainer,
+  Subtitle,
+  Title,
+  TitleContainer,
+} from '../styles/styled'
 
 function Index() {
   const { account } = useWeb3React()
@@ -25,16 +31,25 @@ function Index() {
     <Main
       meta={<Meta title="CreepySwap" description="CreepySwap for Fantom" />}
     >
-      <h2>Home Page</h2>
       <HomeContainer>
-        <Card
-          title="Swap"
-          description="this card is Swapping is Swapping is Swapping is Swapping "
-        />
-        <Card title="Liquidity" description="this card is" />
-        <Card title="Farm" description="this card is" />
-        <Card title="Stake" description="this card is" />
-        <Card title="Bridge" description="this card is" />
+        <TitleContainer>
+          <Title>All in one decentralized exchange.</Title>
+          <Subtitle>
+            Do it Cheaper and faster with Fantom Opera network.
+          </Subtitle>
+        </TitleContainer>
+
+        <CardContainer>
+          <Card
+            title="Swap"
+            description="this card is Swapping is Swapping is Swapping is Swapping "
+          />
+          <Card title="Liquidity" description="this card is" />
+          <Card title="Farm" description="this card is" />
+          <Card title="Stake" description="this card is" />
+          <Card title="Bridge" description="this card is" />
+          <Card title="NFT" description="this card is river " />
+        </CardContainer>
       </HomeContainer>
     </Main>
   )

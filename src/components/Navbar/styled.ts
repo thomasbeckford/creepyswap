@@ -6,6 +6,12 @@ export const Wrapper = styled.div`
   padding: 1rem;
   height: 6rem;
 `
+export const Title = styled.h1`
+  font-size: 2.5rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+`
 
 export const NavList = styled.ul`
   display: flex;
@@ -13,11 +19,10 @@ export const NavList = styled.ul`
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
   font-size: 1rem;
-  font-weight: bold;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.white};
+  height: 60px;
 `
 
 export const NavItem = styled.li<{
@@ -30,17 +35,19 @@ export const NavItem = styled.li<{
   cursor: pointer;
   transition: all 0.1s ease-in-out;
   color: ${({ theme }) => theme.colors.white};
-  font-weight: 400;
+  font-weight: lighter;
+  font-size: 1rem;
+  padding: 10px;
 
   a {
     color: ${({ theme, selected, path }) =>
-      selected === path ? theme.colors.green : theme.colors.white};
+      selected === path ? theme.colors.gray : theme.colors.white};
+    background: ${({ theme, selected, path }) =>
+      selected === path ? theme.colors.bgBoxDarker : 'none'};
     text-decoration: none;
-    padding: 0.4rem 1rem;
+    // padding: 0.4rem 1rem;
     border-radius: 8px;
-    text-decoration: ${({ selected, path }) =>
-      selected === path ? 'underline' : 'none'};
-    text-decoration-style: wavy;
+    padding: 12px 20px;
     transition: all 0.3s ease-in-out;
   }
 

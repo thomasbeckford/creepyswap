@@ -24,6 +24,7 @@ export const colorValues = {
   },
   blue: {
     200: 'rgba(31, 41, 55, 0.95)',
+    300: '#145da0',
     900: '#000315',
   },
 }

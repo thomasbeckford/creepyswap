@@ -1,11 +1,11 @@
 import React from 'react'
-
+import { Container } from './styled'
 import { AppConfig } from '../../utils/AppConfig'
 
 export default function Footer() {
   return (
-    <div className="text-center py-8 text-sm">
+    <Container>
       © Copyright {new Date().getFullYear()} {AppConfig.title}
-    </div>
+    </Container>
   )
 }

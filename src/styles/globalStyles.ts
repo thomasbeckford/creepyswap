@@ -8,11 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0px;
     padding: 0px;
-  }
-
-  body,
-  input {
-    font-family: Jost, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Baloo2, sans-serif;
   }
 
   #root {
@@ -23,12 +19,10 @@ export const GlobalStyle = createGlobalStyle`
 
   p,
   label {
-    font-family: Jost, Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
 
   button, div, input, select {
-    font-family: inherit;
     font-size: inherit;
   }
 

@@ -8,11 +8,12 @@ export const Container = styled.div`
   min-width: 400px;
   min-height: 200px;
   padding: 1rem;
+  cursor: pointer;
 `
 
 export const Title = styled.h2`
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: lighter;
   color: slategray;
 `
 

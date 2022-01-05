@@ -33,8 +33,8 @@ export const styleVariants = {
   },
   [variants.TERTIARY]: {
     boxShadow: 'none',
-    color: 'white',
-    backgroundColor: 'grey',
+    color: '#b1d4e0',
+    backgroundColor: '#145da0',
   },
   [variants.SUBTLE]: {
     backgroundColor: 'textSubtle',

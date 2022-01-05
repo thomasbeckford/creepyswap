@@ -17,7 +17,7 @@ export const Switch = styled.div<{ isOn: boolean }>`
     width: 24px;
     height: 24px;
     background-color: ${({ isOn, theme }) =>
-      isOn ? theme.colors.ci : theme.colors?.white};
+      isOn ? theme.colors.dangerBorder : theme.colors.danger};
     border-radius: 5px;
   }
 `

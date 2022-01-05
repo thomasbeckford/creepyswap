@@ -52,7 +52,6 @@ declare module 'styled-components' {
 
   export interface DefaultTheme extends BaseTheme {
     colors: Record<ExtendedColors, string>
-    fontFamily: Record<ExtendFonts, string>
     fontWeight: Record<ExtendFontWeight, number>
     fontSize: Record<any>
     lineHeight: Record<any>

@@ -17,6 +17,12 @@ const Meta = ({ title, description, canonical }: IMetaProps) => (
         content="width=device-width,initial-scale=1"
         key="viewport"
       />
+      <link
+        rel="preload"
+        href="public/fonts/Baloo2.ttf"
+        as="font"
+        crossOrigin=""
+      />
     </Head>
 
     <NextSeo

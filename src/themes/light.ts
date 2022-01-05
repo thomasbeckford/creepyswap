@@ -7,10 +7,10 @@ const light: DefaultTheme = {
 
   colors: {
     ...colors,
-    ci: colorValues.teal[400],
-    ciDark: colorValues.teal[600],
-    ciTrans15: colorValues.teal.ciTrans15,
-    ciBorderGradient: colorValues.teal.ciBorderGradient,
+    ci: colorValues.blue[300],
+    ciDark: colorValues.gray[600],
+    ciTrans15: colorValues.gray[700],
+    ciBorderGradient: colorValues.gray[700],
 
     background: colorValues.blue[200],
     bgBox: colorValues.gray[800],
