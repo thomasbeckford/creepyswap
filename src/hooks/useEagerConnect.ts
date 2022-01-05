@@ -1,22 +1,22 @@
-import { useEffect } from 'react';
-import { CONNECTOR_LOCAL_STORAGE_KEY, ConnectorNames } from '../constants';
-import useAuth from './useAuth';
+import { useEffect } from 'react'
+import { CONNECTOR_LOCAL_STORAGE_KEY, ConnectorNames } from '../constants'
+import useAuth from './useAuth'
 
 const useEagerConnect = () => {
-	const { login } = useAuth();
+  const { login } = useAuth()
 
-	useEffect(() => {
-		const walletConnectors = ['walletconnect', 'trustwallet'];
-		const connectorId = window.localStorage.getItem(
-			CONNECTOR_LOCAL_STORAGE_KEY
-		) as ConnectorNames;
+  useEffect(() => {
+    const walletConnectors = ['walletconnect', 'trustwallet']
+    const connectorId = window.localStorage.getItem(
+      CONNECTOR_LOCAL_STORAGE_KEY
+    ) as ConnectorNames
 
-		console.log('ConnectorID', connectorId);
+    console.log('ConnectorID', connectorId)
 
-		if (!walletConnectors.includes(connectorId)) {
-			login(connectorId);
-		}
-	}, [login]);
-};
+    if (!walletConnectors.includes(connectorId)) {
+      login(connectorId)
+    }
+  }, [login])
+}
 
-export default useEagerConnect;
+export default useEagerConnect

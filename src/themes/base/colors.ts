@@ -26,7 +26,7 @@ export const colorValues = {
     200: 'rgba(31, 41, 55, 0.95)',
     900: '#000315',
   },
-};
+}
 
 // TODO Revamp naming
 export const colors = {
@@ -42,4 +42,4 @@ export const colors = {
   dangerBorder: colorValues.red[400],
   dangerBg: colorValues.red.redTrans10,
   mainBg: colorValues.blue[200],
-};
+}

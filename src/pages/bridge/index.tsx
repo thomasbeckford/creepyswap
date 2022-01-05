@@ -1,16 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import { Meta } from '../../layout/Meta';
-import { Main } from '../../templates/Main';
-import { PageContent } from '../styled';
+import { Meta } from '../../layout/Meta'
+import { Main } from '../../templates/Main'
+import { PageContent } from '../styled'
 
-const Bridge = () => (
-	<Main meta={<Meta title="Bridge" description="" />}>
-		<PageContent>
-			<h1>Bridge</h1>
-			<p>aaaa</p>
-		</PageContent>
-	</Main>
-);
+function Bridge() {
+  return (
+    <Main meta={<Meta title="Bridge" description="" />}>
+      <PageContent>
+        <h1>Bridge</h1>
+        <p>aaaa</p>
+      </PageContent>
+    </Main>
+  )
+}
 
-export default Bridge;
+export default Bridge

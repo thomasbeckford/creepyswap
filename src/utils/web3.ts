@@ -1,20 +1,18 @@
-import Web3 from 'web3';
-import { HttpProviderOptions } from 'web3-core-helpers';
-import getRpcUrl from './getRpcUrl';
-import { POLLING_INTERVAL } from '../constants';
+import Web3 from 'web3'
+import { HttpProviderOptions } from 'web3-core-helpers'
+import getRpcUrl from './getRpcUrl'
+import { POLLING_INTERVAL } from '../constants'
 
-const RPC_URL = getRpcUrl();
+const RPC_URL = getRpcUrl()
 const httpProvider = new Web3.providers.HttpProvider(
-	RPC_URL as string,
-	{
-		timeout: POLLING_INTERVAL,
-	} as HttpProviderOptions
-);
-const web3NoAccount = new Web3(httpProvider);
+  RPC_URL as string,
+  {
+    timeout: POLLING_INTERVAL,
+  } as HttpProviderOptions
+)
+const web3NoAccount = new Web3(httpProvider)
 
-const getWeb3NoAccount = () => {
-	return web3NoAccount;
-};
+const getWeb3NoAccount = () => web3NoAccount
 
-export { getWeb3NoAccount };
-export default web3NoAccount;
+export { getWeb3NoAccount }
+export default web3NoAccount

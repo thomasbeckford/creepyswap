@@ -1,17 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import Image from 'next/image';
+import Image from 'next/image'
 
 type LogoProps = {
-	width?: number;
-	height?: number;
-};
+  width?: number
+  height?: number
+}
 
-export const Logo = ({ width, height }: LogoProps) => (
-	<Image
-		src="/images/souly-color.svg"
-		alt="nextjs"
-		width={width || 96}
-		height={height || 58}
-	/>
-);
+export function Logo({ width, height }: LogoProps) {
+  return (
+    <Image
+      src="/images/souly-color.svg"
+      alt="nextjs"
+      width={width || 96}
+      height={height || 58}
+    />
+  )
+}

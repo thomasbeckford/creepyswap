@@ -1,23 +1,23 @@
-import { useCallback, useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react'
 
-import { Context } from '../../providers/modal';
+import { Context } from '../../providers/modal'
 
-type Handler = () => void;
+type Handler = () => void
 
 const useModal = (
-	modal: React.ReactNode,
-	closeOnOverlayClick = true
+  modal: React.ReactNode,
+  closeOnOverlayClick = true
 ): [Handler, Handler] => {
-	const { onPresent, onDismiss, setCloseOnOverlayClick } = useContext(Context);
-	const onPresentCallback = useCallback(() => {
-		onPresent(modal);
-	}, [modal, onPresent]);
+  const { onPresent, onDismiss, setCloseOnOverlayClick } = useContext(Context)
+  const onPresentCallback = useCallback(() => {
+    onPresent(modal)
+  }, [modal, onPresent])
 
-	useEffect(() => {
-		setCloseOnOverlayClick(closeOnOverlayClick);
-	}, [closeOnOverlayClick, setCloseOnOverlayClick]);
+  useEffect(() => {
+    setCloseOnOverlayClick(closeOnOverlayClick)
+  }, [closeOnOverlayClick, setCloseOnOverlayClick])
 
-	return [onPresentCallback, onDismiss];
-};
+  return [onPresentCallback, onDismiss]
+}
 
-export default useModal;
+export default useModal

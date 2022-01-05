@@ -1,6 +1,6 @@
 import React from 'react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { dark, light } from './../themes'
+import { dark, light } from '../themes'
 
 type ThemeProviderProps = { children: React.ReactNode }
 

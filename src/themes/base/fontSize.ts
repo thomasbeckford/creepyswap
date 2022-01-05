@@ -13,4 +13,4 @@ export const fontSize = {
   p: '14px',
   sub: '12px',
   input: '1rem',
-};
+}

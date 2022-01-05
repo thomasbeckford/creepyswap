@@ -48,6 +48,8 @@ export const ModalProvider: React.FC = ({ children }) => {
     }
   }
 
+  console.log(handleOverlayDismiss)
+
   return (
     <Context.Provider
       value={{

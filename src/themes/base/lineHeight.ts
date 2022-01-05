@@ -10,4 +10,4 @@ export const lineHeight = {
   h5: '20px',
   p: '18px',
   sub: '16px',
-};
+}

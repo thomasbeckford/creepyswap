@@ -5,7 +5,6 @@ import { getBalanceNumber } from '../../utils/formatBalance'
 
 const fetchInspirit = async (account: string) => {
   const creepyAddress = getCreepyAddress()
-  const a = 'a'
 
   const [tokenName, Symbol, creepySupply, creepyBalance] =
     await multicall.invoke()(inCreepyABI, [
