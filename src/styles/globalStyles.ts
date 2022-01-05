@@ -1,6 +1,28 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+
+@font-face {
+  font-family: 'Baloo2-Regular';
+  src: url('fonts/Baloo2-Regular.ttf');
+}
+@font-face {
+  font-family: 'Baloo2-Bold';
+  src: url('fonts/Baloo2-Bold.ttf');
+}
+@font-face {
+  font-family: 'Baloo2-Medium';
+  src: url('fonts/Baloo2-Medium.ttf');
+}
+@font-face {
+  font-family: 'Baloo2-SemiBold';
+  src: url('fonts/Baloo2-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Baloo2-ExtraBold';
+  src: url('fonts/Baloo2-ExtraBold.ttf');
+}
+
   html,
   body {
     background: ${({ theme }) => theme.colors.background};
@@ -8,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0px;
     padding: 0px;
-    font-family: Baloo2, sans-serif;
+    font-family: 'Baloo2-Medium';
   }
 
   #root {

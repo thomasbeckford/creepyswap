@@ -45,9 +45,8 @@ export const NavItem = styled.li<{
     background: ${({ theme, selected, path }) =>
       selected === path ? theme.colors.bgBoxDarker : 'none'};
     text-decoration: none;
-    // padding: 0.4rem 1rem;
     border-radius: 8px;
-    padding: 12px 20px;
+    padding: 5px 20px;
     transition: all 0.3s ease-in-out;
   }
 

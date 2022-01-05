@@ -19,7 +19,7 @@ const Meta = ({ title, description, canonical }: IMetaProps) => (
       />
       <link
         rel="preload"
-        href="public/fonts/Baloo2.ttf"
+        href="fonts/Baloo2-Regular.ttf"
         as="font"
         crossOrigin=""
       />
