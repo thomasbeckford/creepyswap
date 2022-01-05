@@ -21,6 +21,8 @@ function Index() {
     }
   }, [account])
 
+  console.log('test')
+
   return (
     <Main
       meta={<Meta title="CreepySwap" description="CreepySwap for Fantom" />}
