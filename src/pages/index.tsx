@@ -9,11 +9,11 @@ import { Meta } from '../layout/Meta'
 import { fetchInSpiritDataAsync } from '../redux/actions'
 import { Main } from '../templates/Main'
 import {
-  CardContainer,
+  Wrapper,
   HomeContainer,
-  Subtitle,
-  Title,
-  TitleContainer,
+  // Subtitle,
+  // Title,
+  // TitleContainer,
 } from '../styles/styled'
 
 function Index() {
@@ -32,24 +32,22 @@ function Index() {
       meta={<Meta title="CreepySwap" description="CreepySwap for Fantom" />}
     >
       <HomeContainer>
-        <TitleContainer>
-          <Title>All in one decentralized exchange.</Title>
-          <Subtitle>
-            Do it Cheaper and faster with Fantom Opera network.
-          </Subtitle>
-        </TitleContainer>
-
-        <CardContainer>
-          <Card
-            title="Swap"
-            description="this card is Swapping is Swapping is Swapping is Swapping "
-          />
-          <Card title="Liquidity" description="this card is" />
-          <Card title="Farm" description="this card is" />
-          <Card title="Stake" description="this card is" />
-          <Card title="Bridge" description="this card is" />
-          <Card title="NFT" description="this card is river " />
-        </CardContainer>
+        <Card>
+          <Wrapper>
+            <div>
+              <p>Total Value Locked</p>
+              <p>$1,122,289,067</p>
+            </div>
+            <div>
+              <p>Market Cap</p>
+              <p>$182,643,385</p>
+            </div>
+            <div>
+              <p>Circulating Creepys</p>
+              <p>6,023,369</p>
+            </div>
+          </Wrapper>
+        </Card>
       </HomeContainer>
     </Main>
   )

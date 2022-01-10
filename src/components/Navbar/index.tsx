@@ -4,10 +4,9 @@ import Link from 'next/link'
 import router from 'next/router'
 
 import navigation from '../../templates/navigation'
-// import ConnectButton from '../ConnectWalletButton';
-import { Button } from '../Button'
-import { Logo } from '../logo'
-import { Toggle } from '../Toggle'
+// import { Button } from '../Button'
+// import { Logo } from '../Logo'
+// import { Toggle } from '../Toggle'
 import {
   ImageContainer,
   NavContainer,
@@ -17,24 +16,38 @@ import {
   Title,
   Wrapper,
 } from './styled'
+import ConnectButton from '../ConnectWalletButton'
+// import { Button } from '../Button'
+// import { useSettingsModal } from '../SettingsModal'
 
 export default function Navbar() {
   const [selected, setSelected] = useState<string | undefined>(router?.route)
+  // const { onPresentSettingsModal } = useSettingsModal()
 
   return (
     <Wrapper>
       <ImageContainer>
-        <Logo />
+        {/* <Logo width={50} height={50} /> */}
+        <div
+          style={{
+            width: 35,
+            height: 35,
+            background: '#bbb',
+            borderRadius: 20,
+            marginRight: 10,
+          }}
+        />
+        <Title>CreepySwap</Title>
       </ImageContainer>
 
       <NavContainer>
-        <Title>CreepySwap</Title>
         <NavList>
-          {navigation.map(({ title, index, path }) => (
+          {navigation.map(({ title, index, path, color }) => (
             <NavItem
               key={index}
               onClick={() => setSelected(path)}
               selected={selected}
+              color={color}
               path={path}
             >
               <Link href={path}>{title}</Link>
@@ -42,13 +55,9 @@ export default function Navbar() {
           ))}
         </NavList>
       </NavContainer>
-      {/* <ConnectButton /> */}
 
       <RightContainer>
-        <Button scale="md" variant="tertiary">
-          Launch App
-        </Button>
-        <Toggle />
+        <ConnectButton />
       </RightContainer>
     </Wrapper>
   )

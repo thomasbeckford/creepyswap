@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect } from 'react'
 
-import { Context } from '../../providers/modal'
+import { Context } from '../providers/modal'
 
 type Handler = () => void
 

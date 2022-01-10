@@ -22,19 +22,14 @@ export const styleVariants = {
     color: 'white',
   },
   [variants.SECONDARY]: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#444',
     border: '2px solid',
     borderColor: 'primary',
     boxShadow: 'none',
-    color: 'primary',
+    color: '#fff',
     ':disabled': {
       backgroundColor: 'transparent',
     },
-  },
-  [variants.TERTIARY]: {
-    boxShadow: 'none',
-    color: '#b1d4e0',
-    backgroundColor: '#145da0',
   },
   [variants.SUBTLE]: {
     backgroundColor: 'textSubtle',

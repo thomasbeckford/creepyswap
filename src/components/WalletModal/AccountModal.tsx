@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { CONNECTOR_LOCAL_STORAGE_KEY } from '../../constants'
-import Flex from '../Box/Flex'
-import Button from '../Button/Button'
+// import Flex from '../Box/Flex'
+// import Button from '../Button/Button'
 import LinkExternal from '../Link/LinkExternal'
 import { Modal } from '../Modal'
 import Text from '../Text/Text'
@@ -32,7 +32,7 @@ const AccountModal: React.FC<Props> = ({
     >
       {account}
     </Text>
-    <Flex mb="32px">
+    <div style={{ display: 'flex' }}>
       <LinkExternal
         small
         href={`https://ftmscan.com/address/${account}`}
@@ -41,11 +41,9 @@ const AccountModal: React.FC<Props> = ({
         View on FtmScan
       </LinkExternal>
       <CopyToClipboard toCopy={account}>Copy Address</CopyToClipboard>
-    </Flex>
-    <Flex justifyContent="center">
-      <Button
-        scale="sm"
-        variant="secondary"
+    </div>
+    <div style={{ display: 'flex' }}>
+      <div
         onClick={() => {
           logout()
           window.localStorage.removeItem(CONNECTOR_LOCAL_STORAGE_KEY)
@@ -53,8 +51,8 @@ const AccountModal: React.FC<Props> = ({
         }}
       >
         Logout
-      </Button>
-    </Flex>
+      </div>
+    </div>
   </Modal>
 )
 

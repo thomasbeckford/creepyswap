@@ -14,11 +14,9 @@ const PageContent = styled.div`
   width: 100%;
 `
 
-const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-  margin: 0 auto;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
 `
 
 const Title = styled.h1`
@@ -38,11 +36,4 @@ const TitleContainer = styled.div`
   color: #2e8bc0;
 `
 
-export {
-  HomeContainer,
-  PageContent,
-  CardContainer,
-  Title,
-  Subtitle,
-  TitleContainer,
-}
+export { HomeContainer, PageContent, Wrapper, Title, Subtitle, TitleContainer }

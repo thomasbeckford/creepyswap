@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { useModal } from '../Modal'
-import AccountModal from './AccountModal'
-import ConnectModal from './ConnectModal'
-import { Login } from './types'
+import { useModal } from '../components/Modal'
+import AccountModal from '../components/WalletModal/AccountModal'
+import ConnectModal from '../components/WalletModal/ConnectModal'
+import { Login } from '../components/WalletModal/types'
 
 interface ReturnType {
   onPresentConnectModal: () => void

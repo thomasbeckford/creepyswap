@@ -3,14 +3,15 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   display: flex;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
-  padding: 1rem;
-  height: 6rem;
+  background: ${({ theme }) => theme.colors.black};
+  padding: 0px 30px;
 `
 export const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 1.3rem;
   margin: 0;
   padding: 0;
   text-align: center;
+  color: ${({ theme }) => theme.colors.navbarTitle};
 `
 
 export const NavList = styled.ul`
@@ -22,7 +23,6 @@ export const NavList = styled.ul`
   font-size: 1rem;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.white};
-  height: 60px;
 `
 
 export const NavItem = styled.li<{
@@ -37,21 +37,21 @@ export const NavItem = styled.li<{
   color: ${({ theme }) => theme.colors.white};
   font-weight: lighter;
   font-size: 1rem;
-  padding: 10px;
 
   a {
-    color: ${({ theme, selected, path }) =>
-      selected === path ? theme.colors.gray : theme.colors.white};
-    background: ${({ theme, selected, path }) =>
-      selected === path ? theme.colors.bgBoxDarker : 'none'};
+    color: ${({ theme, selected, path, color }) =>
+      selected === path ? color : theme.colors.white};
+    background: ${({ selected, path }) =>
+      selected === path ? '#111' : 'none'};
     text-decoration: none;
-    border-radius: 8px;
-    padding: 5px 20px;
-    transition: all 0.3s ease-in-out;
+
+    padding: 12px 35px;
+    transition: all 0.1s ease-in-out;
   }
 
   a:hover {
-    background: ${({ theme }) => theme.colors.ciTrans15};
+    background: #121212};
+    color: ${({ theme }) => theme.colors.light};
     transition: background 0.4s;
     transition: color 0.4s;
   }
@@ -59,6 +59,8 @@ export const NavItem = styled.li<{
 
 export const NavContainer = styled.div`
   cursor: pointer;
+  align-items: center;
+  display: flex;
 `
 
 export const ImageContainer = styled.div`

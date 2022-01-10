@@ -20,7 +20,7 @@ function useTheme() {
 }
 
 function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = React.useState('light')
+  const [theme, setTheme] = React.useState('dark')
 
   const toggle = () => {
     setTheme((theme) => (theme === 'light' ? 'dark' : 'light'))
@@ -31,7 +31,7 @@ function ThemeProvider({ children }: ThemeProviderProps) {
       theme,
       toggle,
     }),
-    [toggle, theme]
+    [theme]
   )
 
   return (

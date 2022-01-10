@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Switch = styled.div<{ isOn: boolean }>`
   width: 50px;
   height: 23px;
-  background-color: ${({ theme }) => theme.colors?.ciTrans15};
+  background-color: ${({ theme }) => theme.colors.darkBlue};
   display: flex;
   justify-content: flex-start;
   border-radius: 8px;
@@ -17,7 +17,7 @@ export const Switch = styled.div<{ isOn: boolean }>`
     width: 24px;
     height: 24px;
     background-color: ${({ isOn, theme }) =>
-      isOn ? theme.colors.dangerBorder : theme.colors.danger};
+      isOn ? theme.colors.blue : theme.colors.gray};
     border-radius: 5px;
   }
 `

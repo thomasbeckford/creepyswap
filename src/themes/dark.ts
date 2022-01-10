@@ -7,17 +7,19 @@ const dark: DefaultTheme = {
 
   colors: {
     ...colors,
-    ci: colorValues.gray[200],
-    ciDark: colorValues.gray[600],
-    ciTrans15: colorValues.gray[200],
-    ciBorderGradient: colorValues.gray[500],
+    appBackground: colorValues.dark,
+    cardBackground: colorValues.cardBackground,
+    cardShadow: colorValues.cardShadow,
+    modalBackground: colorValues.gray[800],
+    navbarTitle: colorValues.gray[700],
 
-    background: colorValues.blue[900],
-    bgBox: colorValues.gray[800],
-    bgBoxDarker: colorValues.gray[900],
-    bgBoxLighter: colorValues.gray[700],
-    bgInput: colorValues.gray[600],
-    mainBg: colorValues.blue[900],
+    white: colorValues.white,
+    black: colorValues.black,
+    blue: colorValues.blue[500],
+    darkBlue: colorValues.darkBlue[500],
+    gray: colorValues.gray[500],
+    lightGray: colorValues.gray[300],
+    darkGray: colorValues.gray[700],
   },
 }
 

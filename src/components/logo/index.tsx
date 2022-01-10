@@ -10,7 +10,7 @@ type LogoProps = {
 export function Logo({ width, height }: LogoProps) {
   return (
     <Image
-      src="/images/owl.png"
+      src="/images/owl.pngd"
       alt="nextjs"
       width={width || '100%'}
       height={height || '100%'}

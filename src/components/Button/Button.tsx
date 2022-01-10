@@ -1,4 +1,4 @@
-import React, { cloneElement, ElementType, isValidElement } from 'react'
+import React, { ElementType } from 'react'
 
 // import getExternalLinkProps from "../../util/getExternalLinkProps";
 import StyledButton from './StyledButton'
@@ -15,7 +15,7 @@ function Button<E extends ElementType = 'button'>(props: ButtonProps<E>) {
     children,
     ...rest
   } = props
-  // const internalProps = external ? getExternalLinkProps() : {};
+
   const isDisabled = isLoading || disabled
   const classNames = className ? [className] : []
 
@@ -32,20 +32,9 @@ function Button<E extends ElementType = 'button'>(props: ButtonProps<E>) {
       $isLoading={isLoading}
       className={classNames.join(' ')}
       disabled={isDisabled}
-      // {...internalProps}
       {...rest}
     >
-      <>
-        {isValidElement(startIcon) &&
-          cloneElement(startIcon, {
-            mr: '0.5rem',
-          })}
-        {children}
-        {isValidElement(endIcon) &&
-          cloneElement(endIcon, {
-            ml: '0.5rem',
-          })}
-      </>
+      <>{children}</>
     </StyledButton>
   )
 }

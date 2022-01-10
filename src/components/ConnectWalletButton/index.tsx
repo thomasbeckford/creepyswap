@@ -3,7 +3,7 @@ import React from 'react'
 import { useWeb3React } from '@web3-react/core'
 
 import useAuth from '../../hooks/useAuth'
-import { Button } from '../Button'
+// import { Button } from '../Button'
 import { useWalletModal } from '../WalletModal'
 
 const ConnectButton: React.FC = () => {
@@ -21,26 +21,27 @@ const ConnectButton: React.FC = () => {
     : null
 
   return (
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center', height: 50 }}>
+      <div
+        style={{ height: 30, width: 30, borderRadius: 40, background: '#bbb' }}
+      />{' '}
+      <span style={{ marginLeft: 5 }}>$0.001</span>
       {account ? (
-        <Button
-          scale="sm"
-          variant="tertiary"
-          onClick={() => {
-            onPresentAccountModal()
-          }}
-        >
-          {accountEllipsis}
-        </Button>
+        <div style={{ marginLeft: 10 }}>
+          <div
+            style={{ cursor: 'pointer', marginLeft: 10 }}
+            onClick={onPresentAccountModal}
+          >
+            {accountEllipsis}
+          </div>
+        </div>
       ) : (
-        <Button
-          scale="sm"
-          onClick={() => {
-            onPresentConnectModal()
-          }}
+        <div
+          style={{ cursor: 'pointer', marginLeft: 10 }}
+          onClick={onPresentConnectModal}
         >
-          Connect
-        </Button>
+          Connect Wallet
+        </div>
       )}
     </div>
   )

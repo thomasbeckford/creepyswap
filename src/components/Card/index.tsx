@@ -1,19 +1,11 @@
 import React from 'react'
 
-import { Container, Description, Title } from './styled'
+import { Container } from './styled'
 
 type CardProps = {
-  title: string
-  description: string
+  children: React.ReactNode
 }
 
-export default function Card({ title, description }: CardProps) {
-  return (
-    <Container>
-      <div>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-      </div>
-    </Container>
-  )
+export default function Card({ children }: CardProps) {
+  return <Container>{children}</Container>
 }

@@ -1,8 +1,6 @@
 import React from 'react'
-
 import { CONNECTOR_LOCAL_STORAGE_KEY } from '../../constants'
-import Button from '../Button/Button'
-import Text from '../Text/Text'
+import { ConnectorWrapper } from './styled'
 import { Login, Config } from './types'
 
 interface Props {
@@ -12,17 +10,10 @@ interface Props {
   mb: string
 }
 
-const WalletCard: React.FC<Props> = ({
-  login,
-  walletConfig,
-  onDismiss,
-  mb,
-}) => {
+const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss }) => {
   const { title, icon: Icon } = walletConfig
   return (
-    <Button
-      width="100%"
-      variant="tertiary"
+    <ConnectorWrapper
       onClick={() => {
         login(walletConfig.connectorId)
         window.localStorage.setItem(
@@ -31,15 +22,11 @@ const WalletCard: React.FC<Props> = ({
         )
         onDismiss()
       }}
-      style={{ justifyContent: 'space-between' }}
-      mb={mb}
       id={`wallet-connect-${title.toLocaleLowerCase()}`}
     >
-      <Text bold color="primary" mr="16px">
-        {title}
-      </Text>
+      {title}
       <Icon width="32px" />
-    </Button>
+    </ConnectorWrapper>
   )
 }
 

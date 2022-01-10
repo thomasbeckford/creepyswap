@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ReactElement, ReactNode } from 'react'
+import { ComponentProps, ElementType, ReactElement } from 'react'
 
 import { LayoutProps, SpaceProps } from 'styled-system'
 import { Link } from '../Link'
@@ -12,7 +12,6 @@ export const scales = {
 export const variants = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
-  TERTIARY: 'tertiary',
   TEXT: 'text',
   DANGER: 'danger',
   SUBTLE: 'subtle',
@@ -45,11 +44,8 @@ export interface BaseButtonProps extends LayoutProps, SpaceProps {
   as?: 'a' | 'button' | typeof Link
   external?: boolean
   isLoading?: boolean
-  scale?: Scale
   variant?: Variant
   disabled?: boolean
-  startIcon?: ReactNode
-  endIcon?: ReactNode
 }
 
 export type ButtonProps<P extends ElementType = 'button'> =
