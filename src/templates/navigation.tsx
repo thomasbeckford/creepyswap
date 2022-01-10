@@ -25,7 +25,7 @@ const navigation = [
   },
   {
     index: 4,
-    title: 'Stake',
+    title: 'Stake CPY',
     path: '/stake',
     color: 'orange',
   },

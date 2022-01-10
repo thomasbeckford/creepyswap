@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <Wrapper>
-      <ImageContainer>
+      <ImageContainer style={{ cursor: 'pointer' }}>
         {/* <Logo width={50} height={50} /> */}
         <div
           style={{

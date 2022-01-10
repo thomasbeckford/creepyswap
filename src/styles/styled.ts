@@ -17,6 +17,7 @@ const PageContent = styled.div`
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
+  height: auto;
 `
 
 const Title = styled.h1`

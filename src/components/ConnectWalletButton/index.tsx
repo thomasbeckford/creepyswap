@@ -25,7 +25,7 @@ const ConnectButton: React.FC = () => {
       <div
         style={{ height: 30, width: 30, borderRadius: 40, background: '#bbb' }}
       />{' '}
-      <span style={{ marginLeft: 5 }}>$0.001</span>
+      <span style={{ marginLeft: 5 }}>$0.005</span>
       {account ? (
         <div style={{ marginLeft: 10 }}>
           <div
