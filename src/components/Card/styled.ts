@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   box-shadow: 0px 0px 20px ${({ theme }) => theme.colors.cardShadow};
@@ -10,14 +10,14 @@ export const Container = styled.div`
   padding: 1rem;
   cursor: pointer;
   background: ${({ theme }) => theme.colors.cardBackground};
-`
+`;
 
 export const Title = styled.h2`
   font-size: 3rem;
   font-weight: lighter;
   color: slategray;
-`
+`;
 
 export const Description = styled.p`
   color: darkgray;
-`
+`;

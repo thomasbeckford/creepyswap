@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { Container } from './styled'
+import { Container } from './styled';
 
 type CardProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export default function Card({ children }: CardProps) {
-  return <Container>{children}</Container>
+  return <Container>{children}</Container>;
 }

@@ -1,4 +1,3 @@
-export default function handler(req: any, res: any) {
-  console.log('Request: ', req)
-  res.status(200).json({ status: 'ok' })
+export default function handler(res: any) {
+  res.status(200).json({ status: 'ok' });
 }

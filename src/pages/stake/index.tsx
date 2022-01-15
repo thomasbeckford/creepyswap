@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { Meta } from '../../layout/Meta'
-import { Main } from '../../templates/Main'
-import { Wrapper } from '../../styles/styled'
-import Card from '../../components/Card'
+import Card from '../../components/Card';
+import { Meta } from '../../layout/Meta';
+import { Wrapper } from '../../styles/styled';
+import { Main } from '../../templates/Main';
 
 function Stake() {
   return (
@@ -16,7 +16,7 @@ function Stake() {
         </Wrapper>
       </Card>
     </Main>
-  )
+  );
 }
 
-export default Stake
+export default Stake;

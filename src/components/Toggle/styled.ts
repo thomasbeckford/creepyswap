@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Switch = styled.div<{ isOn: boolean }>`
   width: 50px;
@@ -20,4 +20,4 @@ export const Switch = styled.div<{ isOn: boolean }>`
       isOn ? theme.colors.blue : theme.colors.gray};
     border-radius: 5px;
   }
-`
+`;

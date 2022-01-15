@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import Image from 'next/image'
+import Image from 'next/image';
 
 type LogoProps = {
-  width?: number
-  height?: number
-}
+  width?: number;
+  height?: number;
+};
 
 export function Logo({ width, height }: LogoProps) {
   return (
@@ -15,5 +15,5 @@ export function Logo({ width, height }: LogoProps) {
       width={width || '100%'}
       height={height || '100%'}
     />
-  )
+  );
 }
