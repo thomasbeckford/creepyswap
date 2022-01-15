@@ -1,41 +1,9 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-import { AppConfig } from '../utils/AppConfig'
+import { AppConfig } from '@/utils/AppConfig';
 
-export default class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
-
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
-        })
-
-      const initialProps = await Document.getInitialProps(ctx)
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      }
-    } finally {
-      sheet.seal()
-    }
-  }
-
+// Need to create a custom _document because i18n support is not compatible with `next export`.
+class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
@@ -45,6 +13,8 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
+
+export default MyDocument;

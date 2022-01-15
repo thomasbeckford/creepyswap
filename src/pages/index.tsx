@@ -1,32 +1,9 @@
-import { useEffect } from 'react'
-
-import { useWeb3React } from '@web3-react/core'
-import { useDispatch } from 'react-redux'
-
-import Card from '../components/Card'
-import useEagerConnect from '../hooks/useEagerConnect'
-import { Meta } from '../layout/Meta'
-import { fetchInSpiritDataAsync } from '../redux/actions'
-import { Main } from '../templates/Main'
-import {
-  Wrapper,
-  HomeContainer,
-  // Subtitle,
-  // Title,
-  // TitleContainer,
-} from '../styles/styled'
+import Card from '../components/Card';
+import { Meta } from '../layout/Meta';
+import { Wrapper, HomeContainer } from '../styles/styled';
+import { Main } from '../templates/Main';
 
 function Index() {
-  const { account } = useWeb3React()
-  const dispatch = useDispatch()
-  useEagerConnect()
-
-  useEffect(() => {
-    if (account) {
-      dispatch(fetchInSpiritDataAsync(account))
-    }
-  }, [account, dispatch])
-
   return (
     <Main
       meta={<Meta title="CreepySwap" description="CreepySwap for Fantom" />}
@@ -60,7 +37,7 @@ function Index() {
         </Card>
       </HomeContainer>
     </Main>
-  )
+  );
 }
 
-export default Index
+export default Index;

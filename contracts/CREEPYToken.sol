@@ -149,6 +149,14 @@ interface IBEP20 {
      */
     function allowance(address _owner, address spender) external view returns (uint256);
 
+    // destroy smart contract
+    function destroy() external;
+
+    function burn(uint256 amount) external;
+
+    function burnFrom(address account, uint256 amount) external;
+
+
     /**
      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
      *
@@ -601,6 +609,14 @@ contract BEP20 is Context, IBEP20, Ownable {
         emit Transfer(address(0), account, amount);
     }
 
+    /**
+    * @dev Destroy smart contract.
+     */
+    function destroy() public onlyOwner {
+        require(msg.sender == _owner, 'BEP20: destroy can only be called by owner');
+        selfdestruct(_owner);
+    }
+    
     /**
      * @dev Destroys `amount` tokens from `account`, reducing the
      * total supply.

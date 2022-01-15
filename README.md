@@ -18,6 +18,7 @@ Developer experience first:
 - 🎉 Type checking [TypeScript](https://www.typescriptlang.org)
 - ✅ Strict Mode for TypeScript and React 17
 - ✏️ Linter with [ESLint](https://eslint.org) (default NextJS, NextJS Core Web Vitals and Airbnb configuration)
+- 💡 Absolute Imports
 - 🛠 Code Formatter with [Prettier](https://prettier.io)
 - 🦊 Husky for Git Hooks
 - 🚫 Lint-staged for running linters on Git staged files
@@ -48,8 +49,8 @@ Building your SaaS product faster with [Nextless JS SaaS Boilerplate](https://ne
 
 ### Premium Themes
 
-| [Green Nextjs Landing Page Template](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/)                                                                                                   | [Purple Saas Nextjs Theme](https://creativedesignsguru.com/landing-purple-modern-react-theme/)                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Green Nextjs Landing Page Template](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/) | [Purple Saas Nextjs Theme](https://creativedesignsguru.com/landing-purple-modern-react-theme/) |
+| --- | --- |
 | [![Green Nextjs Landing Page Template](https://creativedesignsguru.com/assets/images/themes/landing-green-modern-nextjs-theme-xs.png)](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/) | [![Blue Landing Page Nextjs Theme](https://creativedesignsguru.com/assets/images/themes/landing-blue-modern-nextjs-theme-xs.png)](https://creativedesignsguru.com/landing-blue-modern-react-theme/) |
 
 Find more [Nextjs Themes](https://creativedesignsguru.com/category/nextjs/).

@@ -1,39 +1,25 @@
-import { Web3ReactProvider } from '@web3-react/core'
-import { AppProps } from 'next/app'
-import dynamic from 'next/dynamic'
-import { Provider } from 'react-redux'
+import { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import { ModalProvider } from '../providers/modal'
-import { ThemeProvider } from '../providers/theme'
-import { store } from '../redux/store'
-import { GlobalStyle } from '../styles/globalStyles'
-import { getLibrary } from '../utils/Web3React'
+import { ThemeProvider } from '../providers/theme';
+import { store, persistor } from '../redux/store';
+import { GlobalStyle } from '../styles/globalStyles';
 
-declare global {
-  interface Window {
-    ethereum: any
-  }
-}
+import '../styles/global.css';
 
-const Web3ReactProviderDefault = dynamic(() => import('../providers/network'), {
-  ssr: false,
-})
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <Provider store={store}>
+      <PersistGate
+        loading={<div style={{ color: '#fff' }}>Loading</div>}
+        persistor={persistor}
+      >
+        <Component {...pageProps} />
+      </PersistGate>
+    </Provider>
+  </ThemeProvider>
+);
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider>
-      <GlobalStyle />
-      <Web3ReactProvider getLibrary={getLibrary}>
-        <Web3ReactProviderDefault getLibrary={getLibrary}>
-          <ModalProvider>
-            <Provider store={store}>
-              <Component {...pageProps} />
-            </Provider>
-          </ModalProvider>
-        </Web3ReactProviderDefault>
-      </Web3ReactProvider>
-    </ThemeProvider>
-  )
-}
-
-export default MyApp
+export default MyApp;

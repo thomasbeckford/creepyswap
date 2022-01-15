@@ -1,1 +1,0 @@
-export { fetchInSpiritDataAsync } from './creepy'
