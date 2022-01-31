@@ -38,32 +38,32 @@ export default function Portfolio() {
 
   const heading = <Text fontWeight={"bold"}>My Wallet</Text>;
 
-  useEffect(() => {
-    if (data.data) {
-      const { items } = data.data;
-      const totalAssetsValueArr = items.map((token: any) => {
-        if (token.contract_name) {
-          const { balance, contract_decimals, quote_rate } = token;
-          let tokenRate;
-          const tokenBalance = BigNumber.from(balance).div(
-            BigNumber.from(10).pow(contract_decimals)
-          );
+  // useEffect(() => {
+  //   if (data.data) {
+  //     const { items } = data.data;
+  //     const totalAssetsValueArr = items.map((token: any) => {
+  //       if (token.contract_name) {
+  //         const { balance, contract_decimals, quote_rate } = token;
+  //         let tokenRate;
+  //         const tokenBalance = BigNumber.from(balance).div(
+  //           BigNumber.from(10).pow(contract_decimals)
+  //         );
 
-          tokenRate = quote_rate !== null ? token.quote_rate : 0;
-          return tokenBalance.mul(tokenRate);
-        }
-      });
-      const totalAssetsValue = totalAssetsValueArr.reduce(
-        (prev: any, next: any) => prev.plus(next)
-      );
+  //         tokenRate = quote_rate !== null ? token.quote_rate : 0;
+  //         return tokenBalance.mul(tokenRate);
+  //       }
+  //     });
+  //     const totalAssetsValue = totalAssetsValueArr.reduce(
+  //       (prev: any, next: any) => prev.plus(next)
+  //     );
 
-      console.log(totalAssetsValue);
-      // setAssetsValue(totalAssetsValue)
-      // setAssets(items)
-      // setResultAssets(items)
-      // setLoading(true)
-    }
-  }, []);
+  //     console.log(totalAssetsValue);
+  //     // setAssetsValue(totalAssetsValue)
+  //     // setAssets(items)
+  //     // setResultAssets(items)
+  //     // setLoading(true)
+  //   }
+  // }, []);
 
   return (
     <Main meta={<Meta title="Porfolio" description="" />}>
@@ -97,7 +97,7 @@ export default function Portfolio() {
               </Flex>
             </Flex>
 
-            {isLoading ? <div>Loading...</div> : <Box>{console.log(data)}</Box>}
+            {isLoading ? <div>Loading...</div> : <Box>CreepySwap</Box>}
           </>
         )}
       </Hero>
