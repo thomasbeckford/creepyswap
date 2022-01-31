@@ -81,7 +81,7 @@ export const Navigation = ({
   }, []);
 
   useClickOutside(sidebarRef, () => {
-    if (sidebarRef.current && sidebarIsOpen) {
+    if (sidebarRef.current && sidebarIsOpen && isMobile) {
       dispatch(setSidebarIsOpen(false));
     }
   });
