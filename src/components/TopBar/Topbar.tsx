@@ -1,14 +1,7 @@
 import {
   Flex,
-  Avatar,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useColorMode,
-  Center,
   useDisclosure,
   HStack,
   Box,
@@ -21,7 +14,6 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectAddress, selectIsLoggedIn } from "@/redux/user/selectors";
 import useLogin from "@/hooks/useLogin";
 import LoginModal from "../Modals/Login";
-import { Navigation } from "@/utils/navigation";
 import { setSidebarIsOpen } from "@/redux/sidebar";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
 import AddressModal from "../Modals/Address";
@@ -40,7 +32,7 @@ function Topbar() {
     onClose: onAddressModalClose,
   } = useDisclosure();
 
-  const { handleLogin, handleLogout } = useLogin();
+  const { handleLogin } = useLogin();
   const dispatch = useAppDispatch();
 
   const address = useAppSelector(selectAddress);
@@ -54,11 +46,6 @@ function Topbar() {
 
   const handleAddressModal = () => {
     onAddressModalOpen();
-  };
-
-  const handleLogoutClick = () => {
-    handleLogout();
-    onModalClose();
   };
 
   const toggleSidebar = () => {

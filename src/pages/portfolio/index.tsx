@@ -76,7 +76,7 @@ export default function Portfolio() {
             </Button>
           </>
         ) : (
-          <>
+          <Box>
             <Flex alignItems={"center"} mt="20px">
               <Text color="blue.300" _hover={{ color: "blue.500" }}>
                 <Link href="/ftmscan" isExternal>
@@ -97,8 +97,22 @@ export default function Portfolio() {
               </Flex>
             </Flex>
 
-            {isLoading ? <div>Loading...</div> : <Box>CreepySwap</Box>}
-          </>
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              <Box
+                mt="20px"
+                bg="transparent"
+                border="1px solid teal"
+                borderRadius={"8px"}
+              >
+                <Flex justifyContent={"space-around"}>
+                  <Text>CreepySwap</Text>
+                  <Text>5.5 USD</Text>
+                </Flex>
+              </Box>
+            )}
+          </Box>
         )}
       </Hero>
 
