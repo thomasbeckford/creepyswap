@@ -76,14 +76,12 @@ export const Navigation = ({
 
   useEffect(() => {
     if (isMobile && sidebarIsOpen) {
-      console.log("toggleSidebar2");
       dispatch(setSidebarIsOpen(!sidebarIsOpen));
     }
   }, []);
 
   useClickOutside(sidebarRef, () => {
     if (sidebarRef.current && sidebarIsOpen) {
-      console.log("Entra,,");
       dispatch(setSidebarIsOpen(false));
     }
   });

@@ -1,19 +1,16 @@
 import { Navigation } from "@/utils/navigation";
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
-import { Box, Collapse } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
 import { setSidebarIsOpen } from "@/redux/sidebar";
-import { useMediaQuery } from "@chakra-ui/react";
 
 export default function Sidebar() {
   const sidebarIsOpen = useAppSelector(selectSidebarIsOpen);
   const dispatch = useAppDispatch();
-  const [isMobile] = useMediaQuery("(max-width: 800px)");
   const sidebarRef = useRef<any>();
   const toggleSidebar = () => {
-    console.log("toggleSidebar");
     dispatch(setSidebarIsOpen(!sidebarIsOpen));
   };
 

@@ -19,6 +19,4 @@ export const tokenApi = createApi({
   }),
 });
 
-console.log(tokenApi.useGetTokenByIdQuery);
-
 export const { useGetTokenByIdQuery } = tokenApi;

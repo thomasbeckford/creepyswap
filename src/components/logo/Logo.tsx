@@ -2,8 +2,10 @@ import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 import { useAppSelector } from "@/redux/hooks";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
+
 export default function Logo() {
   const sidebarIsOpen = useAppSelector(selectSidebarIsOpen);
+
   return (
     <Box
       position="fixed"

@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 
   return (
     <Main
-      meta={<Meta title="ChakraSwap" description="ChakraSwap for Fantom" />}
+      meta={<Meta title="CreepySwap" description="CreepySwap for Fantom" />}
     >
       <Hero heading={heading}>
         <Text color={"gray.500"}>

@@ -1,9 +1,9 @@
-import Sidebar from "@/components/Sidebar";
 import { useDisclosure, Fade, Box } from "@chakra-ui/react";
 import { ReactNode, useEffect } from "react";
 import { Topbar } from "../components/TopBar";
 import { useAppSelector } from "@/redux/hooks";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
+import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 

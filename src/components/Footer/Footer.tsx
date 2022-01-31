@@ -1,5 +1,4 @@
 import { AppConfig } from "@/config";
-import { Box } from "@chakra-ui/react";
 import React from "react";
 import Card from "../Card";
 
