@@ -1,22 +1,16 @@
-import React from 'react';
+import { Hero } from "@/components/Hero";
+import { Meta } from "@/layout/Meta";
+import { Main } from "@/templates";
+import { Box } from "@chakra-ui/react";
+import Link from "next/link";
+import React from "react";
 
-import Card from '../../components/Card';
-import { Meta } from '../../layout/Meta';
-import { Wrapper } from '../../styles/styled';
-import { Main } from '../../templates/Main';
+const heading = <Box>Bridge</Box>;
 
-function Bridge() {
+export default function Bridge() {
   return (
     <Main meta={<Meta title="Bridge" description="" />}>
-      <Card>
-        <Wrapper>
-          <div>
-            <p style={{ fontSize: 30 }}>Bridge to and from Fantom Opera</p>
-          </div>
-        </Wrapper>
-      </Card>
+      <Hero heading={heading}></Hero>
     </Main>
   );
 }
-
-export default Bridge;

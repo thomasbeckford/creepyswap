@@ -1,15 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { defaultChainId } from "@/helpers/chain";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: {
-  address: string;
-  chainId: number | string;
+  address: string | null;
+  chainId: number;
 } = {
-  address: '',
-  chainId: '250', // By default, use the mainnet (Fantom)
+  address: null,
+  chainId: defaultChainId, // Default chainId
 };
 
 export const userReducer = createSlice({
-  name: 'userReducer',
+  name: "userReducer",
   initialState,
   reducers: {
     setAddress: (state, action) => {

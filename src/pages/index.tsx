@@ -1,43 +1,73 @@
-import Card from '../components/Card';
-import { Meta } from '../layout/Meta';
-import { Wrapper, HomeContainer } from '../styles/styled';
-import { Main } from '../templates/Main';
+import { Hero } from "@/components/Hero";
+import { Meta } from "@/layout/Meta";
+import type { NextPage } from "next";
+import { Main } from "@/templates";
+import { AppConfig } from "@/config";
+import { Button, Stack, Switch, Text, toast, useToast } from "@chakra-ui/react";
 
-function Index() {
+const Home: NextPage = () => {
+  const toast = useToast();
+
+  const heading = (
+    <>
+      {AppConfig.site_name} <br />
+      <Text as={"span"} color={"green.400"}>
+        {AppConfig.network}
+      </Text>
+    </>
+  );
+
   return (
     <Main
-      meta={<Meta title="CreepySwap" description="CreepySwap for Fantom" />}
+      meta={<Meta title="ChakraSwap" description="ChakraSwap for Fantom" />}
     >
-      <HomeContainer>
-        <Card>
-          <Wrapper>
-            <div>
-              <p style={{ fontSize: '20px', marginBottom: 0 }}>
-                Total Value Locked
-              </p>
-              <p style={{ fontSize: 30, marginTop: 5, marginBottom: 8 }}>
-                $1,122,289,067
-              </p>
-            </div>
-            <div>
-              <p style={{ fontSize: '20px', marginBottom: 0 }}>Market Cap</p>
-              <p style={{ fontSize: 30, marginTop: 5, marginBottom: 8 }}>
-                $182,643,385
-              </p>
-            </div>
-            <div>
-              <p style={{ fontSize: '20px', marginBottom: 0 }}>
-                Circulating Creepys
-              </p>
-              <p style={{ fontSize: 30, marginTop: 5, marginBottom: 8 }}>
-                6,023,369
-              </p>
-            </div>
-          </Wrapper>
-        </Card>
-      </HomeContainer>
+      <Hero heading={heading}>
+        <Text color={"gray.500"}>
+          Monetize your content by charging your most loyal readers and reward
+          them loyalty points. Give back to your loyal readers by granting them
+          access to your pre-releases and sneak-peaks.
+        </Text>
+
+        <Stack
+          direction={"row"}
+          align={"center"}
+          alignSelf={"center"}
+          position={"relative"}
+        >
+          <Button
+            variant="outline"
+            onClick={() =>
+              toast({
+                title: "Transaction completed.",
+                description: "You just sent me 500k USDC.",
+                status: "info",
+                duration: 9000,
+                isClosable: true,
+                position: "top-left",
+              })
+            }
+          >
+            Info Example
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() =>
+              toast({
+                title: "Transaction completed.",
+                description: "SpiritSwap just sent you 500k USDC.",
+                status: "success",
+                duration: 9000,
+                isClosable: true,
+                position: "top-right",
+              })
+            }
+          >
+            Success Example
+          </Button>
+        </Stack>
+      </Hero>
     </Main>
   );
-}
+};
 
-export default Index;
+export default Home;
