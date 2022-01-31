@@ -3,7 +3,7 @@ import React from "react";
 import { useAppSelector } from "@/redux/hooks";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
 
-export default function Logo() {
+const Logo() {
   const sidebarIsOpen = useAppSelector(selectSidebarIsOpen);
 
   return (
@@ -24,3 +24,5 @@ export default function Logo() {
     </Box>
   );
 }
+
+export default Logo;
