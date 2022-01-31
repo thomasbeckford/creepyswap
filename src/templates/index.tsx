@@ -5,7 +5,6 @@ import { ReactNode, useEffect } from "react";
 import { Topbar } from "../components/TopBar";
 import { useAppSelector } from "@/redux/hooks";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
-import { AppConfig } from "@/config";
 import Footer from "@/components/Footer";
 // import Footer from "../components/Footer";
 
