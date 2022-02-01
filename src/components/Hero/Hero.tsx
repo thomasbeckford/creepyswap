@@ -1,18 +1,4 @@
-import {
-  Box,
-  Heading,
-  Container,
-  Text,
-  Button,
-  Stack,
-  Icon,
-  useColorModeValue,
-  createIcon,
-  useToast,
-  Switch,
-  Center,
-} from "@chakra-ui/react";
-import Card from "../Card";
+import { Box, Heading, Stack, Center } from "@chakra-ui/react";
 
 export default function Hero({ heading, children }: any) {
   return (

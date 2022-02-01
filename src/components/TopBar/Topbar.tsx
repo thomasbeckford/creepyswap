@@ -1,7 +1,6 @@
 import {
   Flex,
   Button,
-  useColorMode,
   useDisclosure,
   HStack,
   Box,
@@ -10,7 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   selectAddress,
@@ -22,7 +21,6 @@ import LoginModal from "../Modals/Login";
 import { setSidebarIsOpen } from "@/redux/sidebar";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
 import AddressModal from "../Modals/Address";
-import Logo from "@/components/Logo";
 import { NetworkInterface, networks } from "@/utils/networks";
 
 import { Select } from "chakra-react-select";

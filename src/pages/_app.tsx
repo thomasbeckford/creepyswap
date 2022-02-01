@@ -9,7 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 
 declare global {
-  interface Window {
+  export interface Window {
     ethereum?: any;
   }
 }

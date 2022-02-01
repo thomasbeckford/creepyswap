@@ -10,10 +10,7 @@ import {
   Flex,
   Button,
   Link,
-  Input,
   Icon,
-  textDecoration,
-  Box,
 } from "@chakra-ui/react";
 import React from "react";
 import useLogin from "@/hooks/useLogin";
@@ -24,7 +21,7 @@ import { MdContentCopy } from "react-icons/md";
 export default function AddressModal({ isOpen, onClose, address }: any) {
   const { handleLogout } = useLogin();
 
-  const { hasCopied, onCopy } = useClipboard(address || "", 500);
+  const { onCopy } = useClipboard(address || "", 500);
 
   const handleLogoutClick = () => {
     handleLogout();

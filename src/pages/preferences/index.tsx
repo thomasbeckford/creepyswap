@@ -1,10 +1,7 @@
-import Card from "@/components/Card";
 import { Meta } from "@/layout/Meta";
 import { Main } from "@/templates";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
   Flex,
   Switch,
   useColorMode,
@@ -12,8 +9,6 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React from "react";
-
-const heading = <Box>Preferences</Box>;
 
 export default function Preferences() {
   const { colorMode, toggleColorMode } = useColorMode();
