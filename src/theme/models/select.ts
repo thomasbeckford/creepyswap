@@ -1,33 +1,35 @@
-const Select = {
-  parts: ["field", "icon"],
-  baseStyle: {
-    baseStyle: {
-      field: {
-        borderRadius: "4px",
-        bg: "red.50",
-      },
-      icon: {
-        borderRadius: "4px",
-      },
-    },
-  },
-  sizes: {},
-  variants: {
-    thomas: ({ colorMode }: any) => ({
-      field: {
-        bg: "transparent",
-        color: colorMode === "dark" ? "#fefefe" : "#fafafa",
-        border: "1px solid",
-        borderColor: colorMode === "dark" ? "teal.300" : "teal.400",
-        cursor: "pointer",
-      },
-      icon: {
-        bg: "red.500",
-        color: colorMode === "dark" ? "#fefefe" : "#fafafa",
-        borderColor: colorMode === "dark" ? "teal.300" : "teal.400",
-      },
-    }),
-  },
-};
+import { ChakraStylesConfig } from "chakra-react-select";
 
-export default Select;
+export const selectStyles: ChakraStylesConfig = {
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    p: 0,
+    w: "25px",
+    background: "transparent",
+  }),
+  indicatorSeparator: (provided, state) => ({
+    ...provided,
+    p: 0,
+  }),
+  control: (provided, state) => ({
+    ...provided,
+    borderRadius: "4px",
+    borderColor: "teal.300",
+    border: "1px solid",
+    p: 0,
+    w: "100px",
+    cursor: "pointer",
+    _hover: {
+      borderColor: "teal.300",
+      background: "rgba(255, 255, 255, 0.08)",
+    },
+  }),
+  menu: (provided, state) => ({
+    ...provided,
+    borderRadius: "4x",
+    border: "none",
+    boxShadow: "none",
+    p: 0,
+    w: "100px",
+  }),
+};

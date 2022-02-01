@@ -10,6 +10,7 @@ import {
   Flex,
   Icon,
   Link,
+  Center,
 } from "@chakra-ui/react";
 import { useAppSelector } from "@/redux/hooks";
 import { BigNumber } from "ethers";
@@ -116,24 +117,26 @@ export default function Portfolio() {
         )}
       </Hero>
 
-      <Card>
-        <Box>
-          <Text>Portfolio Value</Text>
-          <Text>$1,978.27</Text>
-        </Box>
-        <Box>
-          <Text>CREEPY to Harvest</Text>
-          <Text>108.995</Text>
-          <Text>$15.34</Text>
-        </Box>
-        <Box>
-          <Text>Portfolio Value</Text>
-          <Text>$1,978.27</Text>
-        </Box>
-        <Box>
-          <Button>Harverst all</Button>
-        </Box>
-      </Card>
+      <Box>
+        <Center gap="100px">
+          <Box>
+            <Text>Portfolio Value</Text>
+            <Text>$1,978.27</Text>
+          </Box>
+          <Box>
+            <Text>CREEPY to Harvest</Text>
+            <Text>108.995</Text>
+            <Text>$15.34</Text>
+          </Box>
+          <Box>
+            <Text>Portfolio Value</Text>
+            <Text>$1,978.27</Text>
+          </Box>
+          <Box>
+            <Button variant="outline">Harverst all</Button>
+          </Box>
+        </Center>
+      </Box>
 
       <LoginModal
         handleLoginClick={handleLoginClick}

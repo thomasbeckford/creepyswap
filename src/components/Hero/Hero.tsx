@@ -10,13 +10,14 @@ import {
   createIcon,
   useToast,
   Switch,
+  Center,
 } from "@chakra-ui/react";
 import Card from "../Card";
 
 export default function Hero({ heading, children }: any) {
   return (
-    <Card>
-      <Box maxW={"3xl"}>
+    <Box>
+      <Center>
         <Stack
           as={Box}
           textAlign={"center"}
@@ -32,8 +33,8 @@ export default function Hero({ heading, children }: any) {
           </Heading>
           <>{children}</>
         </Stack>
-      </Box>
-    </Card>
+      </Center>
+    </Box>
   );
 }
 
