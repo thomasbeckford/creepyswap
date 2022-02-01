@@ -3,7 +3,8 @@ import { Meta } from "@/layout/Meta";
 import type { NextPage } from "next";
 import { Main } from "@/templates";
 import { AppConfig } from "@/config";
-import { Button, Stack, Text, useToast } from "@chakra-ui/react";
+import { Box, Button, Stack, Text, useToast } from "@chakra-ui/react";
+import Card from "@/components/Card";
 
 const Home: NextPage = () => {
   const heading = (
@@ -19,9 +20,11 @@ const Home: NextPage = () => {
     <Main
       meta={<Meta title="CreepySwap" description="CreepySwap for Fantom" />}
     >
-      <Hero heading={heading}>
-        <Text color={"gray.500"}>{AppConfig.description}</Text>
-      </Hero>
+      <Card>
+        <Hero heading={heading}>
+          <Text color={"gray.500"}>{AppConfig.description}</Text>
+        </Hero>
+      </Card>
     </Main>
   );
 };

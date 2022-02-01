@@ -68,75 +68,81 @@ export default function Portfolio() {
 
   return (
     <Main meta={<Meta title="Porfolio" description="" />}>
-      <Hero heading={heading}>
-        {!isLoggedIn ? (
-          <>
-            <Text>Connect your wallet to Fantom Opera to start </Text>
-            <Button variant="outline" onClick={onOpen}>
-              Connect Wallet
-            </Button>
-          </>
-        ) : (
-          <Box>
-            <Flex alignItems={"center"} mt="20px">
-              <Text color="blue.300" _hover={{ color: "blue.500" }}>
-                <Link href="/ftmscan" isExternal>
-                  View on FTMScan <ExternalLinkIcon mx="2px" />
-                </Link>
-              </Text>
-              <Flex
-                alignItems={"center"}
-                onClick={onCopy}
-                cursor={"pointer"}
-                _hover={{ textDecoration: "underline", color: "blue.500" }}
-                ml={5}
-              >
-                <Link color="blue.300" _hover={{ color: "blue.500" }}>
-                  Copy address{" "}
-                  <Icon verticalAlign="sub" ml="2px" as={MdContentCopy} />
-                </Link>
-              </Flex>
-            </Flex>
-
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : (
-              <Box
-                mt="20px"
-                bg="transparent"
-                border="1px solid teal"
-                borderRadius={"8px"}
-              >
-                <Flex justifyContent={"space-around"}>
-                  <Text>CreepySwap</Text>
-                  <Text>5.5 USD</Text>
+      <Card>
+        <Hero heading={heading}>
+          {!isLoggedIn ? (
+            <>
+              <Text>Connect your wallet to Fantom Opera to start </Text>
+              <Button variant="outline" onClick={onOpen}>
+                Connect Wallet
+              </Button>
+            </>
+          ) : (
+            <Box>
+              <Flex>
+                <Text color="blue.300" _hover={{ color: "blue.500" }}>
+                  <Link href="/ftmscan" isExternal>
+                    View on FTMScan <ExternalLinkIcon mx="2px" />
+                  </Link>
+                </Text>
+                <Flex
+                  alignItems={"center"}
+                  onClick={onCopy}
+                  cursor={"pointer"}
+                  _hover={{ textDecoration: "underline", color: "blue.500" }}
+                  ml={5}
+                >
+                  <Link color="blue.300" _hover={{ color: "blue.500" }}>
+                    Copy address{" "}
+                    <Icon verticalAlign="sub" ml="2px" as={MdContentCopy} />
+                  </Link>
                 </Flex>
-              </Box>
-            )}
-          </Box>
-        )}
-      </Hero>
+              </Flex>
 
-      <Box>
-        <Center gap="100px">
-          <Box>
+              {isLoading ? (
+                <div>Loading...</div>
+              ) : (
+                <Box
+                  mt="20px"
+                  bg="transparent"
+                  border="1px solid teal"
+                  borderRadius={"8px"}
+                >
+                  <Flex justifyContent={"space-around"}>
+                    <Text>CreepySwap</Text>
+                    <Text>5.5 USD</Text>
+                  </Flex>
+                </Box>
+              )}
+            </Box>
+          )}
+        </Hero>
+      </Card>
+
+      <Card mt="5">
+        <Flex
+          justifyContent={"space-around"}
+          textAlign="center"
+          alignItems={"center"}
+        >
+          <Card>
             <Text>Portfolio Value</Text>
             <Text>$1,978.27</Text>
-          </Box>
-          <Box>
-            <Text>CREEPY to Harvest</Text>
+          </Card>
+          <Card>
+            <Text>CPY to Harvest</Text>
             <Text>108.995</Text>
             <Text>$15.34</Text>
-          </Box>
-          <Box>
+          </Card>
+          <Card>
             <Text>Portfolio Value</Text>
             <Text>$1,978.27</Text>
-          </Box>
-          <Box>
+          </Card>
+          <Card>
             <Button variant="outline">Harverst all</Button>
-          </Box>
-        </Center>
-      </Box>
+          </Card>
+        </Flex>
+      </Card>
 
       <LoginModal
         handleLoginClick={handleLoginClick}

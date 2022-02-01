@@ -7,6 +7,7 @@ export interface NetworkInterface {
   symbol: string;
   blockExp: string | string[];
   decimals: number;
+  // wss: string[];
 }
 
 export const networks: NetworkInterface[] = [

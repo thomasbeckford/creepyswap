@@ -1,3 +1,4 @@
+import Card from "@/components/Card";
 import { Hero } from "@/components/Hero";
 import { Meta } from "@/layout/Meta";
 import { Main } from "@/templates";
@@ -10,7 +11,9 @@ const heading = <Box>Bridge</Box>;
 export default function Bridge() {
   return (
     <Main meta={<Meta title="Bridge" description="" />}>
-      <Hero heading={heading}></Hero>
+      <Card>
+        <Hero heading={heading}></Hero>
+      </Card>
     </Main>
   );
 }

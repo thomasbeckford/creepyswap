@@ -28,7 +28,7 @@ export default function Sidebar() {
         bg={{ base: "rgba(20,20,20,.9)", md: "rgba(60,60,60,0.5)" }}
         display={{ base: sidebarIsOpen ? "block" : "none", md: "flex" }}
         position="fixed"
-        height={"92%"}
+        height={"93%"}
         justifyContent={"space-between"}
         flexDirection="column"
         zIndex={1}
