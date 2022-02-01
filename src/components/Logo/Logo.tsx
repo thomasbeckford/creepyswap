@@ -1,11 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
-import { useAppSelector } from "@/redux/hooks";
-import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
 
-const Logo = () => {
-  const sidebarIsOpen = useAppSelector(selectSidebarIsOpen);
-
+const Logo = ({ showName }: { showName?: boolean }) => {
   return (
     <Box
       position="fixed"
@@ -16,7 +12,7 @@ const Logo = () => {
       alignItems="center"
     >
       <Box height={45} bg="teal.300" width={45} borderRadius={16} />
-      {sidebarIsOpen && (
+      {showName && (
         <Text ml={3} fontWeight="bold" fontSize="25px">
           CreepySwap
         </Text>

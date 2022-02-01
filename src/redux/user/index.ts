@@ -3,10 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: {
   address: string | null;
-  chainId: number;
+  chain: {
+    value: number;
+    label: string;
+  };
 } = {
   address: null,
-  chainId: defaultChainId, // Default chainId
+  chain: {
+    value: defaultChainId as number,
+    label: "FTM",
+  },
 };
 
 export const userReducer = createSlice({
@@ -16,13 +22,13 @@ export const userReducer = createSlice({
     setAddress: (state, action) => {
       state.address = action.payload;
     },
-    setChainId: (state, action) => {
-      state.chainId = action.payload;
+    setChain: (state, action) => {
+      state.chain = action.payload;
     },
   },
 });
 
 // Actions
-export const { setAddress, setChainId } = userReducer.actions;
+export const { setAddress, setChain } = userReducer.actions;
 
 export default userReducer.reducer;

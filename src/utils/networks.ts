@@ -1,4 +1,15 @@
-export const networks = [
+export interface NetworkInterface {
+  chainId: number;
+  network: string;
+  hex: string;
+  rpc: string | string[];
+  name: string;
+  symbol: string;
+  blockExp: string | string[];
+  decimals: number;
+}
+
+export const networks: NetworkInterface[] = [
   {
     chainId: 1,
     network: "Ethereum",

@@ -37,7 +37,7 @@ export const Main = ({ meta, children }: IMainProps) => {
           <Topbar />
         </Box>
         <Box display={{ base: "none", md: "block" }} gridArea="Logo">
-          <Logo />
+          <Logo showName={isSidebarOpen} />
         </Box>
         <Box gridArea="Sidebar">
           <Sidebar />

@@ -28,6 +28,7 @@
   "devDependencies": {
     "@types/node": "17.0.12",
     "@types/react": "17.0.38",
+    "chakra-react-select": "^3.0.3",
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.8",
     "react-icons": "^4.3.1",
