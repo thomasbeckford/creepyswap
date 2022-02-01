@@ -10,11 +10,9 @@ import {
   Flex,
   Icon,
   Link,
-  Center,
 } from "@chakra-ui/react";
 import { useAppSelector } from "@/redux/hooks";
-import { BigNumber } from "ethers";
-import React, { useEffect } from "react";
+import React from "react";
 import { selectAddress, selectIsLoggedIn } from "@/redux/user/selectors";
 import { Hero } from "@/components/Hero";
 import Card from "@/components/Card";
@@ -30,7 +28,7 @@ export default function Portfolio() {
   const address = useAppSelector(selectAddress);
   const { onCopy } = useClipboard(address || "", 500);
 
-  const { data, error, isLoading } = useGetTokenByIdQuery({});
+  const { isLoading } = useGetTokenByIdQuery({});
 
   const handleLoginClick = (walletName: string) => {
     handleLogin(walletName);
@@ -119,7 +117,7 @@ export default function Portfolio() {
         </Hero>
       </Card>
 
-      <Card mt="5">
+      <Card mt="5px">
         <Flex
           justifyContent={"space-around"}
           textAlign="center"

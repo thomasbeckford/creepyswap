@@ -1,9 +1,10 @@
 import { Box, useColorMode } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 
-export default function Card(props: { children: ReactNode; props?: any }) {
+export default function Card(props: any) {
+  const children: ReactNode = props.children;
+
   const { colorMode } = useColorMode();
-  const { children } = props;
 
   return (
     <Box

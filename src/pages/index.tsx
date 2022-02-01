@@ -3,7 +3,7 @@ import { Meta } from "@/layout/Meta";
 import type { NextPage } from "next";
 import { Main } from "@/templates";
 import { AppConfig } from "@/config";
-import { Box, Button, Stack, Text, useToast } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import Card from "@/components/Card";
 
 const Home: NextPage = () => {
