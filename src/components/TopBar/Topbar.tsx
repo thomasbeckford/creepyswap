@@ -7,122 +7,122 @@ import {
   IconButton,
   useToast,
   Text,
-} from '@chakra-ui/react'
-import React from 'react'
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
-import { useAppDispatch, useAppSelector } from '@/redux/hooks'
+} from "@chakra-ui/react";
+import React from "react";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   selectAddress,
   selectChain,
   selectIsLoggedIn,
-} from '@/redux/user/selectors'
-import useLogin from '@/hooks/useLogin'
-import LoginModal from '../Modals/Login'
-import { setSidebarIsOpen } from '@/redux/sidebar'
-import { selectSidebarIsOpen } from '@/redux/sidebar/selectors'
-import AddressModal from '../Modals/Address'
-import { NetworkInterface, networks } from '@/utils/networks'
+} from "@/redux/user/selectors";
+import useLogin from "@/hooks/useLogin";
+import LoginModal from "../Modals/Login";
+import { setSidebarIsOpen } from "@/redux/sidebar";
+import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
+import AddressModal from "../Modals/Address";
+import { NetworkInterface, networks } from "@/utils/networks";
 
-import { Select } from 'chakra-react-select'
-import { setChain } from '@/redux/user'
-import { chainIdToString } from '@/helpers/chain'
-import { selectStyles } from '@/theme/models/select'
+import { Select } from "chakra-react-select";
+import { setChain } from "@/redux/user";
+import { chainIdToString } from "@/helpers/chain";
+import { selectStyles } from "@/theme/models/select";
 
 function Topbar() {
   const {
     isOpen: isModalOpen,
     onOpen: onModalOpen,
     onClose: onModalClose,
-  } = useDisclosure()
+  } = useDisclosure();
 
   const {
     isOpen: isAddressModalOpen,
     onOpen: onAddressModalOpen,
     onClose: onAddressModalClose,
-  } = useDisclosure()
+  } = useDisclosure();
 
-  const { handleLogin } = useLogin()
-  const dispatch = useAppDispatch()
+  const { handleLogin } = useLogin();
+  const dispatch = useAppDispatch();
 
-  const address = useAppSelector(selectAddress)
-  const loggedIn = useAppSelector(selectIsLoggedIn)
-  const sidebarIsOpen = useAppSelector(selectSidebarIsOpen)
-  const selectedChain = useAppSelector(selectChain)
-  const toast = useToast()
+  const address = useAppSelector(selectAddress);
+  const loggedIn = useAppSelector(selectIsLoggedIn);
+  const sidebarIsOpen = useAppSelector(selectSidebarIsOpen);
+  const selectedChain = useAppSelector(selectChain);
+  const toast = useToast();
 
   const handleLoginClick = (walletName: string) => {
-    handleLogin(walletName)
-    onModalClose()
-  }
+    handleLogin(walletName);
+    onModalClose();
+  };
 
   const handleAddressModal = () => {
-    onAddressModalOpen()
-  }
+    onAddressModalOpen();
+  };
 
   const toggleSidebar = () => {
-    dispatch(setSidebarIsOpen(!sidebarIsOpen))
-  }
+    dispatch(setSidebarIsOpen(!sidebarIsOpen));
+  };
 
   // selectOptions from networks array
   const selectOptions = networks.map((network) => ({
     value: network.chainId,
     label: network.symbol,
-  }))
+  }));
 
   const handleSelectChainId = async (selectedOption: any) => {
     const network: NetworkInterface =
       networks.find((network) => network.chainId === selectedOption.value) ||
-      networks[0]
+      networks[0];
 
     dispatch(
       setChain({
         value: network.chainId,
         label: network.symbol,
       })
-    )
+    );
 
     // Only for metamask?
     try {
       const switchNetwork = window.ethereum.request({
-        method: 'wallet_switchEthereumChain',
+        method: "wallet_switchEthereumChain",
         params: [
           {
             chainId: chainIdToString(network.chainId),
           },
         ],
-      })
+      });
 
-      await switchNetwork
+      await switchNetwork;
       toast({
         title: `${network.symbol} network selected`,
         description: `You are now connected to ${network.symbol} network`,
-        status: 'success',
+        status: "success",
         duration: 5000,
         isClosable: true,
-        position: 'top',
-      })
+        position: "top",
+      });
     } catch (error: any) {
       toast({
         title: `Error switching network`,
         description: `${error.message}`,
-        status: 'error',
+        status: "error",
         duration: 5000,
         isClosable: true,
-        position: 'top',
-      })
+        position: "top",
+      });
     }
-  }
+  };
 
   return (
     <>
       <Box px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             variant="outline"
-            size={'md'}
+            size={"md"}
             icon={sidebarIsOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={'Open Menu'}
-            display={{ md: 'none' }}
+            aria-label={"Open Menu"}
+            display={{ md: "none" }}
             onClick={toggleSidebar}
           />
           <HStack position="absolute" right="5">
@@ -138,11 +138,11 @@ function Topbar() {
             ) : (
               <>
                 <Button
-                  variant={'outline'}
-                  cursor={'pointer'}
+                  variant={"outline"}
+                  cursor={"pointer"}
                   onClick={handleAddressModal}
                 >
-                  {address?.replace(/(.{7})..+/, '$1…')}
+                  {address?.replace(/(.{7})..+/, "$1…")}
                 </Button>
 
                 <Select
@@ -170,6 +170,6 @@ function Topbar() {
         address={address}
       />
     </>
-  )
+  );
 }
-export default Topbar
+export default Topbar;

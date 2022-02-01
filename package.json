@@ -1,41 +1,47 @@
 {
-	"name": "creepyswap",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"@chakra-ui/icons": "^1.1.1",
-		"@chakra-ui/react": "^1.8.0",
-		"@emotion/react": "^11",
-		"@emotion/styled": "^11",
-		"@reduxjs/toolkit": "^1.7.1",
-		"@walletconnect/web3-provider": "^1.7.1",
-		"ethers": "^5.5.3",
-		"framer-motion": "^5",
-		"lint-staged": "^12.3.3",
-		"next": "12.0.8",
-		"next-seo": "^4.29.0",
-		"react": "17.0.2",
-		"react-dom": "17.0.2",
-		"react-redux": "^7.2.6",
-		"redux": "^4.1.2",
-		"redux-persist": "^6.0.0",
-		"web3": "^1.7.0"
-	},
-	"devDependencies": {
-		"@types/node": "17.0.12",
-		"@types/react": "17.0.38",
-		"chakra-react-select": "^3.0.3",
-		"eslint": "8.7.0",
-		"eslint-config-next": "12.0.8",
-		"eslint-config-prettier": "^8.3.0",
-		"husky": "4",
-		"prettier": "^2.5.1",
-		"react-icons": "^4.3.1",
-		"typescript": "4.5.5"
-	}
+  "name": "creepyswap",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "check-format": "prettier --check .",
+    "check-types": "tsc --pretty --noEmit",
+    "check-lint": "eslint --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "yarn check-format && yarn check-types && yarn check-lint && yarn build"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
+    "@chakra-ui/react": "^1.8.0",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@reduxjs/toolkit": "^1.7.1",
+    "@walletconnect/web3-provider": "^1.7.1",
+    "ethers": "^5.5.3",
+    "framer-motion": "^5",
+    "lint-staged": "^12.3.3",
+    "next": "12.0.8",
+    "next-seo": "^4.29.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0",
+    "web3": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.12",
+    "@types/react": "17.0.38",
+    "chakra-react-select": "^3.0.3",
+    "eslint": "8.7.0",
+    "eslint-config-next": "12.0.8",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "react-icons": "^4.3.1",
+    "typescript": "4.5.5",
+    "husky": "^7.0.0"
+  }
 }
