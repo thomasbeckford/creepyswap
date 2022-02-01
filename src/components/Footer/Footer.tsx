@@ -1,8 +1,8 @@
 import { AppConfig } from "@/config";
-import { Box, Center, Flex, Stack, StackDivider, Text } from "@chakra-ui/react";
+import { Box, Flex, Stack, StackDivider, Text } from "@chakra-ui/react";
 import * as React from "react";
 import { Copyright } from "./Copyright";
-import { LinkGrid } from "./Linkgrid";
+import { LinkGrid } from "./LinkGrid";
 
 import { SocialMediaLinks } from "./SocialMediaLinks";
 

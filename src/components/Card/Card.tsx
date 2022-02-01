@@ -1,5 +1,5 @@
-import { Box, Center, useColorMode } from "@chakra-ui/react";
-import React, { ReactElement, ReactNode } from "react";
+import { Box, useColorMode } from "@chakra-ui/react";
+import React, { ReactNode } from "react";
 
 export default function Card(props: { children: ReactNode; props?: any }) {
   const { colorMode } = useColorMode();
