@@ -41,10 +41,10 @@
 		"typescript": "4.5.5"
 	},
 	"lint-staged": {
-		"*.ts": [
+		"*.js": [
 			"eslint --fix"
 		],
-		"*.{html,ts}": [
+		"*.{html,js}": [
 			"prettier --write"
 		]
 	}
