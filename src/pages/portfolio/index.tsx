@@ -24,7 +24,7 @@ import { Hero } from "@/components/Hero";
 import Card from "@/components/Card";
 import { useClipboard } from "@chakra-ui/react";
 import { MdContentCopy } from "react-icons/md";
-import { ExternalLinkIcon, QuestionOutlineIcon } from "@chakra-ui/icons";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { useGetTokenByIdQuery } from "@/services/api";
 
 export default function Portfolio() {
@@ -82,7 +82,7 @@ export default function Portfolio() {
                   </Link>
                 </Flex>
               </Flex>
-              {console.log(data.data.items)}
+
               {isLoading ? (
                 <div>Loading...</div>
               ) : (
