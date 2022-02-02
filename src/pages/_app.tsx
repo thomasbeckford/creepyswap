@@ -7,6 +7,7 @@ import theme from "../theme";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import Listeners from "@/components/Listeners";
 
 declare global {
   export interface Window {
@@ -24,7 +25,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           loading={<div style={{ color: "#fff" }}>Loading</div>}
           persistor={persistor}
         >
-          <Component {...pageProps} />
+          <Listeners>
+            <Component {...pageProps} />
+          </Listeners>
         </PersistGate>
       </Provider>
     </ChakraProvider>

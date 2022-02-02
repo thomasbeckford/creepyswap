@@ -4,8 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState: {
   address: string | null;
   chain: {
-    value: number;
     label: string;
+    value: number;
   };
 } = {
   address: null,
