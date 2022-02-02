@@ -13,7 +13,7 @@ export default function Listeners({ children }: any) {
         toast({
           title: "Account changed",
           description: `Your account has been changed to ${account[0]}`,
-          status: "success",
+          status: "info",
           duration: 5000,
           isClosable: true,
           position: "top",

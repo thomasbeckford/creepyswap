@@ -11,6 +11,7 @@ import {
   Icon,
   Link,
   Image,
+  Spinner,
 } from "@chakra-ui/react";
 
 import { useAppSelector } from "@/redux/hooks";
@@ -35,13 +36,15 @@ export default function Portfolio() {
   const chain = useAppSelector(selectChain);
   const { onCopy } = useClipboard(address || "", 500);
 
-  const { isLoading, data } = useGetTokenByIdQuery({
-    skip: !address,
-    variables: {
+  const { isLoading, data } = useGetTokenByIdQuery(
+    {
       address,
       chainId: chain.value,
     },
-  });
+    {
+      skip: !address,
+    }
+  );
 
   const handleLoginClick = (walletName: string) => {
     handleLogin(walletName);
@@ -84,7 +87,13 @@ export default function Portfolio() {
               </Flex>
 
               {isLoading ? (
-                <div>Loading...</div>
+                <Spinner
+                  thickness="4px"
+                  speed="0.65s"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                />
               ) : (
                 <Box mt="30px" boxShadow="0px 0px 10px rgba(0, 0, 0, 0.6)">
                   {data.data.items

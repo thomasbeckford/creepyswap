@@ -11,8 +11,7 @@ export const tokenApi = createApi({
 
   endpoints: (builder) => ({
     getTokenById: builder.query<any, any>({
-      query: ({ variables }) => {
-        const { address, chainId } = variables;
+      query: ({ address, chainId }) => {
         return `/v1/${chainId}/address/${address}/balances_v2/?quote-currency=USD&format=JSON&nft=false&no-nft-fetch=false&key=${API_KEY}`;
       },
     }),

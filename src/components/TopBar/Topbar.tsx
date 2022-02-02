@@ -96,7 +96,7 @@ function Topbar() {
       toast({
         title: `${network.symbol} network selected`,
         description: `You are now connected to ${network.symbol} network`,
-        status: "success",
+        status: "info",
         duration: 5000,
         isClosable: true,
         position: "top",
