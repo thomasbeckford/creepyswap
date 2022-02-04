@@ -3,17 +3,34 @@ import { useAppSelector } from "@/redux/hooks";
 import { selectAddress, selectChain } from "@/redux/user/selectors";
 import { useGetTokenByIdQuery } from "@/services/api";
 import { TokenData } from "@/types";
+import { useEffect, useState } from "react";
 
 const useBalance = () => {
   const address = useAppSelector(selectAddress);
   const chain = useAppSelector(selectChain);
+  const [tokens, setTokens] = useState<any>({
+    tokenList: [],
+    totalValueNumber: 0,
+    total24ValueNumber: 0,
+    diffAmountValue: 0,
+    diffPercentValue: 0,
+  });
+  const [liquidity, setLiquidity] = useState<any>({
+    farmList: [],
+    totalValueNumber: 0,
+    total24ValueNumber: 0,
+    diffAmountValue: 0,
+    diffPercentValue: 0,
+  });
 
   const { data, isLoading } = useGetTokenByIdQuery(
     {
       address,
       chainId: chain.value,
+      pollingInterval: 7000,
     },
     {
+      pollingInterval: 7000,
       skip: !address,
     }
   );
@@ -27,7 +44,6 @@ const useBalance = () => {
   let liquidityCurrentTotal = 0;
   let liquidity24Total = 0;
 
-  // We loop through the wallet balances
   if (data) {
     for (let x = 0; x < data.data.items.length; x += 1) {
       const item = data.data.items[x];
@@ -49,24 +65,30 @@ const useBalance = () => {
     }
   }
 
-  const tokenDifference = tokenCurrentTotal - token24Total;
-  const liquidityDifference = liquidityCurrentTotal - liquidity24Total;
+  useEffect(() => {
+    const tokenDifference = tokenCurrentTotal - token24Total;
+    const liquidityDifference = liquidityCurrentTotal - liquidity24Total;
 
-  const tokens = {
-    tokenList,
-    totalValueNumber: tokenCurrentTotal,
-    total24ValueNumber: token24Total,
-    diffAmountValue: tokenDifference,
-    diffPercentValue: tokenDifference / token24Total,
-  };
+    const tokensObject = {
+      tokenList,
+      totalValueNumber: tokenCurrentTotal,
+      total24ValueNumber: token24Total,
+      diffAmountValue: tokenDifference,
+      diffPercentValue: tokenDifference / token24Total,
+    };
 
-  const liquidity = {
-    farmList,
-    totalValueNumber: liquidityCurrentTotal,
-    total24ValueNumber: liquidity24Total,
-    diffAmountValue: liquidityDifference,
-    diffPercentValue: liquidityDifference / liquidity24Total,
-  };
+    const liquidityObject = {
+      farmList,
+      totalValueNumber: liquidityCurrentTotal,
+      total24ValueNumber: liquidity24Total,
+      diffAmountValue: liquidityDifference,
+      diffPercentValue: liquidityDifference / liquidity24Total,
+    };
+
+    setTokens(tokensObject);
+    setLiquidity(liquidityObject);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return { tokens, liquidity, rates: rateMapping, isLoading };
 };
