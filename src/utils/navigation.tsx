@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Icon } from "@chakra-ui/react";
@@ -6,7 +6,7 @@ import { GiSuspensionBridge } from "react-icons/gi";
 import { BiHome } from "react-icons/bi";
 import { BiLineChart } from "react-icons/bi";
 import { FiSettings } from "react-icons/fi";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useAppDispatch } from "@/redux/hooks";
 import { setSidebarIsOpen } from "@/redux/sidebar";
 import { useMediaQuery } from "@chakra-ui/react";
