@@ -16,7 +16,6 @@ import {
 import { useAppSelector } from "@/redux/hooks";
 import React from "react";
 import { selectAddress, selectIsLoggedIn } from "@/redux/user/selectors";
-import { Hero } from "@/components/Hero";
 import Card from "@/components/Card";
 import { useClipboard } from "@chakra-ui/react";
 import { MdContentCopy } from "react-icons/md";
@@ -39,12 +38,32 @@ export default function Portfolio() {
     onClose();
   };
 
-  const heading = <Text fontWeight={"bold"}>My Wallet</Text>;
-
   return (
     <Main meta={<Meta title="Porfolio" description="" />}>
+      <Card mb="20px" p="20px">
+        <Flex
+          justifyContent={"space-around"}
+          textAlign="center"
+          alignItems={"center"}
+        >
+          <Card>
+            <Text>Portfolio Value</Text>
+            {/* <Text>$1,978.27</Text> */}
+          </Card>
+          <Card>
+            <Text>Harvest</Text>
+          </Card>
+          <Card>
+            <Text>Portfolio Value</Text>
+            {/* <Text>$1,978.27</Text> */}
+          </Card>
+          <Card>
+            <Button variant="outline">Harverst all</Button>
+          </Card>
+        </Flex>
+      </Card>
       <Card>
-        <Hero heading={heading}>
+        <Flex justifyContent={"center"} pt="30px">
           {!isLoggedIn ? (
             <>
               <Text>Connect your wallet to Fantom Opera to start </Text>
@@ -95,31 +114,6 @@ export default function Portfolio() {
               )}
             </Box>
           )}
-        </Hero>
-      </Card>
-
-      <Card mt="5px">
-        <Flex
-          justifyContent={"space-around"}
-          textAlign="center"
-          alignItems={"center"}
-        >
-          <Card>
-            <Text>Portfolio Value</Text>
-            <Text>$1,978.27</Text>
-          </Card>
-          <Card>
-            <Text>CPY to Harvest</Text>
-            <Text>108.995</Text>
-            <Text>$15.34</Text>
-          </Card>
-          <Card>
-            <Text>Portfolio Value</Text>
-            <Text>$1,978.27</Text>
-          </Card>
-          <Card>
-            <Button variant="outline">Harverst all</Button>
-          </Card>
         </Flex>
       </Card>
 
