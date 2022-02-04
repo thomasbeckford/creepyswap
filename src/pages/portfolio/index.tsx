@@ -10,41 +10,29 @@ import {
   Flex,
   Icon,
   Link,
-  Image,
   Spinner,
 } from "@chakra-ui/react";
 
 import { useAppSelector } from "@/redux/hooks";
 import React from "react";
-import {
-  selectAddress,
-  selectChain,
-  selectIsLoggedIn,
-} from "@/redux/user/selectors";
+import { selectAddress, selectIsLoggedIn } from "@/redux/user/selectors";
 import { Hero } from "@/components/Hero";
 import Card from "@/components/Card";
 import { useClipboard } from "@chakra-ui/react";
 import { MdContentCopy } from "react-icons/md";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { useGetTokenByIdQuery } from "@/services/api";
+import useBalance from "@/hooks/useBalance";
+import FarmingRewards from "./farming-rewards";
+import WalletBreakdown from "./wallet-breakdown";
 
 export default function Portfolio() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const { handleLogin } = useLogin();
   const address = useAppSelector(selectAddress);
-  const chain = useAppSelector(selectChain);
-  const { onCopy } = useClipboard(address || "", 500);
+  const { tokens, liquidity, isLoading } = useBalance();
 
-  const { isLoading, data } = useGetTokenByIdQuery(
-    {
-      address,
-      chainId: chain.value,
-    },
-    {
-      skip: !address,
-    }
-  );
+  const { onCopy } = useClipboard(address || "", 500);
 
   const handleLoginClick = (walletName: string) => {
     handleLogin(walletName);
@@ -66,21 +54,20 @@ export default function Portfolio() {
             </>
           ) : (
             <Box>
-              <Flex>
+              <Flex justifyContent={"space-around"}>
                 <Text color="blue.300" _hover={{ color: "blue.500" }}>
                   <Link href="/ftmscan" isExternal>
                     View on FTMScan <ExternalLinkIcon mx="2px" />
                   </Link>
                 </Text>
                 <Flex
-                  alignItems={"center"}
                   onClick={onCopy}
                   cursor={"pointer"}
                   _hover={{ textDecoration: "underline", color: "blue.500" }}
                   ml={5}
                 >
                   <Link color="blue.300" _hover={{ color: "blue.500" }}>
-                    Copy address{" "}
+                    Copy address
                     <Icon verticalAlign="sub" ml="2px" as={MdContentCopy} />
                   </Link>
                 </Flex>
@@ -95,32 +82,16 @@ export default function Portfolio() {
                   size="xl"
                 />
               ) : (
-                <Box mt="30px" boxShadow="0px 0px 10px rgba(0, 0, 0, 0.6)">
-                  {data.data.items
-                    .filter(
-                      ({ type }: { type: string }) => type === "cryptocurrency"
-                    )
-                    .map((token: any) => (
-                      <Flex
-                        key={token.contract_name}
-                        justifyContent={"space-between"}
-                        px="20px"
-                        py="10px"
-                      >
-                        <Image
-                          // src={`https://assets.spookyswap.finance/tokens/${token.contract_ticker_symbol}.png`}
-                          src={`https://app.spiritswap.finance/images/tokens/${token.contract_ticker_symbol}.png`}
-                          width="24px"
-                          height="24px"
-                          fallbackSrc={"https://via.placeholder.com/24"}
-                          borderRadius={15}
-                          alt={token.contract_name}
-                        />
-                        <Text>{token.contract_ticker_symbol}</Text>
-                        <Text>{token.quote}</Text>
-                      </Flex>
-                    ))}
-                </Box>
+                <Flex gap="3">
+                  <Box>
+                    <Text>Wallet Breakdown</Text>
+                    <WalletBreakdown tokens={tokens} />
+                  </Box>
+                  <Box>
+                    <Text>Farming Rewards</Text>
+                    <FarmingRewards liquidity={liquidity} />
+                  </Box>
+                </Flex>
               )}
             </Box>
           )}

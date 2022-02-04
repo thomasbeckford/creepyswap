@@ -14,6 +14,19 @@ const useLogin = () => {
       label: "FTM",
       value: 250,
     };
+
+    if (!window.ethereum && walletName === "metamask") {
+      toast({
+        title: "Please install MetaMask",
+        description: "Please install MetaMask to use this feature",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
+    }
+
     const address = await connectWallet(
       chain.value || defaultChain,
       walletName

@@ -81,7 +81,7 @@ function Topbar() {
       })
     );
 
-    // Only for metamask?
+    // Only for metamask
     try {
       const switchNetwork = window.ethereum.request({
         method: "wallet_switchEthereumChain",
