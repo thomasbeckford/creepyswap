@@ -3,6 +3,14 @@
 
 echo '🏗️👷 Styling, testing and building your project before committing'
 
+# Format code
+yarn format || 
+(
+        echo '🚨  Formatting failed'
+        false;
+)
+
+
 # Check Prettier standards
 yarn check-format ||
 (
