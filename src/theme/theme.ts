@@ -1,6 +1,6 @@
 import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 
-import { Button, Modal, Text, Switch } from "./models";
+import { Button, Modal, Text, Switch, Tabs } from "./models";
 import { globalStyles as styles } from "./styles";
 
 const config: ThemeConfig = {
@@ -19,6 +19,7 @@ const theme = extendTheme({
     Modal,
     Text,
     Switch,
+    Tabs,
   },
 });
 

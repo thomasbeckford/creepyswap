@@ -11,7 +11,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { setSidebarIsOpen } from "@/redux/sidebar";
 import { useMediaQuery } from "@chakra-ui/react";
 import useClickOutside from "@/hooks/useClickOutside";
-
+import { MdSwapHoriz } from "react-icons/md";
 export const navigation = [
   {
     id: 0,
@@ -20,11 +20,12 @@ export const navigation = [
     icon: BiHome,
   },
 
-  // {
-  //   id: 1,
-  //   label: "Swap",
-  //   href: "/swap",
-  // },
+  {
+    id: 1,
+    label: "Swap",
+    href: "/swap",
+    icon: MdSwapHoriz,
+  },
   // {
   //   id: 2,
   //   label: "Liquidity",

@@ -27,10 +27,10 @@ const useBalance = () => {
     {
       address,
       chainId: chain.value,
-      pollingInterval: 7000,
+      pollingInterval: 60000,
     },
     {
-      pollingInterval: 7000,
+      pollingInterval: 60000,
       skip: !address,
     }
   );
@@ -41,6 +41,7 @@ const useBalance = () => {
 
   let tokenCurrentTotal = 0;
   let token24Total = 0;
+
   let liquidityCurrentTotal = 0;
   let liquidity24Total = 0;
 
