@@ -59,7 +59,7 @@ export default function AddressModal({ isOpen, onClose, address }: any) {
 
           <Flex justifyContent={"flex-end"}>
             <Button variant="outline" onClick={handleLogoutClick}>
-              Logout
+              Disconnect
             </Button>
           </Flex>
         </ModalBody>

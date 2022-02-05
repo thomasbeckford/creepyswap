@@ -23,27 +23,29 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent>
-        <ModalCloseButton />
-        <ModalHeader>Connect to a wallet</ModalHeader>
+      <ModalContent padding="20px">
+        <ModalCloseButton color="blue.500" />
+        <ModalHeader textAlign="center">Connect to a wallet</ModalHeader>
         <ModalBody>
           {enabledConnectors.map(({ name: walletName, src, alt }) => (
             <Box
               key={walletName}
               onClick={() => handleClick(walletName)}
               variant="outline"
-              border="2px solid #fff"
               borderRadius={8}
+              bg="gray.600"
               textAlign="center"
               fontWeight={600}
+              fontSize={"lg"}
               mt={4}
               cursor="pointer"
+              _hover={{ bg: "gray.500" }}
+              transition="all .2s"
             >
               <Flex
                 alignItems={"center"}
                 justifyContent={"space-between"}
-                padding={5}
-                _hover={{ opacity: ".5" }}
+                padding={15}
                 transition={".2s"}
               >
                 <Text>{walletName}</Text>

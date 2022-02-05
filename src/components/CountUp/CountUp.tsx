@@ -36,7 +36,7 @@ const CountUpNumber: React.FC<CountUpNumberProps> = ({
     updateValue.current(value);
   }, [value, updateValue]);
 
-  return <Text color={color} ref={countUpRef} />;
+  return <Text fontSize="large" color={color} ref={countUpRef} />;
 };
 
 export default CountUpNumber;

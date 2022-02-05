@@ -125,11 +125,18 @@ function Topbar() {
             display={{ md: "none" }}
             onClick={toggleSidebar}
           />
+
           <HStack position="absolute" right="5">
-            <Button variant="outline">
-              {/* <Logo showName /> */}
-              <Text>$ 20.22</Text>
-            </Button>
+            {/* <Text fontWeight={"bold"} fontSize="large">
+              $ 20.22
+            </Text> */}
+            <Select
+              chakraStyles={selectStyles}
+              options={selectOptions}
+              defaultValue={selectedChain}
+              onChange={handleSelectChainId}
+              isSearchable={false}
+            />
 
             {!loggedIn ? (
               <Button variant="outline" onClick={onModalOpen}>
@@ -141,17 +148,10 @@ function Topbar() {
                   variant={"outline"}
                   cursor={"pointer"}
                   onClick={handleAddressModal}
+                  width={120}
                 >
                   {address?.replace(/(.{7})..+/, "$1…")}
                 </Button>
-
-                <Select
-                  chakraStyles={selectStyles}
-                  options={selectOptions}
-                  defaultValue={selectedChain}
-                  onChange={handleSelectChainId}
-                  isSearchable={false}
-                />
               </>
             )}
           </HStack>

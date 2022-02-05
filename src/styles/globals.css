@@ -35,3 +35,45 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #111;
+}
+
+/* .glow {
+  font-size: 80px;
+  color: #e2e2e2;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgb(114, 114, 114), 0 0 20px rgb(114, 114, 114),
+      0 0 30px #2a82bd, 0 0 40px #2a82bd, 0 0 50px #2a82bd, 0 0 60px #2a82bd,
+      0 0 70px #2a82bd;
+  }
+  to {
+    text-shadow: 0 0 20px rgb(114, 114, 114), 0 0 30px #1e285f, 0 0 40px #1e285f,
+      0 0 50px #1e285f, 0 0 60px #1e285f, 0 0 70px #1e285f, 0 0 80px #1e285f;
+  }
+} */

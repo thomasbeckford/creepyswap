@@ -13,7 +13,7 @@ export const wcProvider = new WalletConnectProvider({
 export const enabledConnectors = [
   {
     name: "Metamask",
-    src: "/assets/images/metamask.svg",
+    src: "/assets/images/metamask.png",
     alt: "Metamask",
   },
   {

@@ -34,16 +34,16 @@ const useLogin = () => {
         qrcodeModal: QRCodeModal,
       });
 
-      // Check if connection is already established
+      console.log(connector);
       if (!connector.connected) {
-        // create new session
         connector.createSession();
       }
 
       // Subscribe to connection events
       connector.on("connect", (error, payload) => {
         if (error) {
-          throw error;
+          console.log("Do not connect", error);
+          return;
         }
 
         // Get provided accounts and chainId
@@ -56,6 +56,7 @@ const useLogin = () => {
     }
 
     if (!window.ethereum && walletName === "metamask") {
+      // Metamask injects window.ethereum in the browser
       toast({
         title: "Please install MetaMask",
         description: "Please install MetaMask to use this feature",

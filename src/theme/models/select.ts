@@ -1,30 +1,26 @@
 import { ChakraStylesConfig } from "chakra-react-select";
 
 export const selectStyles: ChakraStylesConfig = {
-  dropdownIndicator: (provided, state) => ({
+  dropdownIndicator: (provided) => ({
     ...provided,
     p: 0,
     w: "25px",
     background: "transparent",
   }),
-  indicatorSeparator: (provided, state) => ({
+  indicatorSeparator: (provided) => ({
     ...provided,
     p: 0,
   }),
-  control: (provided, state) => ({
+  control: (provided) => ({
     ...provided,
-    borderRadius: "4px",
-    borderColor: "teal.300",
-    border: "1px solid",
     p: 0,
-    w: "100px",
+    w: "120px",
     cursor: "pointer",
     _hover: {
-      borderColor: "teal.300",
       background: "rgba(255, 255, 255, 0.08)",
     },
   }),
-  menu: (provided, state) => ({
+  menu: (provided) => ({
     ...provided,
     borderRadius: "4x",
     border: "none",
