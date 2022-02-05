@@ -74,13 +74,6 @@ function Topbar() {
       networks.find((network) => network.chainId === selectedOption.value) ||
       networks[0];
 
-    dispatch(
-      setChain({
-        value: network.chainId,
-        label: network.symbol,
-      })
-    );
-
     // Only for metamask
     try {
       const switchNetwork = window.ethereum.request({
@@ -93,13 +86,21 @@ function Topbar() {
       });
 
       await switchNetwork;
+
+      dispatch(
+        setChain({
+          value: network.chainId,
+          label: network.symbol,
+        })
+      );
+
       toast({
         title: `${network.symbol} network selected`,
         description: `You are now connected to ${network.symbol} network`,
         status: "info",
         duration: 5000,
         isClosable: true,
-        position: "top",
+        position: "bottom-right",
       });
     } catch (error: any) {
       toast({
