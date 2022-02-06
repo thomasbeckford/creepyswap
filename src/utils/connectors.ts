@@ -1,14 +1,6 @@
-import WalletConnectProvider from "@walletconnect/web3-provider";
-
-const RPC_URLS: { [chainId: number]: string[] } = {
+export const RPC_URLS: { [chainId: number]: string[] } = {
   250: ["https://rpc.ftm.tools/", "https://rpc.ankr.com/fantom"],
 };
-
-//  Create WalletConnect Provider
-export const wcProvider = new WalletConnectProvider({
-  rpc: RPC_URLS[250],
-  qrcode: true,
-});
 
 export const enabledConnectors = [
   {

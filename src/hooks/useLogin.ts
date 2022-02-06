@@ -18,7 +18,7 @@ const useLogin = () => {
 
     const address = await connectWallet(
       chain.value || defaultChain,
-      !window.ethereum ? "wallet_connect" : walletName
+      walletName
     );
     if (!address) return;
     dispatch(setAddress(address));

@@ -1,6 +1,7 @@
 import { TokenData } from "@/types";
-import { wcProvider } from "@/utils/connectors";
+import { RPC_URLS } from "@/utils/connectors";
 import { networks } from "@/utils/networks";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 import { BigNumber, ethers } from "ethers";
 import { formatUnits } from "ethers/lib/utils";
 
@@ -28,8 +29,19 @@ export const connectWallet = async (chainId: number, walletName: string) => {
     if (address) return address[0];
   }
 
-  const address = await wcProvider.enable();
-  return address;
+  try {
+    //  Create WalletConnect Provider
+    const wcProvider = new WalletConnectProvider({
+      rpc: RPC_URLS[250],
+      qrcode: true,
+    });
+
+    const address = await wcProvider.enable();
+    return address;
+  } catch (e) {
+    console.log(e);
+    alert(e);
+  }
 };
 
 // Formats ether amounts into readible format
