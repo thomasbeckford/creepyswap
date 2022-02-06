@@ -10,9 +10,12 @@ export const connectWallet = async (chainId: number, walletName: string) => {
     networks.find((network) => network.chainId === chainId)?.network ||
     "Unknown";
 
-  if (!ethereum) return console.log("Ethereum unavailable"); // TODO: Set a toast
+  // if (!ethereum) {
+  //   console.log("No ethereum provider found");
+  //   alert("No ethereum provider found");
+  // }
 
-  if (walletName === "metamask") {
+  if (walletName === "metamask" && ethereum) {
     const provider = new ethers.providers.Web3Provider(ethereum, {
       name,
       chainId,
@@ -25,14 +28,8 @@ export const connectWallet = async (chainId: number, walletName: string) => {
     if (address) return address[0];
   }
 
-  try {
-    if (walletName === "wallet_connect") {
-      const address = await wcProvider.enable();
-      return address;
-    }
-  } catch (e) {
-    console.log("error", e);
-  }
+  const address = await wcProvider.enable();
+  return address;
 };
 
 // Formats ether amounts into readible format

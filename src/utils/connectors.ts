@@ -1,7 +1,7 @@
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
 const RPC_URLS: { [chainId: number]: string[] } = {
-  250: ["https://rpc.ankr.com/fantom", "https://rpc.ftm.tools/"],
+  250: ["https://rpc.ftm.tools/", "https://rpc.ankr.com/fantom"],
 };
 
 //  Create WalletConnect Provider

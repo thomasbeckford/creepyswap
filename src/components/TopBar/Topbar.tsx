@@ -151,7 +151,7 @@ function Topbar() {
                   onClick={handleAddressModal}
                   width={120}
                 >
-                  {address?.replace(/(.{7})..+/, "$1…")}
+                  {address && address.replace(/(.{7})..+/, "$1…")}
                 </Button>
               </>
             )}
