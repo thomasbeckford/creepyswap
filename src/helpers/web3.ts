@@ -37,7 +37,7 @@ export const connectWallet = async (chainId: number, walletName: string) => {
     });
 
     const address = await wcProvider.enable();
-    return address;
+    return address[0];
   } catch (e) {
     console.log(e);
     alert(e);
