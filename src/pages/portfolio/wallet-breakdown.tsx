@@ -41,7 +41,7 @@ const WalletBreakdown = ({ tokens }: any) => (
         </Tr>
       </Thead>
 
-      <Tbody height={400} overflowX={"hidden"} overFlowY="scroll">
+      <Tbody height={400} overflowX={"hidden"} overflowY="scroll">
         {tokens.tokenList.map((token: TokenData) => (
           <Tr key={token.address + token.name}>
             <Td>

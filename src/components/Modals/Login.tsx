@@ -31,7 +31,6 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             <Box
               key={walletName}
               onClick={() => handleClick(walletName)}
-              variant="outline"
               borderRadius={8}
               bg="gray.600"
               textAlign="center"
