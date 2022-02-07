@@ -41,7 +41,7 @@ const FarmingRewards = ({ liquidity }: any) => (
         </Tr>
       </Thead>
 
-      <Tbody height={400} overflowX={"hidden"} overflowY="scroll">
+      <Tbody maxHeight={400} overflowX={"hidden"} overflowY="scroll">
         {liquidity.farmList.map((farm: TokenData) => (
           <Tr key={farm.address + farm.name}>
             <Td>

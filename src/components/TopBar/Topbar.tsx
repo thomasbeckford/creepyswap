@@ -50,8 +50,8 @@ function Topbar() {
   const selectedChain = useAppSelector(selectChain);
   const toast = useToast();
 
-  const handleLoginClick = (walletName: string) => {
-    handleLogin(walletName);
+  const handleLoginClick = (providerName: string) => {
+    handleLogin(providerName);
     onModalClose();
   };
 

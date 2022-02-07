@@ -32,8 +32,8 @@ export default function Portfolio() {
   // const address = useAppSelector(selectAddress);
   const { tokens, liquidity, isLoading } = useBalance();
 
-  const handleLoginClick = (walletName: string) => {
-    handleLogin(walletName);
+  const handleLoginClick = (providerName: string) => {
+    handleLogin(providerName);
     onClose();
   };
 

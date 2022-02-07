@@ -12,6 +12,7 @@ import Listeners from "@/components/Listeners";
 declare global {
   export interface Window {
     ethereum?: any;
+    web3?: any;
   }
 }
 

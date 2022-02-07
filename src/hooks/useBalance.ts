@@ -26,7 +26,7 @@ const useBalance = () => {
   const { data, isLoading } = useGetTokenByIdQuery(
     {
       address,
-      chainId: chain.value,
+      chainId: chain.id,
       pollingInterval: 60000,
     },
     {

@@ -2,32 +2,25 @@ import { connectWallet } from "@/helpers/web3";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setAddress } from "@/redux/user";
 import { selectChain } from "@/redux/user/selectors";
-// import { position, useMediaQuery, useToast } from "@chakra-ui/react";
-// import WalletConnect from "@walletconnect/client";
-// import QRCodeModal from "@walletconnect/qrcode-modal";
 
 const useLogin = () => {
   const dispatch = useAppDispatch();
-  const chain = useAppSelector(selectChain);
+  // const providers = useContext(WalletContext);
+  const chainId = useAppSelector(selectChain).id;
 
-  const handleLogin = async (walletName: string) => {
-    const defaultChain: any = {
-      label: "FTM",
-      value: 250,
-    };
-
-    const address = await connectWallet(
-      chain.value || defaultChain,
-      walletName
-    );
+  const handleLogin = async (providerName: string) => {
+    const address = await connectWallet(providerName, chainId);
     if (!address) return;
     dispatch(setAddress(address));
   };
 
-  const handleLogout = () => {
-    dispatch(setAddress(null));
+  const handleLogout = async () => {
+    try {
+      dispatch(setAddress(null));
+    } catch (e) {
+      // console.log(e);
+    }
   };
-
   return {
     handleLogin,
     handleLogout,

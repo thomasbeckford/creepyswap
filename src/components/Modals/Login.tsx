@@ -15,9 +15,9 @@ import Image from "next/image";
 import { enabledConnectors } from "@/utils/connectors";
 
 export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
-  const handleClick = (walletName: string) => {
-    const walletNameSnakeCase = walletName.toLowerCase().replace(/ /g, "_");
-    handleLoginClick(walletNameSnakeCase);
+  const handleClick = (providerName: string) => {
+    const providerNameSnakeCase = providerName.toLowerCase().replace(/ /g, "_");
+    handleLoginClick(providerNameSnakeCase);
   };
 
   return (
@@ -27,10 +27,10 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
         <ModalCloseButton color="blue.500" />
         <ModalHeader textAlign="center">Connect to a wallet</ModalHeader>
         <ModalBody>
-          {enabledConnectors.map(({ name: walletName, src, alt }) => (
+          {enabledConnectors.map(({ name: providerName, src, alt }) => (
             <Box
-              key={walletName}
-              onClick={() => handleClick(walletName)}
+              key={providerName}
+              onClick={() => handleClick(providerName)}
               borderRadius={8}
               bg="gray.600"
               textAlign="center"
@@ -47,7 +47,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                 padding={15}
                 transition={".2s"}
               >
-                <Text>{walletName}</Text>
+                <Text>{providerName}</Text>
                 <Image src={src} alt={alt} width={45} height={45} />
               </Flex>
             </Box>

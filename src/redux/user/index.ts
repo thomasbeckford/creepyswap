@@ -4,15 +4,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState: {
   address: string | null;
   chain: {
-    label: string;
-    value: number;
+    id: number;
+    name: string;
   };
+  walletProvider: string | null;
 } = {
   address: null,
   chain: {
-    value: defaultChainId as number,
-    label: "FTM",
+    id: defaultChainId as number,
+    name: "FTM",
   },
+  walletProvider: null,
 };
 
 export const userReducer = createSlice({
@@ -25,10 +27,13 @@ export const userReducer = createSlice({
     setChain: (state, action) => {
       state.chain = action.payload;
     },
+    setWalletProvider: (state, action) => {
+      state.walletProvider = action.payload;
+    },
   },
 });
 
 // Actions
-export const { setAddress, setChain } = userReducer.actions;
+export const { setAddress, setChain, setWalletProvider } = userReducer.actions;
 
 export default userReducer.reducer;

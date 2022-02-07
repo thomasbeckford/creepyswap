@@ -1,46 +1,64 @@
 import { TokenData } from "@/types";
-import { RPC_URLS } from "@/utils/connectors";
-import { networks } from "@/utils/networks";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import { BigNumber, ethers } from "ethers";
+
+import { BigNumber } from "ethers";
 import { formatUnits } from "ethers/lib/utils";
+import connectors from "./../connectors";
+import { IProviderOptions } from "./types";
 
-export const connectWallet = async (chainId: number, walletName: string) => {
-  const { ethereum } = window;
-  const name =
-    networks.find((network) => network.chainId === chainId)?.network ||
-    "Unknown";
+export const connectWallet = async (providerName: string, chainId: any) => {
+  let providerOptions: IProviderOptions = {};
 
-  // if (!ethereum) {
-  //   console.log("No ethereum provider found");
-  //   alert("No ethereum provider found");
-  // }
+  const isMobile = window.navigator.userAgent.includes("Mobile");
+  const onlyInjected = isMobile;
 
-  if (walletName === "metamask" && ethereum) {
-    const provider = new ethers.providers.Web3Provider(ethereum, {
-      name,
-      chainId,
-    });
-
-    const accounts = await provider?.listAccounts();
-    if (accounts.length) return accounts[0];
-
-    const address = await provider.send("eth_requestAccounts", []);
-    if (address) return address[0];
+  if (onlyInjected) {
+    // console.log("Mobile!");
   }
 
-  try {
-    //  Create WalletConnect Provider
-    const wcProvider = new WalletConnectProvider({
-      rpc: RPC_URLS[250],
-      qrcode: true,
-    });
+  const connectTo = async (
+    name: string,
+    // eslint-disable-next-line no-unused-vars
+    connector: (providerPackage: any, opts: any) => Promise<any>
+  ) => {
+    try {
+      const providerPackage =
+        providerOptions &&
+        providerOptions[name] &&
+        providerOptions[name].package
+          ? providerOptions[name].package
+          : {};
+      providerOptions =
+        providerOptions &&
+        providerOptions[name] &&
+        providerOptions[name].options
+          ? providerOptions[name].options
+          : {};
+      const opts = chainId
+        ? { network: chainId, ...providerOptions }
+        : providerOptions;
 
-    const address = await wcProvider.enable();
-    return address[0];
-  } catch (e) {
-    console.log(e);
-    alert(e);
+      const provider = await connector(providerPackage, opts);
+      const address = provider.accounts[0];
+      return address;
+    } catch (error) {
+      // await onError(error);
+    }
+  };
+
+  const connectToInjected = async () => {
+    try {
+      const provider = await connectors.ConnectToInjected();
+      const address = await provider.request({ method: "eth_requestAccounts" });
+      return address[0];
+    } catch (error) {
+      // console.log(error);
+    }
+  };
+  if (providerName === "injected" || providerName === "metamask") {
+    return connectToInjected();
+  }
+  if (providerName === "wallet_connect") {
+    return connectTo("walletconnect", connectors.ConnectToWalletConnect);
   }
 };
 
@@ -68,3 +86,4 @@ export const formatReturnData = (item: any) => {
 
   return tdata;
 };
+//
