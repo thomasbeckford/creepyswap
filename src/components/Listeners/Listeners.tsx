@@ -1,4 +1,6 @@
+import { ISelectedProvider } from "@/helpers/types";
 import useLogin from "@/hooks/useLogin";
+import { enabledConnectors } from "@/utils/connectors";
 import { useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
 
@@ -9,7 +11,9 @@ export default function Listeners({ children }: any) {
   useEffect(() => {
     if (window.ethereum) {
       window.ethereum.on("accountsChanged", async (account: string[]) => {
-        handleLogin("metamask");
+        const selectedProvider: ISelectedProvider = enabledConnectors[0]; // Metamask
+
+        handleLogin(selectedProvider);
         if (account.length > 0) {
           toast({
             title: "Account changed",

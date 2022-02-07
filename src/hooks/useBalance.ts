@@ -22,7 +22,6 @@ const useBalance = () => {
     diffAmountValue: 0,
     diffPercentValue: 0,
   });
-
   const { data, isLoading } = useGetTokenByIdQuery(
     {
       address,

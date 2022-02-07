@@ -6,7 +6,6 @@ import {
   Box,
   IconButton,
   useToast,
-  Text,
 } from "@chakra-ui/react";
 import React from "react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
@@ -27,6 +26,7 @@ import { Select } from "chakra-react-select";
 import { setChain } from "@/redux/user";
 import { chainIdToString } from "@/helpers/chain";
 import { selectStyles } from "@/theme/models/select";
+import { ISelectedProvider } from "@/helpers/types";
 
 function Topbar() {
   const {
@@ -50,8 +50,8 @@ function Topbar() {
   const selectedChain = useAppSelector(selectChain);
   const toast = useToast();
 
-  const handleLoginClick = (providerName: string) => {
-    handleLogin(providerName);
+  const handleLoginClick = (selectedProvider: ISelectedProvider) => {
+    handleLogin(selectedProvider);
     onModalClose();
   };
 
@@ -134,7 +134,7 @@ function Topbar() {
             <Select
               chakraStyles={selectStyles}
               options={selectOptions}
-              defaultValue={selectedChain}
+              defaultValue={selectedChain.id}
               onChange={handleSelectChainId}
               isSearchable={false}
             />

@@ -3,17 +3,15 @@ import { TokenData } from "@/types";
 import { BigNumber } from "ethers";
 import { formatUnits } from "ethers/lib/utils";
 import connectors from "./../connectors";
-import { IProviderOptions } from "./types";
+import { IProviderOptions, ISelectedProvider } from "./types";
 
-export const connectWallet = async (providerName: string, chainId: any) => {
+export const connectWallet = async (
+  selectedProvider: ISelectedProvider,
+  chainId: number
+) => {
   let providerOptions: IProviderOptions = {};
 
   const isMobile = window.navigator.userAgent.includes("Mobile");
-  const onlyInjected = isMobile;
-
-  if (onlyInjected) {
-    // console.log("Mobile!");
-  }
 
   const connectTo = async (
     name: string,
@@ -45,6 +43,10 @@ export const connectWallet = async (providerName: string, chainId: any) => {
     }
   };
 
+  if (isMobile) {
+    return connectTo("walletconnect", connectors.ConnectToWalletConnect);
+  }
+
   const connectToInjected = async () => {
     try {
       const provider = await connectors.ConnectToInjected();
@@ -54,10 +56,10 @@ export const connectWallet = async (providerName: string, chainId: any) => {
       // console.log(error);
     }
   };
-  if (providerName === "injected" || providerName === "metamask") {
+  if (selectedProvider.type === "injected") {
     return connectToInjected();
   }
-  if (providerName === "wallet_connect") {
+  if (selectedProvider.type === "walletconnect") {
     return connectTo("walletconnect", connectors.ConnectToWalletConnect);
   }
 };

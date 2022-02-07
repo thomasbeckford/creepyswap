@@ -24,6 +24,7 @@ import FarmingRewards from "./farming-rewards";
 import WalletBreakdown from "./wallet-breakdown";
 import { formatAMPM } from "@/helpers/dates";
 import CountUpNumber from "@/components/CountUp";
+import { ISelectedProvider } from "@/helpers/types";
 
 export default function Portfolio() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,8 +33,8 @@ export default function Portfolio() {
   // const address = useAppSelector(selectAddress);
   const { tokens, liquidity, isLoading } = useBalance();
 
-  const handleLoginClick = (providerName: string) => {
-    handleLogin(providerName);
+  const handleLoginClick = (selectedProvider: ISelectedProvider) => {
+    handleLogin(selectedProvider);
     onClose();
   };
 
@@ -52,36 +53,38 @@ export default function Portfolio() {
 
   return (
     <Main meta={<Meta title="Porfolio" description="" />}>
-      <Card p="20px" mb={5}>
-        <Center gap="17" justifyContent={"space-around"}>
-          <Skeleton
-            width="100px"
-            isLoaded={isLoggedIn}
-            height={8}
-            borderRadius={8}
-          >
-            <CountUpNumber
-              value={tokens.total24ValueNumber}
-              prefix="$"
-              decimals={2}
-            />
-          </Skeleton>
+      {isLoggedIn && (
+        <Card p="20px" mb={5}>
+          <Center gap="17" justifyContent={"space-around"}>
+            <Skeleton
+              width="100px"
+              isLoaded={!isLoading}
+              height={8}
+              borderRadius={8}
+            >
+              <CountUpNumber
+                value={tokens.total24ValueNumber}
+                prefix="$"
+                decimals={2}
+              />
+            </Skeleton>
 
-          <Skeleton isLoaded={isLoggedIn} height={8} borderRadius={8}>
-            <Text fontWeight={"bold"}>
-              Data last Update at {formatAMPM(new Date())}
-            </Text>
-          </Skeleton>
+            <Skeleton isLoaded={!isLoading} height={8} borderRadius={8}>
+              <Text fontWeight={"bold"}>
+                Data last Update at {formatAMPM(new Date())}
+              </Text>
+            </Skeleton>
 
-          <Skeleton isLoaded={isLoggedIn} height={8} borderRadius={8}>
-            <Button variant={"outline"} onClick={handleLogout}>
-              Disconnect
-            </Button>
-          </Skeleton>
-        </Center>
-      </Card>
+            <Skeleton isLoaded={!isLoading} height={8} borderRadius={8}>
+              <Button variant={"outline"} onClick={handleLogout}>
+                Disconnect
+              </Button>
+            </Skeleton>
+          </Center>
+        </Card>
+      )}
 
-      {!isLoggedIn && (
+      {!isLoggedIn ? (
         <Card mb="20px" p="20px">
           <Flex justifyContent={"center"} pt="30px">
             <Box textAlign={"center"}>
@@ -94,31 +97,31 @@ export default function Portfolio() {
             </Box>
           </Flex>
         </Card>
+      ) : (
+        <Flex gap={7}>
+          {portfolioTables.map((table) => (
+            <Card mb="20px" p="20px 40px" flex="1" key={table.title}>
+              {isLoading ? (
+                <Spinner
+                  mb="50px"
+                  thickness="4px"
+                  speed=".65s"
+                  emptyColor="gray.900"
+                  color="blue.800"
+                  size="xl"
+                />
+              ) : (
+                <Box isLoaded={isLoading} borderRadius={8}>
+                  <Text textAlign={"center"} mb="20px" fontSize="large">
+                    {table.title}
+                  </Text>
+                  {table.component}
+                </Box>
+              )}
+            </Card>
+          ))}
+        </Flex>
       )}
-
-      <Flex gap={7}>
-        {portfolioTables.map((table) => (
-          <Card mb="20px" p="20px 40px" flex="1" key={table.title}>
-            {isLoading ? (
-              <Spinner
-                mb="50px"
-                thickness="4px"
-                speed=".65s"
-                emptyColor="gray.900"
-                color="blue.800"
-                size="xl"
-              />
-            ) : (
-              <Skeleton isLoaded={isLoggedIn} borderRadius={8}>
-                <Text textAlign={"center"} mb="20px" fontSize="large">
-                  {table.title}
-                </Text>
-                {table.component}
-              </Skeleton>
-            )}
-          </Card>
-        ))}
-      </Flex>
 
       <LoginModal
         handleLoginClick={handleLoginClick}

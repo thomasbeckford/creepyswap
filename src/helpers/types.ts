@@ -9,7 +9,7 @@ export interface IProviderInfo {
 }
 
 export interface IProviderOptions {
-  [providerName: string]: {
+  [selectedProvider: string]: {
     package: any;
     options: any;
   };
@@ -17,10 +17,17 @@ export interface IProviderOptions {
 
 export interface IInjectedProvidersMap {
   injectedAvailable: boolean;
-  [isProviderName: string]: boolean;
+  [isselectedProvider: string]: boolean;
 }
 
 export interface IProviderCallback {
   name: string | null;
   onClick: () => Promise<void>;
+}
+
+export interface ISelectedProvider {
+  name: string;
+  type: string;
+  alt: string;
+  src: string;
 }

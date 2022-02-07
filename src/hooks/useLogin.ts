@@ -1,3 +1,4 @@
+import { ISelectedProvider } from "@/helpers/types";
 import { connectWallet } from "@/helpers/web3";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setAddress } from "@/redux/user";
@@ -5,11 +6,10 @@ import { selectChain } from "@/redux/user/selectors";
 
 const useLogin = () => {
   const dispatch = useAppDispatch();
-  // const providers = useContext(WalletContext);
-  const chainId = useAppSelector(selectChain).id;
+  const chain = useAppSelector(selectChain);
 
-  const handleLogin = async (providerName: string) => {
-    const address = await connectWallet(providerName, chainId);
+  const handleLogin = async (selectedProvider: ISelectedProvider) => {
+    const address = await connectWallet(selectedProvider, chain.id);
     if (!address) return;
     dispatch(setAddress(address));
   };

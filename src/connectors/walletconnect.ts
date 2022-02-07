@@ -1,3 +1,4 @@
+import { RPC_URLS } from "@/utils/connectors";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
 export interface IWalletConnectConnectorOptions {
@@ -19,14 +20,11 @@ const ConnectToWalletConnect = (opts: IWalletConnectConnectorOptions) => {
         qrcode = typeof opts.qrcode !== "undefined" ? opts.qrcode : qrcode;
         chainId = opts.network ? opts.network : chainId;
       }
-
       const provider = new WalletConnectProvider({
         bridge,
         qrcode,
         chainId,
-        rpc: {
-          250: "https://rpc.ftm.tools/",
-        },
+        rpc: { [chainId]: RPC_URLS[chainId][0] },
       });
 
       await provider.enable();
