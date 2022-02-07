@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import Listeners from "@/components/Listeners";
+import { WalletProvider } from "@/provider";
 
 declare global {
   export interface Window {
@@ -26,9 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           loading={<div style={{ color: "#fff" }}>Loading</div>}
           persistor={persistor}
         >
-          <Listeners>
-            <Component {...pageProps} />
-          </Listeners>
+          <WalletProvider>
+            <Listeners>
+              <Component {...pageProps} />
+            </Listeners>
+          </WalletProvider>
         </PersistGate>
       </Provider>
     </ChakraProvider>

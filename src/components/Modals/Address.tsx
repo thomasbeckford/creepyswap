@@ -13,13 +13,14 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import React from "react";
-import useLogin from "@/hooks/useLogin";
+import useAuth from "@/hooks/useAuth";
 
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { useClipboard } from "@chakra-ui/react";
 import { MdContentCopy } from "react-icons/md";
+
 export default function AddressModal({ isOpen, onClose, address }: any) {
-  const { handleLogout } = useLogin();
+  const { handleLogout } = useAuth();
 
   const { onCopy } = useClipboard(address || "", 500);
 

@@ -15,7 +15,7 @@ import {
   selectChain,
   selectIsLoggedIn,
 } from "@/redux/user/selectors";
-import useLogin from "@/hooks/useLogin";
+import useAuth from "@/hooks/useAuth";
 import LoginModal from "../Modals/Login";
 import { setSidebarIsOpen } from "@/redux/sidebar";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
@@ -41,7 +41,7 @@ function Topbar() {
     onClose: onAddressModalClose,
   } = useDisclosure();
 
-  const { handleLogin } = useLogin();
+  const { handleLogin } = useAuth();
   const dispatch = useAppDispatch();
 
   const address = useAppSelector(selectAddress);

@@ -1,11 +1,11 @@
 import { ISelectedProvider } from "@/helpers/types";
-import useLogin from "@/hooks/useLogin";
+import useAuth from "@/hooks/useAuth";
 import { enabledConnectors } from "@/utils/connectors";
 import { useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
 
 export default function Listeners({ children }: any) {
-  const { handleLogin } = useLogin();
+  const { handleLogin } = useAuth();
   const toast = useToast();
 
   useEffect(() => {

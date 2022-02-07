@@ -7,7 +7,8 @@ import { IProviderOptions, ISelectedProvider } from "./types";
 
 export const connectWallet = async (
   selectedProvider: ISelectedProvider,
-  chainId: number
+  chainId: number,
+  setProvider: (provider: any) => void
 ) => {
   let providerOptions: IProviderOptions = {};
 
@@ -36,6 +37,7 @@ export const connectWallet = async (
         : providerOptions;
 
       const provider = await connector(providerPackage, opts);
+      setProvider(provider);
       const address = provider.accounts[0];
       return address;
     } catch (error) {

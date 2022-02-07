@@ -1,5 +1,5 @@
 import LoginModal from "@/components/Modals/Login";
-import useLogin from "@/hooks/useLogin";
+import useAuth from "@/hooks/useAuth";
 import { Meta } from "@/layout/Meta";
 import { Main } from "@/templates";
 import {
@@ -8,9 +8,7 @@ import {
   useDisclosure,
   Text,
   Flex,
-  // Icon,
   Spinner,
-  Skeleton,
   Center,
 } from "@chakra-ui/react";
 
@@ -29,7 +27,7 @@ import { ISelectedProvider } from "@/helpers/types";
 export default function Portfolio() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
-  const { handleLogin } = useLogin();
+  const { handleLogin, handleLogout } = useAuth();
   // const address = useAppSelector(selectAddress);
   const { tokens, liquidity, isLoading } = useBalance();
 
@@ -37,8 +35,6 @@ export default function Portfolio() {
     handleLogin(selectedProvider);
     onClose();
   };
-
-  const { handleLogout } = useLogin();
 
   const portfolioTables = [
     {
@@ -56,30 +52,25 @@ export default function Portfolio() {
       {isLoggedIn && (
         <Card p="20px" mb={5}>
           <Center gap="17" justifyContent={"space-around"}>
-            <Skeleton
-              width="100px"
-              isLoaded={!isLoading}
-              height={8}
-              borderRadius={8}
-            >
+            <Box width="100px" height={8} borderRadius={8}>
               <CountUpNumber
                 value={tokens.total24ValueNumber}
                 prefix="$"
                 decimals={2}
               />
-            </Skeleton>
+            </Box>
 
-            <Skeleton isLoaded={!isLoading} height={8} borderRadius={8}>
+            <Box height={8} borderRadius={8}>
               <Text fontWeight={"bold"}>
                 Data last Update at {formatAMPM(new Date())}
               </Text>
-            </Skeleton>
+            </Box>
 
-            <Skeleton isLoaded={!isLoading} height={8} borderRadius={8}>
+            <Box height={8} borderRadius={8}>
               <Button variant={"outline"} onClick={handleLogout}>
                 Disconnect
               </Button>
-            </Skeleton>
+            </Box>
           </Center>
         </Card>
       )}
@@ -111,7 +102,7 @@ export default function Portfolio() {
                   size="xl"
                 />
               ) : (
-                <Box isLoaded={isLoading} borderRadius={8}>
+                <Box borderRadius={8}>
                   <Text textAlign={"center"} mb="20px" fontSize="large">
                     {table.title}
                   </Text>
