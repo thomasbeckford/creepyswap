@@ -20,7 +20,7 @@ import Card from "@/components/Card";
 import useBalance from "@/hooks/useBalance";
 import FarmingRewards from "./farming-rewards";
 import WalletBreakdown from "./wallet-breakdown";
-import { formatAMPM } from "@/helpers/dates";
+
 import CountUpNumber from "@/components/CountUp";
 import { ISelectedProvider } from "@/helpers/types";
 
@@ -50,7 +50,7 @@ export default function Portfolio() {
   return (
     <Main meta={<Meta title="Porfolio" description="" />}>
       {isLoggedIn && (
-        <Card p="20px" mb={5}>
+        <Card mb={5} width="100%" p={{ base: "0", md: "20px" }}>
           <Center gap="17" justifyContent={"space-around"}>
             <Box width="100px" height={8} borderRadius={8}>
               <CountUpNumber
@@ -60,13 +60,7 @@ export default function Portfolio() {
               />
             </Box>
 
-            <Box height={8} borderRadius={8}>
-              <Text fontWeight={"bold"}>
-                Data last Update at {formatAMPM(new Date())}
-              </Text>
-            </Box>
-
-            <Box height={8} borderRadius={8}>
+            <Box borderRadius={8} p={{ base: "10px" }}>
               <Button variant={"outline"} onClick={handleLogout}>
                 Disconnect
               </Button>
@@ -89,9 +83,15 @@ export default function Portfolio() {
           </Flex>
         </Card>
       ) : (
-        <Flex gap={7}>
+        <Box
+          gap="5"
+          display={{
+            base: "block",
+            md: "flex",
+          }}
+        >
           {portfolioTables.map((table) => (
-            <Card mb="20px" p="20px 40px" flex="1" key={table.title}>
+            <Card flex="1" key={table.title}>
               {isLoading ? (
                 <Spinner
                   mb="50px"
@@ -102,7 +102,7 @@ export default function Portfolio() {
                   size="xl"
                 />
               ) : (
-                <Box borderRadius={8}>
+                <Box borderRadius={8} mb={{ base: "10px" }}>
                   <Text textAlign={"center"} mb="20px" fontSize="large">
                     {table.title}
                   </Text>
@@ -111,7 +111,7 @@ export default function Portfolio() {
               )}
             </Card>
           ))}
-        </Flex>
+        </Box>
       )}
 
       <LoginModal

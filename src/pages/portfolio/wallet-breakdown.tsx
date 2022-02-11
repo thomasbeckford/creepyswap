@@ -1,5 +1,5 @@
 import CountUpNumber from "@/components/CountUp";
-import { formatAMPM } from "@/helpers/dates";
+// import { formatAMPM } from "@/helpers/dates";
 import { TokenData } from "@/types";
 import {
   Table,
@@ -13,18 +13,11 @@ import {
   Box,
   Text,
   Image,
-  Tfoot,
 } from "@chakra-ui/react";
 
 const WalletBreakdown = ({ tokens }: any) => (
   <Box>
-    <Table
-      // size="sm"
-      variant="striped"
-      colorScheme={"blackAlpha"}
-      boxShadow="0px 0px 10px rgba(0, 0, 0, 0.6)"
-      borderRadius={".5rem"}
-    >
+    <Table>
       <TableCaption textAlign={"right"}>
         <Text fontWeight={"bold"}>Total Value</Text>
         <CountUpNumber
@@ -41,57 +34,53 @@ const WalletBreakdown = ({ tokens }: any) => (
         </Tr>
       </Thead>
 
-      <Tbody height={400} overflowX={"hidden"} overflowY="scroll">
-        {tokens.tokenList.map((token: TokenData) => (
-          <Tr key={token.address + token.name}>
-            <Td>
-              <Flex alignItems={"center"} gap="3">
-                <Image
-                  src={token.icon}
-                  width="34px"
-                  height="34px"
-                  fallbackSrc={"https://via.placeholder.com/24"}
-                  borderRadius={15}
-                  alt={token.name}
+      <Tbody overflowX={"hidden"} overflowY="scroll">
+        {tokens.tokenList.length ? (
+          tokens.tokenList.map((token: TokenData) => (
+            <Tr key={token.address + token.name}>
+              <Td>
+                <Flex alignItems={"center"} gap="3">
+                  <Image
+                    src={token.icon}
+                    width="34px"
+                    height="34px"
+                    fallbackSrc={"https://via.placeholder.com/24"}
+                    borderRadius={15}
+                    alt={token.name}
+                  />
+                  <Box>
+                    {/* <Text fontWeight={"bold"}>{token.full_name}</Text> */}
+                    <Text fontSize="large" fontWeight={"700"}>
+                      {token.symbol}
+                    </Text>
+                  </Box>
+                </Flex>
+              </Td>
+
+              <Td isNumeric>
+                <CountUpNumber
+                  value={Number(token.rate)}
+                  decimals={6}
+                  color="white"
                 />
-                <Box>
-                  {/* <Text fontWeight={"bold"}>{token.full_name}</Text> */}
-                  <Text fontSize="large" fontWeight={"700"}>
-                    {token.symbol}
-                  </Text>
-                </Box>
-              </Flex>
-            </Td>
+              </Td>
 
-            <Td isNumeric>
-              <CountUpNumber
-                value={Number(token.rate)}
-                decimals={6}
-                color="white"
-              />
-            </Td>
+              <Td isNumeric>
+                <CountUpNumber value={Number(token.amount)} decimals={6} />
 
-            <Td isNumeric>
-              <CountUpNumber value={Number(token.amount)} decimals={6} />
-
-              <CountUpNumber
-                value={Number(token.usd)}
-                decimals={0}
-                prefix="$"
-                color="rgb(82, 213, 185)"
-              />
-            </Td>
-          </Tr>
-        ))}
+                <CountUpNumber
+                  value={Number(token.usd)}
+                  decimals={0}
+                  prefix="$"
+                  color="rgb(82, 213, 185)"
+                />
+              </Td>
+            </Tr>
+          ))
+        ) : (
+          <Box>No data</Box>
+        )}
       </Tbody>
-
-      <Tfoot>
-        <Tr>
-          <Th>Asset</Th>
-          <Th isNumeric>Price</Th>
-          <Th isNumeric>Amount</Th>
-        </Tr>
-      </Tfoot>
     </Table>
   </Box>
 );

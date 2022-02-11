@@ -6,6 +6,7 @@ export const globalStyles = {
       fontFamily: "'Baloo2-Medium',body",
       position: "relative",
       minHeight: "100vh",
+      // maxHeight: "100vh",
 
       bg: mode(
         "gray.300",

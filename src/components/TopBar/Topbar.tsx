@@ -5,14 +5,14 @@ import {
   HStack,
   Box,
   IconButton,
-  useToast,
+  // useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   selectAddress,
-  selectChain,
+  // selectChain,
   selectIsLoggedIn,
 } from "@/redux/user/selectors";
 import useAuth from "@/hooks/useAuth";
@@ -20,11 +20,11 @@ import LoginModal from "../Modals/Login";
 import { setSidebarIsOpen } from "@/redux/sidebar";
 import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
 import AddressModal from "../Modals/Address";
-import { NetworkInterface, networks } from "@/utils/networks";
+// import { NetworkInterface, networks } from "@/utils/networks";
 
 // import { Select } from "chakra-react-select";
-import { setChain } from "@/redux/user";
-import { chainIdToString } from "@/helpers/chain";
+// import { setChain } from "@/redux/user";
+// import { chainIdToString } from "@/helpers/chain";
 // import { selectStyles } from "@/theme/components/select";
 import { ISelectedProvider } from "@/helpers/types";
 
@@ -47,8 +47,8 @@ function Topbar() {
   const address = useAppSelector(selectAddress);
   const loggedIn = useAppSelector(selectIsLoggedIn);
   const sidebarIsOpen = useAppSelector(selectSidebarIsOpen);
-  const selectedChain = useAppSelector(selectChain);
-  const toast = useToast();
+  // const selectedChain = useAppSelector(selectChain);
+  // const toast = useToast();
 
   const handleLoginClick = (selectedProvider: ISelectedProvider) => {
     handleLogin(selectedProvider);
@@ -63,56 +63,56 @@ function Topbar() {
     dispatch(setSidebarIsOpen(!sidebarIsOpen));
   };
 
-  // selectOptions from networks array
-  const selectOptions = networks.map((network) => ({
-    value: network.chainId,
-    label: network.symbol,
-  }));
+  // SELECT CHAIN FUNCTION
+  // const selectOptions = networks.map((network) => ({
+  //   value: network.chainId,
+  //   label: network.symbol,
+  // }));
 
-  const handleSelectChainId = async (selectedOption: any) => {
-    const network: NetworkInterface =
-      networks.find((network) => network.chainId === selectedOption.value) ||
-      networks[0];
+  // const handleSelectChainId = async (selectedOption: any) => {
+  //   const network: NetworkInterface =
+  //     networks.find((network) => network.chainId === selectedOption.value) ||
+  //     networks[0];
 
-    // Only for metamask
-    try {
-      const switchNetwork = window.ethereum.request({
-        method: "wallet_switchEthereumChain",
-        params: [
-          {
-            chainId: chainIdToString(network.chainId),
-          },
-        ],
-      });
+  //   // Only for metamask
+  //   try {
+  //     const switchNetwork = window.ethereum.request({
+  //       method: "wallet_switchEthereumChain",
+  //       params: [
+  //         {
+  //           chainId: chainIdToString(network.chainId),
+  //         },
+  //       ],
+  //     });
 
-      await switchNetwork;
+  //     await switchNetwork;
 
-      dispatch(
-        setChain({
-          value: network.chainId,
-          label: network.symbol,
-        })
-      );
+  //     dispatch(
+  //       setChain({
+  //         value: network.chainId,
+  //         label: network.symbol,
+  //       })
+  //     );
 
-      toast({
-        title: `${network.symbol} network selected`,
-        description: `You are now connected to ${network.symbol} network`,
-        status: "info",
-        duration: 5000,
-        isClosable: true,
-        position: "bottom-right",
-      });
-    } catch (error: any) {
-      toast({
-        title: `Error switching network`,
-        description: `${error.message}`,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
-      });
-    }
-  };
+  //     toast({
+  //       title: `${network.symbol} network selected`,
+  //       description: `You are now connected to ${network.symbol} network`,
+  //       status: "info",
+  //       duration: 5000,
+  //       isClosable: true,
+  //       position: "bottom-right",
+  //     });
+  //   } catch (error: any) {
+  //     toast({
+  //       title: `Error switching network`,
+  //       description: `${error.message}`,
+  //       status: "error",
+  //       duration: 5000,
+  //       isClosable: true,
+  //       position: "top",
+  //     });
+  //   }
+  // };
 
   return (
     <>
