@@ -22,10 +22,10 @@ import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
 import AddressModal from "../Modals/Address";
 import { NetworkInterface, networks } from "@/utils/networks";
 
-import { Select } from "chakra-react-select";
+// import { Select } from "chakra-react-select";
 import { setChain } from "@/redux/user";
 import { chainIdToString } from "@/helpers/chain";
-import { selectStyles } from "@/theme/models/select";
+// import { selectStyles } from "@/theme/components/select";
 import { ISelectedProvider } from "@/helpers/types";
 
 function Topbar() {
@@ -131,13 +131,13 @@ function Topbar() {
             {/* <Text fontWeight={"bold"} fontSize="large">
               $ 20.22
             </Text> */}
-            <Select
+            {/* <Select
               chakraStyles={selectStyles}
               options={selectOptions}
               defaultValue={selectedChain.id}
               onChange={handleSelectChainId}
               isSearchable={false}
-            />
+            /> */}
 
             {!loggedIn ? (
               <Button variant="outline" onClick={onModalOpen}>
