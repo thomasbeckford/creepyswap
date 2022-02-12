@@ -19,38 +19,35 @@ import {
   AvatarBadge,
   Icon,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { wallets } from "@/utils/connectors";
 
 import { networks } from "@/utils/networks";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setNetwork } from "@/redux/user";
-import { selectNetwork } from "@/redux/user/selectors";
+import { setAcceptTerms, setNetwork } from "@/redux/user";
+import { selectAcceptTerms, selectNetwork } from "@/redux/user/selectors";
 import { IWallet } from "@/helpers/types";
 
 export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
-  const [agreeTerms, setAgreeTerms] = useState(false);
-
   const selectedNetwork = useAppSelector(selectNetwork);
+  const acceptTerms = useAppSelector(selectAcceptTerms);
   const dispatch = useAppDispatch();
 
   const handleSelectNetwork = (selected: string) => {
     dispatch(setNetwork(selected));
   };
 
-  const handleCheckbox = (e: any) => {
-    return setAgreeTerms(!!e.target.checked);
-  };
-
   const handleClose = () => {
-    setAgreeTerms(false);
     onClose();
   };
 
   const handleConnect = (wallet: IWallet) => {
     handleLoginClick(wallet);
-    setAgreeTerms(false);
+  };
+
+  const handleTerms = (e: any) => {
+    dispatch(setAcceptTerms(e.target.checked));
   };
 
   return (
@@ -72,7 +69,6 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
               md: "10px",
             }}
             borderRadius="md"
-            s
           >
             <HStack mb="20px">
               <Center
@@ -98,7 +94,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   </Link>
                 </Text>
                 <Box alignSelf="flex-start" fontSize="18px">
-                  <Checkbox onChange={handleCheckbox}>
+                  <Checkbox isChecked={acceptTerms} onChange={handleTerms}>
                     <Text>I read and accept</Text>
                   </Checkbox>
                 </Box>
@@ -116,7 +112,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             <HStack mb="10px">
               <Center
                 borderRadius="md"
-                bg={agreeTerms ? "blue.600" : "gray.900"}
+                bg={acceptTerms ? "blue.600" : "gray.900"}
                 fontWeight="bold"
                 width="26px"
                 height="26px"
@@ -138,7 +134,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   m="4px"
                   borderRadius="md"
                   _hover={
-                    agreeTerms
+                    acceptTerms
                       ? {
                           bg: "gray.900",
                           borderRadius: "md",
@@ -152,7 +148,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   <Avatar
                     src={network.activeLogo}
                     bg="#212a3b"
-                    filter={agreeTerms ? "grayscale(0%)" : "grayscale(80%)"}
+                    filter={acceptTerms ? "grayscale(0%)" : "grayscale(80%)"}
                     alt={network.name}
                     borderRadius="50%"
                     border="none"
@@ -182,7 +178,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             <HStack mb="10px">
               <Center
                 borderRadius="md"
-                bg={agreeTerms ? "blue.600" : "gray.900"}
+                bg={acceptTerms ? "blue.600" : "gray.900"}
                 fontWeight="bold"
                 width="26px"
                 height="26px"
@@ -204,7 +200,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   m="4px"
                   borderRadius="md"
                   _hover={
-                    selectedNetwork && agreeTerms
+                    selectedNetwork && acceptTerms
                       ? {
                           bg: "gray.900",
                           borderRadius: "md",
@@ -225,7 +221,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                     borderRadius="50%"
                     border="none"
                     filter={
-                      selectedNetwork && agreeTerms
+                      selectedNetwork && acceptTerms
                         ? "grayscale(0%)"
                         : "grayscale(80%)"
                     }
