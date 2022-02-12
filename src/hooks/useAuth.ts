@@ -6,17 +6,19 @@ import { setAddress, setNetwork } from "@/redux/user";
 import { selectNetwork } from "@/redux/user/selectors";
 import { networks } from "@/utils/networks";
 import { useContext } from "react";
+import { useRouter } from "next/router";
 
 const useAuth = () => {
   const dispatch = useAppDispatch();
   const network = useAppSelector(selectNetwork);
-
+  const router = useRouter();
   const { provider, setProvider } = useContext(WalletContext);
 
   const handleLogin = async (wallet: IWallet) => {
     const address = await connectWallet(wallet, network.id, setProvider);
     if (!address) return;
     dispatch(setAddress(address));
+    router.push("/portfolio");
   };
 
   const handleLogout = async () => {
