@@ -19,9 +19,14 @@ export const navigation = [
     href: "/",
     icon: BiHome,
   },
-
   {
     id: 1,
+    label: "Portfolio",
+    href: "/portfolio",
+    icon: BiLineChart,
+  },
+  {
+    id: 2,
     label: "Swap",
     href: "/swap",
     icon: MdSwapHoriz,
@@ -42,23 +47,18 @@ export const navigation = [
   //   href: "/stake",
   // },
   {
-    id: 5,
+    id: 3,
     label: "Bridge",
     href: "/bridge",
     icon: GiSuspensionBridge,
   },
-  {
-    id: 6,
-    label: "Portfolio",
-    href: "/portfolio",
-    icon: BiLineChart,
-  },
-  {
-    id: 7,
-    label: "Preferences",
-    href: "/preferences",
-    icon: FiSettings,
-  },
+
+  // {
+  //   id: 4,
+  //   label: "Preferences",
+  //   href: "/preferences",
+  //   icon: FiSettings,
+  // },
 ];
 
 export const Navigation = ({

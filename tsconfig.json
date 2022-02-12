@@ -25,6 +25,11 @@
       "@/services/*": ["./src/services/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/swap/index.ts'"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 
-export default function Bridge() {
+export default function Swap() {
   const router = useRouter();
 
   router.push("/");
-  window.open("https://spookyswap.finance/bridge", "_blank");
+  window.open("https://spookyswap.finance/swap", "_blank");
 
   return null;
 }

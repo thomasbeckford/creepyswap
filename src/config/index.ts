@@ -3,5 +3,5 @@ export const AppConfig = {
   network: "Fantom Opera Network",
   site_name: "CreepySwap",
   app_version: "0.0.1",
-  description: "CreepySwap is a decentralized exchange for Fantom tokens",
+  description: "CreepySwap is a decentralized exchange for fantom tokens",
 };

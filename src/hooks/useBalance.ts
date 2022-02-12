@@ -49,7 +49,7 @@ const useBalance = () => {
       const item = data.data.items[x];
       const tdata = formatReturnData(item);
 
-      const isAnLPToken = item.contract_name.includes("LP");
+      const isAnLPToken = item.contract_name.includes("CREEPY");
 
       if (item.type === "cryptocurrency" && !isAnLPToken) {
         tokenCurrentTotal += item.quote || 0;

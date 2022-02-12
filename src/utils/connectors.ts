@@ -3,7 +3,7 @@ export const RPC_URLS: { [chainId: number]: string[] } = {
   250: ["https://rpc.ftm.tools/", "https://rpc.ankr.com/fantom"],
 };
 
-export const enabledConnectors = [
+export const wallets = [
   {
     name: "Metamask",
     src: "/assets/images/metamask.png",

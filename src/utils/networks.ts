@@ -8,39 +8,11 @@ export interface NetworkInterface {
   blockExp: string | string[];
   decimals: number;
   // wss: string[];
+  activeLogo?: string;
+  inactiveLogo?: string;
 }
 
 export const networks: NetworkInterface[] = [
-  {
-    chainId: 1,
-    network: "Ethereum",
-    hex: "1",
-    rpc: "homestead",
-    name: "Ethereum",
-    symbol: "ETH",
-    blockExp: "Ethereum",
-    decimals: 18,
-  },
-  {
-    chainId: 56,
-    network: "Binance Smart Chain Mainnet",
-    hex: "38",
-    rpc: ["https://bsc-dataseed.binance.org/"],
-    name: "Binance Coin",
-    symbol: "BNB",
-    blockExp: ["https://bscscan.com"],
-    decimals: 18,
-  },
-  {
-    chainId: 137,
-    network: "Polygon",
-    hex: "89",
-    rpc: ["https://polygon-rpc.com"],
-    name: "MATIC",
-    symbol: "MATIC",
-    blockExp: ["https://polygonscan.com/"],
-    decimals: 18,
-  },
   {
     chainId: 250,
     network: "Fantom Opera",
@@ -50,35 +22,47 @@ export const networks: NetworkInterface[] = [
     symbol: "FTM",
     blockExp: ["https://ftmscan.com/"],
     decimals: 18,
+    activeLogo: "https://app.1inch.io/assets/images/network-logos/ethereum.svg",
+    inactiveLogo:
+      "https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg",
   },
   {
-    chainId: 43114,
-    network: "Avalanche",
-    hex: "A86A",
-    rpc: ["https://api.avax.network/ext/bc/C/rpc"],
-    name: "AVAX",
-    symbol: "AVAX",
-    blockExp: ["https://cchain.explorer.avax.network/"],
+    chainId: 1,
+    network: "Ethereum",
+    hex: "1",
+    rpc: "homestead",
+    name: "Ethereum",
+    symbol: "ETH",
+    blockExp: "Ethereum",
     decimals: 18,
+    activeLogo: "https://app.1inch.io/assets/images/network-logos/ethereum.svg",
+    inactiveLogo:
+      "https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg",
   },
   {
-    chainId: 42161,
-    network: "Arbitrum",
-    hex: "A4B1",
-    rpc: ["https://arb1.arbitrum.io/rpc"],
-    name: "AETH",
-    symbol: "AETH",
-    blockExp: ["https://arbiscan.io"],
+    chainId: 56,
+    network: "Binance Smart Chain Mainnet",
+    hex: "38",
+    rpc: ["https://bsc-dataseed.binance.org/"],
+    name: "Binance",
+    symbol: "BNB",
+    blockExp: ["https://bscscan.com"],
     decimals: 18,
+    activeLogo: "https://app.1inch.io/assets/images/network-logos/ethereum.svg",
+    inactiveLogo:
+      "https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg",
   },
   {
-    chainId: 100,
-    network: "xDai",
-    hex: "64",
-    rpc: ["https://rpc.xdaichain.com/"],
-    name: "xDai",
-    symbol: "xDai",
-    blockExp: ["https://blockscout.com/xdai/mainnet/"],
+    chainId: 137,
+    network: "Polygon",
+    hex: "89",
+    rpc: ["https://polygon-rpc.com"],
+    name: "Polygon",
+    symbol: "MATIC",
+    blockExp: ["https://polygonscan.com/"],
     decimals: 18,
+    activeLogo: "https://app.1inch.io/assets/images/network-logos/ethereum.svg",
+    inactiveLogo:
+      "https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg",
   },
 ];
