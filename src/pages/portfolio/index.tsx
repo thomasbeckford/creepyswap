@@ -86,7 +86,6 @@ export default function Portfolio() {
         <Box
           gap="5"
           display={{
-            base: "block",
             md: "flex",
           }}
         >
@@ -103,7 +102,7 @@ export default function Portfolio() {
                 />
               ) : (
                 <Box borderRadius={8} mb={{ base: "10px" }}>
-                  <Text textAlign={"center"} mb="20px" fontSize="large">
+                  <Text textAlign={"center"} p="20px">
                     {table.title}
                   </Text>
                   {table.component}
