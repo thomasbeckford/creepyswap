@@ -16,7 +16,6 @@ import {
 
 const FarmingRewards = ({ liquidity }: any) => (
   <Box>
-    {console.log(liquidity)}
     {liquidity.farmList.length ? (
       <Table>
         <TableCaption textAlign={"right"}>

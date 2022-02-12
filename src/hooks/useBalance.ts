@@ -57,7 +57,6 @@ const useBalance = () => {
         !isAnLPToken &&
         item.contract_ticker_symbol !== "CREEPY"
       ) {
-        console.log(item);
         tokenCurrentTotal += item.quote || 0;
         token24Total += item.quote_24h || 0;
         tokenList.push(tdata);

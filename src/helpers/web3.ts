@@ -59,12 +59,15 @@ export const connectWallet = async (
       // console.log(error);
     }
   };
-  console.log("Wallet", wallet);
   if (wallet?.type === "injected") {
     return connectToInjected();
   }
   if (wallet?.type === "walletconnect") {
     return connectTo("walletconnect", connectors.ConnectToWalletConnect);
+  }
+
+  if (wallet?.type === "binance") {
+    return connectTo("binannce", connectors.ConnectToBinance);
   }
 };
 
