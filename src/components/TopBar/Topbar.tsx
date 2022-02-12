@@ -26,7 +26,7 @@ import AddressModal from "../Modals/Address";
 // import { setChain } from "@/redux/user";
 // import { chainIdToString } from "@/helpers/chain";
 // import { selectStyles } from "@/theme/components/select";
-import { ISelectedProvider } from "@/helpers/types";
+import { IWallet } from "@/helpers/types";
 
 function Topbar() {
   const {
@@ -47,11 +47,9 @@ function Topbar() {
   const address = useAppSelector(selectAddress);
   const loggedIn = useAppSelector(selectIsLoggedIn);
   const sidebarIsOpen = useAppSelector(selectSidebarIsOpen);
-  // const selectedChain = useAppSelector(selectChain);
-  // const toast = useToast();
 
-  const handleLoginClick = (selectedProvider: ISelectedProvider) => {
-    handleLogin(selectedProvider);
+  const handleLoginClick = (wallet: IWallet) => {
+    handleLogin(wallet);
     onModalClose();
   };
 

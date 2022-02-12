@@ -8,7 +8,6 @@ import {
   ModalFooter,
   Text,
   Flex,
-  Image,
   Grid,
   Link,
   Center,
@@ -16,45 +15,42 @@ import {
   Box,
   HStack,
   VStack,
+  Avatar,
+  AvatarBadge,
+  Icon,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { wallets } from "@/utils/connectors";
-import { ISelectedProvider } from "@/helpers/types";
+
 import { networks } from "@/utils/networks";
+import { CheckCircleIcon } from "@chakra-ui/icons";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { setNetwork } from "@/redux/user";
+import { selectNetwork } from "@/redux/user/selectors";
+import { IWallet } from "@/helpers/types";
 
 export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
-  const initialState = {
-    terms: true,
-    network: false,
-    wallet: false,
-  };
-  const [activeSection, setActiveSection] = useState(initialState);
-  const [selectedNetwork, setSelectedNetwork] = useState<string | null>(null);
+  const [agreeTerms, setAgreeTerms] = useState(false);
 
-  const handleClick = (selectedProvider: ISelectedProvider) => {
-    handleLoginClick(selectedProvider);
-  };
+  const selectedNetwork = useAppSelector(selectNetwork);
+  const dispatch = useAppDispatch();
 
   const handleSelectNetwork = (selected: string) => {
-    if (selected && activeSection.network) {
-      setSelectedNetwork(selected);
-      return setActiveSection({ ...activeSection, wallet: true });
-    }
-    setSelectedNetwork(null);
-    setActiveSection(initialState);
+    dispatch(setNetwork(selected));
   };
 
   const handleCheckbox = (e: any) => {
-    if (e.target.checked) {
-      return setActiveSection({ ...activeSection, network: true });
-    }
-    setSelectedNetwork(null);
-    setActiveSection(initialState);
+    return setAgreeTerms(!!e.target.checked);
   };
 
   const handleClose = () => {
-    setActiveSection(initialState);
+    setAgreeTerms(false);
     onClose();
+  };
+
+  const handleConnect = (wallet: IWallet) => {
+    handleLoginClick(wallet);
+    setAgreeTerms(false);
   };
 
   return (
@@ -120,7 +116,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             <HStack mb="10px">
               <Center
                 borderRadius="md"
-                bg={activeSection.network ? "blue.600" : "gray.900"}
+                bg={agreeTerms ? "blue.600" : "gray.900"}
                 fontWeight="bold"
                 width="26px"
                 height="26px"
@@ -137,17 +133,12 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   key={network.name}
                   flexDirection="column"
                   alignItems="center"
-                  onClick={() => handleSelectNetwork(network.name)}
+                  onClick={() => handleSelectNetwork(network)}
                   p="5px 0 5px 0px"
                   m="4px"
-                  bg={
-                    selectedNetwork === network.name
-                      ? "gray.900"
-                      : "transparent"
-                  }
                   borderRadius="md"
                   _hover={
-                    activeSection.network
+                    agreeTerms
                       ? {
                           bg: "gray.900",
                           borderRadius: "md",
@@ -158,17 +149,27 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                         }
                   }
                 >
-                  <Image
-                    src={
-                      activeSection.network
-                        ? network.activeLogo
-                        : network.inactiveLogo
-                    }
+                  <Avatar
+                    src={network.activeLogo}
+                    bg="#212a3b"
+                    filter={agreeTerms ? "grayscale(0%)" : "grayscale(80%)"}
                     alt={network.name}
                     borderRadius="50%"
                     border="none"
-                    w="65px"
-                  />
+                    size="lg"
+                  >
+                    {selectedNetwork.name === network.name && (
+                      <AvatarBadge border="2px">
+                        <Icon
+                          as={CheckCircleIcon}
+                          w="5"
+                          h="5"
+                          color="green.400"
+                          border="none"
+                        />
+                      </AvatarBadge>
+                    )}
+                  </Avatar>
                   <Text mt="5px" fontSize="13px" lineHeight="16px">
                     {network.name}
                   </Text>
@@ -181,7 +182,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             <HStack mb="10px">
               <Center
                 borderRadius="md"
-                bg={activeSection.wallet ? "blue.600" : "gray.900"}
+                bg={agreeTerms ? "blue.600" : "gray.900"}
                 fontWeight="bold"
                 width="26px"
                 height="26px"
@@ -196,22 +197,39 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
               {wallets.map((wallet) => (
                 <Flex
                   key={wallet.name}
-                  onClick={() => handleClick(wallet)}
                   flexDirection="column"
                   alignItems="center"
-                  cursor="pointer"
-                  _hover={{
-                    backgroundColor: "blue.500",
-                    borderRadius: "10px",
-                  }}
-                  p="5px"
+                  onClick={() => handleConnect(wallet)}
+                  p="5px 0 5px 0px"
+                  m="4px"
+                  borderRadius="md"
+                  _hover={
+                    selectedNetwork && agreeTerms
+                      ? {
+                          bg: "gray.900",
+                          borderRadius: "md",
+                          cursor: "pointer",
+                        }
+                      : {
+                          cursor: "default",
+                        }
+                  }
                 >
-                  <Image
-                    borderRadius="lg"
+                  <Avatar
+                    size="lg"
                     src={wallet.src}
                     alt={wallet.alt}
-                    w="45px"
-                  />
+                    bg="#212a3b"
+                    p="10px"
+                    m="10px"
+                    borderRadius="50%"
+                    border="none"
+                    filter={
+                      selectedNetwork && agreeTerms
+                        ? "grayscale(0%)"
+                        : "grayscale(80%)"
+                    }
+                  ></Avatar>
                   <Text mt="5px" fontSize="14px" lineHeight="16px">
                     {wallet.name}
                   </Text>

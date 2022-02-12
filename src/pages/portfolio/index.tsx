@@ -22,17 +22,17 @@ import FarmingRewards from "./farming-rewards";
 import WalletBreakdown from "./wallet-breakdown";
 
 import CountUpNumber from "@/components/CountUp";
-import { ISelectedProvider } from "@/helpers/types";
+import { IWallet } from "@/helpers/types";
 
 export default function Portfolio() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
   const { handleLogin, handleLogout } = useAuth();
-  // const address = useAppSelector(selectAddress);
+
   const { tokens, liquidity, isLoading } = useBalance();
 
-  const handleLoginClick = (selectedProvider: ISelectedProvider) => {
-    handleLogin(selectedProvider);
+  const handleLoginClick = (wallet: IWallet) => {
+    handleLogin(wallet);
     onClose();
   };
 

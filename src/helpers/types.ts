@@ -25,7 +25,7 @@ export interface IProviderCallback {
   onClick: () => Promise<void>;
 }
 
-export interface ISelectedProvider {
+export interface IWallet {
   name: string;
   type: string;
   alt: string;

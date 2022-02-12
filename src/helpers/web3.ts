@@ -3,11 +3,12 @@ import { TokenData } from "@/types";
 import { BigNumber } from "ethers";
 import { formatUnits } from "ethers/lib/utils";
 import connectors from "./../connectors";
-import { IProviderOptions, ISelectedProvider } from "./types";
+import { IProviderOptions, IWallet } from "./types";
 
 export const connectWallet = async (
-  selectedProvider: ISelectedProvider,
+  wallet: IWallet,
   chainId: number,
+  // eslint-disable-next-line no-unused-vars
   setProvider: (provider: any) => void
 ) => {
   let providerOptions: IProviderOptions = {};
@@ -58,10 +59,11 @@ export const connectWallet = async (
       // console.log(error);
     }
   };
-  if (selectedProvider.type === "injected") {
+  console.log("Wallet", wallet);
+  if (wallet?.type === "injected") {
     return connectToInjected();
   }
-  if (selectedProvider.type === "walletconnect") {
+  if (wallet?.type === "walletconnect") {
     return connectTo("walletconnect", connectors.ConnectToWalletConnect);
   }
 };

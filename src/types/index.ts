@@ -13,3 +13,17 @@ export interface TokenData {
   staked?: boolean;
   icon?: string;
 }
+
+export interface NetworkInterface {
+  id: number;
+  network: string;
+  hex: string;
+  rpc: string | string[];
+  name: string;
+  symbol: string;
+  blockExp: string | string[];
+  decimals: number;
+  // wss: string[];
+  activeLogo?: string;
+  inactiveLogo?: string;
+}

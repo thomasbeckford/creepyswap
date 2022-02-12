@@ -1,18 +1,13 @@
-import { defaultChainId } from "@/helpers/chain";
+import { NetworkInterface } from "@/types";
+import { networks } from "@/utils/networks";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: {
   address: string | null;
-  chain: {
-    id: number;
-    name: string;
-  };
+  network: NetworkInterface;
 } = {
   address: null,
-  chain: {
-    id: defaultChainId as number,
-    name: "FTM",
-  },
+  network: networks[0],
 };
 
 export const userReducer = createSlice({
@@ -22,13 +17,13 @@ export const userReducer = createSlice({
     setAddress: (state, action) => {
       state.address = action.payload;
     },
-    setChain: (state, action) => {
-      state.chain = action.payload;
+    setNetwork: (state, action) => {
+      state.network = action.payload;
     },
   },
 });
 
 // Actions
-export const { setAddress, setChain } = userReducer.actions;
+export const { setAddress, setNetwork } = userReducer.actions;
 
 export default userReducer.reducer;

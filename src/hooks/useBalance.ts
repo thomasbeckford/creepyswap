@@ -1,13 +1,13 @@
 import { formatReturnData } from "@/helpers/web3";
 import { useAppSelector } from "@/redux/hooks";
-import { selectAddress, selectChain } from "@/redux/user/selectors";
+import { selectAddress, selectNetwork } from "@/redux/user/selectors";
 import { useGetTokenByIdQuery } from "@/services/api";
 import { TokenData } from "@/types";
 import { useEffect, useState } from "react";
 
 const useBalance = () => {
   const address = useAppSelector(selectAddress);
-  const chain = useAppSelector(selectChain);
+  const network = useAppSelector(selectNetwork);
   const [tokens, setTokens] = useState<any>({
     tokenList: [],
     totalValueNumber: 0,
@@ -22,10 +22,11 @@ const useBalance = () => {
     diffAmountValue: 0,
     diffPercentValue: 0,
   });
+
   const { data, isLoading } = useGetTokenByIdQuery(
     {
       address,
-      chainId: chain.id,
+      chainId: network?.id,
       pollingInterval: 60000,
     },
     {

@@ -1,20 +1,8 @@
-export interface NetworkInterface {
-  chainId: number;
-  network: string;
-  hex: string;
-  rpc: string | string[];
-  name: string;
-  symbol: string;
-  blockExp: string | string[];
-  decimals: number;
-  // wss: string[];
-  activeLogo?: string;
-  inactiveLogo?: string;
-}
+import { NetworkInterface } from "@/types";
 
 export const networks: NetworkInterface[] = [
   {
-    chainId: 250,
+    id: 250,
     network: "Fantom Opera",
     hex: "fa",
     rpc: ["https://rpc.ankr.com/fantom", "https://rpc.ftm.tools/"],
@@ -27,7 +15,7 @@ export const networks: NetworkInterface[] = [
       "https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg",
   },
   {
-    chainId: 1,
+    id: 1,
     network: "Ethereum",
     hex: "1",
     rpc: "homestead",
@@ -40,7 +28,7 @@ export const networks: NetworkInterface[] = [
       "https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg",
   },
   {
-    chainId: 56,
+    id: 56,
     network: "Binance Smart Chain Mainnet",
     hex: "38",
     rpc: ["https://bsc-dataseed.binance.org/"],
@@ -53,7 +41,7 @@ export const networks: NetworkInterface[] = [
       "https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg",
   },
   {
-    chainId: 137,
+    id: 137,
     network: "Polygon",
     hex: "89",
     rpc: ["https://polygon-rpc.com"],
