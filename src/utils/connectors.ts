@@ -16,10 +16,4 @@ export const wallets = [
     alt: "walletconnect",
     type: "walletconnect",
   },
-  // {
-  //   name: "Binance",
-  //   src: "/assets/images/walletconnect.ico",
-  //   alt: "binance",
-  //   type: "binance",
-  // },
 ];

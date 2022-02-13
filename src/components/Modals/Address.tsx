@@ -12,7 +12,6 @@ import {
   Link,
   Icon,
 } from "@chakra-ui/react";
-import React from "react";
 import useAuth from "@/hooks/useAuth";
 
 import { ExternalLinkIcon } from "@chakra-ui/icons";

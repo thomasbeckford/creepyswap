@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 
 import { useAppSelector } from "@/redux/hooks";
-import React from "react";
 import { selectIsLoggedIn } from "@/redux/user/selectors";
 import Card from "@/components/Card";
 

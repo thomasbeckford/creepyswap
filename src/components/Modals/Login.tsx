@@ -19,7 +19,6 @@ import {
   AvatarBadge,
   Icon,
 } from "@chakra-ui/react";
-import React from "react";
 import { wallets } from "@/utils/connectors";
 
 import { networks } from "@/utils/networks";

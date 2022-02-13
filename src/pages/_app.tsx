@@ -21,20 +21,20 @@ let persistor = persistStore(store);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
-      <PersistGate
-        loading={<div style={{ color: "#fff" }}>Loading</div>}
-        persistor={persistor}
-      >
-        <ChakraProvider theme={theme}>
+    <ChakraProvider theme={theme}>
+      <Provider store={store}>
+        <PersistGate
+          loading={<div style={{ color: "#fff" }}>Loading</div>}
+          persistor={persistor}
+        >
           <WalletProvider>
             <Listeners>
               <Component {...pageProps} />
             </Listeners>
           </WalletProvider>
-        </ChakraProvider>
-      </PersistGate>
-    </Provider>
+        </PersistGate>
+      </Provider>
+    </ChakraProvider>
   );
 }
 
