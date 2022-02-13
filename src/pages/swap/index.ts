@@ -1,10 +1,10 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 export default function Swap() {
   const router = useRouter();
 
-  router.push("/");
-  window.open("https://spookyswap.finance/swap", "_blank");
+  router.push('/');
+  window.open('https://spookyswap.finance/swap', '_blank');
 
   return null;
 }

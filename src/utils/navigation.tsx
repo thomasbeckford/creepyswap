@@ -1,34 +1,34 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { Icon } from "@chakra-ui/react";
-import { GiSuspensionBridge } from "react-icons/gi";
-import { BiHome } from "react-icons/bi";
-import { BiLineChart } from "react-icons/bi";
+import { Box, Flex, Text } from '@chakra-ui/react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Icon } from '@chakra-ui/react';
+import { GiSuspensionBridge } from 'react-icons/gi';
+import { BiHome } from 'react-icons/bi';
+import { BiLineChart } from 'react-icons/bi';
 // import { FiSettings } from "react-icons/fi";
-import { useEffect } from "react";
-import { useAppDispatch } from "@/redux/hooks";
-import { setSidebarIsOpen } from "@/redux/sidebar";
-import { useMediaQuery } from "@chakra-ui/react";
-import useClickOutside from "@/hooks/useClickOutside";
-import { MdSwapHoriz } from "react-icons/md";
+import { useEffect } from 'react';
+import { useAppDispatch } from '@/redux/hooks';
+import { setSidebarIsOpen } from '@/redux/sidebar';
+import { useMediaQuery } from '@chakra-ui/react';
+import useClickOutside from '@/hooks/useClickOutside';
+import { MdSwapHoriz } from 'react-icons/md';
 export const navigation = [
   {
     id: 0,
-    label: "Home",
-    href: "/",
+    label: 'Home',
+    href: '/',
     icon: BiHome,
   },
   {
     id: 1,
-    label: "Portfolio",
-    href: "/portfolio",
+    label: 'Portfolio',
+    href: '/portfolio',
     icon: BiLineChart,
   },
   {
     id: 2,
-    label: "Swap",
-    href: "/swap",
+    label: 'Swap',
+    href: '/swap',
     icon: MdSwapHoriz,
   },
   // {
@@ -48,8 +48,8 @@ export const navigation = [
   // },
   {
     id: 3,
-    label: "Bridge",
-    href: "/bridge",
+    label: 'Bridge',
+    href: '/bridge',
     icon: GiSuspensionBridge,
   },
 
@@ -71,7 +71,7 @@ export const Navigation = ({
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { pathname } = router;
-  const [isMobile] = useMediaQuery("(max-width: 800px)");
+  const [isMobile] = useMediaQuery('(max-width: 800px)');
 
   const checkActive = (href: string) => pathname === href;
 
@@ -93,16 +93,16 @@ export const Navigation = ({
       {navigation.map(({ href, icon, id, label }) => (
         <Link key={id} href={href} passHref>
           <Flex
-            bg={checkActive(href) ? "rgba(50,120,250,0.1)" : "none"}
-            color={checkActive(href) ? "#fff" : "#a9a9a9"}
+            bg={checkActive(href) ? 'rgba(50,120,250,0.1)' : 'none'}
+            color={checkActive(href) ? '#fff' : '#a9a9a9'}
             rounded="md"
             p="0px 20px"
             height="48px"
             alignItems="center"
             cursor="pointer"
             _hover={{
-              bg: "rgba(50,210,250,0.1)",
-              color: "#fff",
+              bg: 'rgba(50,210,250,0.1)',
+              color: '#fff',
             }}
           >
             <Icon w={6} h={6} mr={3} as={icon} />
@@ -116,7 +116,7 @@ export const Navigation = ({
 
 export const NavigateHome = ({ children }: any) => (
   <Link href="/" passHref>
-    <Text cursor="pointer" fontSize={"lg"} fontWeight={"bold"}>
+    <Text cursor="pointer" fontSize={'lg'} fontWeight={'bold'}>
       {children}
     </Text>
   </Link>

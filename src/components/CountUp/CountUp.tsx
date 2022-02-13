@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
-import { useCountUp } from "react-countup";
-import { Text } from "@chakra-ui/react";
+import React, { useEffect, useRef } from 'react';
+import { useCountUp } from 'react-countup';
+import { Text } from '@chakra-ui/react';
 
 export interface CountUpNumberProps {
   value: number;
@@ -15,8 +15,8 @@ export interface CountUpNumberProps {
 const CountUpNumber: React.FC<CountUpNumberProps> = ({
   value,
   decimals,
-  prefix = "",
-  color = "blue.200",
+  prefix = '',
+  color = 'blue.200',
 }) => {
   const countUpRef = React.useRef(null);
   const { update } = useCountUp({
@@ -26,7 +26,7 @@ const CountUpNumber: React.FC<CountUpNumberProps> = ({
     end: value,
     delay: 4000,
     duration: 0.8,
-    separator: ",",
+    separator: ',',
     decimals: decimals || value < 0 ? 4 : value > 1e5 ? 0 : 3,
   });
 

@@ -1,12 +1,12 @@
-import useEventListener from "./useEventListener";
+import useEventListener from './useEventListener';
 
 export default function useClickOutside(ref: any, cb: any) {
   useEventListener(
-    "click",
+    'click',
     (e: any) => {
       if (ref.current == null || ref.current.contains(e.target)) return;
       cb(e);
     },
-    document as any
+    document as any,
   );
 }

@@ -1,12 +1,12 @@
 const Tabs = {
-  parts: ["container", "track", "thumb"],
+  parts: ['container', 'track', 'thumb'],
   // style object for base or default style
   baseStyle: {
     track: {
-      borderRadius: "4px",
+      borderRadius: '4px',
     },
     thumb: {
-      borderRadius: "4px",
+      borderRadius: '4px',
     },
   },
   // styles for different sizes ("sm", "md", "lg")
@@ -15,15 +15,15 @@ const Tabs = {
   variants: {
     outline: ({ colorMode }: any) => ({
       track: {
-        bg: colorMode === "dark" ? "teal.300" : "teal.400",
+        bg: colorMode === 'dark' ? 'teal.300' : 'teal.400',
       },
       thumb: {
-        bg: colorMode === "dark" ? "blue.300" : "blue.400",
+        bg: colorMode === 'dark' ? 'blue.300' : 'blue.400',
       },
     }),
   },
   defaultProps: {
-    size: "lg",
+    size: 'lg',
   },
 };
 

@@ -4,9 +4,9 @@ import {
   SimpleGrid,
   SimpleGridProps,
   Stack,
-} from "@chakra-ui/react";
-import * as React from "react";
-import { FooterHeading } from "./FooterHeading";
+} from '@chakra-ui/react';
+import * as React from 'react';
+import { FooterHeading } from './FooterHeading';
 
 export const LinkGrid = (props: SimpleGridProps) => (
   <SimpleGrid columns={2} {...props}>

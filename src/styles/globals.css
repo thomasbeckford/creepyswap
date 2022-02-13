@@ -1,22 +1,22 @@
 @font-face {
-  font-family: "Baloo2-Regular";
-  src: url("/fonts/Baloo2-Regular.ttf");
+  font-family: 'Baloo2-Regular';
+  src: url('/fonts/Baloo2-Regular.ttf');
 }
 @font-face {
-  font-family: "Baloo2-Bold";
-  src: url("/fonts/Baloo2-Bold.ttf");
+  font-family: 'Baloo2-Bold';
+  src: url('/fonts/Baloo2-Bold.ttf');
 }
 @font-face {
-  font-family: "Baloo2-Medium";
-  src: url("/fonts/Baloo2-Medium.ttf");
+  font-family: 'Baloo2-Medium';
+  src: url('/fonts/Baloo2-Medium.ttf');
 }
 @font-face {
-  font-family: "Baloo2-SemiBold";
-  src: url("/fonts/Baloo2-SemiBold.ttf");
+  font-family: 'Baloo2-SemiBold';
+  src: url('/fonts/Baloo2-SemiBold.ttf');
 }
 @font-face {
-  font-family: "Baloo2-ExtraBold";
-  src: url("/fonts/Baloo2-ExtraBold.ttf");
+  font-family: 'Baloo2-ExtraBold';
+  src: url('/fonts/Baloo2-ExtraBold.ttf');
 }
 
 html,

@@ -1,7 +1,7 @@
-import LoginModal from "@/components/Modals/Login";
-import useAuth from "@/hooks/useAuth";
-import { Meta } from "@/layout/Meta";
-import { Main } from "@/templates";
+import LoginModal from '@/components/Modals/Login';
+import useAuth from '@/hooks/useAuth';
+import { Meta } from '@/layout/Meta';
+import { Main } from '@/templates';
 import {
   Box,
   Button,
@@ -10,18 +10,18 @@ import {
   Flex,
   Spinner,
   Center,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
-import { useAppSelector } from "@/redux/hooks";
-import { selectIsLoggedIn } from "@/redux/user/selectors";
-import Card from "@/components/Card";
+import { useAppSelector } from '@/redux/hooks';
+import { selectIsLoggedIn } from '@/redux/user/selectors';
+import Card from '@/components/Card';
 
-import useBalance from "@/hooks/useBalance";
-import FarmingRewards from "./farming-rewards";
-import WalletBreakdown from "./wallet-breakdown";
+import useBalance from '@/hooks/useBalance';
+import FarmingRewards from './farming-rewards';
+import WalletBreakdown from './wallet-breakdown';
 
-import CountUpNumber from "@/components/CountUp";
-import { IWallet } from "@/helpers/types";
+import CountUpNumber from '@/components/CountUp';
+import { IWallet } from '@/helpers/types';
 
 export default function Portfolio() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,11 +37,11 @@ export default function Portfolio() {
 
   const portfolioTables = [
     {
-      title: "Wallet Breakdown",
+      title: 'Wallet Breakdown',
       component: <WalletBreakdown tokens={tokens} />,
     },
     {
-      title: "Farming Rewards",
+      title: 'Farming Rewards',
       component: <FarmingRewards liquidity={liquidity} />,
     },
   ];
@@ -49,8 +49,8 @@ export default function Portfolio() {
   return (
     <Main meta={<Meta title="Porfolio" description="" />}>
       {isLoggedIn && (
-        <Card mb={5} width="100%" p={{ base: "0", md: "20px" }}>
-          <Center gap="17" justifyContent={"space-around"}>
+        <Card mb={5} width="100%" p={{ base: '0', md: '20px' }}>
+          <Center gap="17" justifyContent={'space-around'}>
             <Box width="100px" height={8} borderRadius={8}>
               <CountUpNumber
                 value={tokens.total24ValueNumber}
@@ -59,8 +59,8 @@ export default function Portfolio() {
               />
             </Box>
 
-            <Box borderRadius={8} p={{ base: "10px" }}>
-              <Button variant={"outline"} onClick={handleLogout}>
+            <Box borderRadius={8} p={{ base: '10px' }}>
+              <Button variant={'outline'} onClick={handleLogout}>
                 Disconnect
               </Button>
             </Box>
@@ -70,10 +70,10 @@ export default function Portfolio() {
 
       {!isLoggedIn ? (
         <Card mb="20px" p="20px">
-          <Flex justifyContent={"center"} pt="30px">
-            <Box textAlign={"center"}>
+          <Flex justifyContent={'center'} pt="30px">
+            <Box textAlign={'center'}>
               <Text mb="40px">
-                Connect your wallet to Fantom Opera to start{" "}
+                Connect your wallet to Fantom Opera to start{' '}
               </Text>
               <Button mb="40px" variant="outline" onClick={onOpen}>
                 Connect Wallet
@@ -85,7 +85,7 @@ export default function Portfolio() {
         <Box
           gap="5"
           display={{
-            md: "flex",
+            md: 'flex',
           }}
         >
           {portfolioTables.map((table) => (
@@ -100,8 +100,8 @@ export default function Portfolio() {
                   size="xl"
                 />
               ) : (
-                <Box borderRadius={8} mb={{ base: "10px" }}>
-                  <Text textAlign={"center"} p="20px">
+                <Box borderRadius={8} mb={{ base: '10px' }}>
+                  <Text textAlign={'center'} p="20px">
                     {table.title}
                   </Text>
                   {table.component}

@@ -1,5 +1,5 @@
-import CountUpNumber from "@/components/CountUp";
-import { TokenData } from "@/types";
+import CountUpNumber from '@/components/CountUp';
+import { TokenData } from '@/types';
 import {
   Table,
   TableCaption,
@@ -10,14 +10,14 @@ import {
   Td,
   Text,
   Image,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 const FarmingRewards = ({ liquidity }: any) => (
   <>
     {liquidity.farmList.length ? (
       <Table size="sm">
-        <TableCaption textAlign={"right"}>
-          <Text fontWeight={"bold"}>Total Value</Text>
+        <TableCaption textAlign={'right'}>
+          <Text fontWeight={'bold'}>Total Value</Text>
           <CountUpNumber
             value={liquidity.total24ValueNumber}
             prefix="$"
@@ -34,7 +34,7 @@ const FarmingRewards = ({ liquidity }: any) => (
           </Tr>
         </Thead>
 
-        <Tbody maxHeight={400} overflowX={"hidden"} overflowY="scroll">
+        <Tbody maxHeight={400} overflowX={'hidden'} overflowY="scroll">
           {liquidity.farmList.map((farm: TokenData) => (
             <Tr key={farm.address + farm.name}>
               <Td display="flex" alignItems="center" gap="3">
@@ -42,7 +42,7 @@ const FarmingRewards = ({ liquidity }: any) => (
                   src={farm.icon}
                   width="34px"
                   height="34px"
-                  fallbackSrc={"https://via.placeholder.com/24"}
+                  fallbackSrc={'https://via.placeholder.com/24'}
                   borderRadius={15}
                   alt={farm.name}
                 />

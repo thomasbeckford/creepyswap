@@ -1,5 +1,5 @@
-import { RPC_URLS } from "@/utils/connectors";
-import WalletConnectProvider from "@walletconnect/web3-provider";
+import { RPC_URLS } from '@/utils/connectors';
+import WalletConnectProvider from '@walletconnect/web3-provider';
 
 export interface IWalletConnectConnectorOptions {
   infuraId: string;
@@ -11,13 +11,13 @@ export interface IWalletConnectConnectorOptions {
 const ConnectToWalletConnect = (opts: IWalletConnectConnectorOptions) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let bridge = "https://bridge.walletconnect.org";
+      let bridge = 'https://bridge.walletconnect.org';
       let qrcode = true;
       let chainId = 250;
 
       if (opts) {
         bridge = opts.bridge || bridge;
-        qrcode = typeof opts.qrcode !== "undefined" ? opts.qrcode : qrcode;
+        qrcode = typeof opts.qrcode !== 'undefined' ? opts.qrcode : qrcode;
         chainId = opts.network ? opts.network : chainId;
       }
       const provider = new WalletConnectProvider({

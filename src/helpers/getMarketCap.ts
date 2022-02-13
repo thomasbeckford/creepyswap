@@ -22,4 +22,4 @@
 
 // export const marketCap = async () => 1 * (await totalSpiritSupply());
 
-export const a = "a";
+export const a = 'a';

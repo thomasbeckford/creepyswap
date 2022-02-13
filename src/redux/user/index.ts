@@ -1,6 +1,6 @@
-import { NetworkInterface } from "@/types";
-import { networks } from "@/utils/networks";
-import { createSlice } from "@reduxjs/toolkit";
+import { NetworkInterface } from '@/types';
+import { networks } from '@/utils/networks';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: {
   address: string | null;
@@ -13,7 +13,7 @@ const initialState: {
 };
 
 export const userReducer = createSlice({
-  name: "userReducer",
+  name: 'userReducer',
   initialState,
   reducers: {
     setAddress: (state, action) => {

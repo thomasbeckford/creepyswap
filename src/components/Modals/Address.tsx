@@ -11,17 +11,17 @@ import {
   Button,
   Link,
   Icon,
-} from "@chakra-ui/react";
-import useAuth from "@/hooks/useAuth";
+} from '@chakra-ui/react';
+import useAuth from '@/hooks/useAuth';
 
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { useClipboard } from "@chakra-ui/react";
-import { MdContentCopy } from "react-icons/md";
+import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { useClipboard } from '@chakra-ui/react';
+import { MdContentCopy } from 'react-icons/md';
 
 export default function AddressModal({ isOpen, onClose, address }: any) {
   const { handleLogout } = useAuth();
 
-  const { onCopy } = useClipboard(address || "", 500);
+  const { onCopy } = useClipboard(address || '', 500);
 
   const handleLogoutClick = () => {
     handleLogout();
@@ -37,27 +37,27 @@ export default function AddressModal({ isOpen, onClose, address }: any) {
         <ModalBody>
           <Text color="teal.300">{address}</Text>
 
-          <Flex alignItems={"center"} mt="20px">
-            <Text color="blue.300" _hover={{ color: "blue.500" }}>
+          <Flex alignItems={'center'} mt="20px">
+            <Text color="blue.300" _hover={{ color: 'blue.500' }}>
               <Link href="/ftmscan" isExternal>
                 View on FTMScan <ExternalLinkIcon mx="2px" />
               </Link>
             </Text>
             <Flex
-              alignItems={"center"}
+              alignItems={'center'}
               onClick={onCopy}
-              cursor={"pointer"}
-              _hover={{ textDecoration: "underline", color: "blue.500" }}
+              cursor={'pointer'}
+              _hover={{ textDecoration: 'underline', color: 'blue.500' }}
               ml={5}
             >
-              <Link color="blue.300" _hover={{ color: "blue.500" }}>
-                Copy address{" "}
+              <Link color="blue.300" _hover={{ color: 'blue.500' }}>
+                Copy address{' '}
                 <Icon verticalAlign="sub" ml="2px" as={MdContentCopy} />
               </Link>
             </Flex>
           </Flex>
 
-          <Flex justifyContent={"flex-end"}>
+          <Flex justifyContent={'flex-end'}>
             <Button variant="outline" onClick={handleLogoutClick}>
               Disconnect
             </Button>

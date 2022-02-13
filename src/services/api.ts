@@ -1,10 +1,10 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-const API_KEY = "ckey_0c90f5637b39427e81cc0ac70a1";
-const API_URL = "https://api.covalenthq.com";
+const API_KEY = 'ckey_0c90f5637b39427e81cc0ac70a1';
+const API_URL = 'https://api.covalenthq.com';
 
 export const tokenApi = createApi({
-  reducerPath: "tokenApi",
+  reducerPath: 'tokenApi',
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_URL}`,
   }),

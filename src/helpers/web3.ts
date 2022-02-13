@@ -1,24 +1,24 @@
-import { TokenData } from "@/types";
+import { TokenData } from '@/types';
 
-import { BigNumber } from "ethers";
-import { formatUnits } from "ethers/lib/utils";
-import connectors from "./../connectors";
-import { IProviderOptions, IWallet } from "./types";
+import { BigNumber } from 'ethers';
+import { formatUnits } from 'ethers/lib/utils';
+import connectors from './../connectors';
+import { IProviderOptions, IWallet } from './types';
 
 export const connectWallet = async (
   wallet: IWallet,
   chainId: number,
   // eslint-disable-next-line no-unused-vars
-  setProvider: (provider: any) => void
+  setProvider: (provider: any) => void,
 ) => {
   let providerOptions: IProviderOptions = {};
 
-  const isMobile = window.navigator.userAgent.includes("Mobile");
+  const isMobile = window.navigator.userAgent.includes('Mobile');
 
   const connectTo = async (
     name: string,
     // eslint-disable-next-line no-unused-vars
-    connector: (providerPackage: any, opts: any) => Promise<any>
+    connector: (providerPackage: any, opts: any) => Promise<any>,
   ) => {
     try {
       const providerPackage =
@@ -47,23 +47,23 @@ export const connectWallet = async (
   };
 
   if (isMobile) {
-    return connectTo("walletconnect", connectors.ConnectToWalletConnect);
+    return connectTo('walletconnect', connectors.ConnectToWalletConnect);
   }
 
   const connectToInjected = async () => {
     try {
       const provider = await connectors.ConnectToInjected();
-      const address = await provider.request({ method: "eth_requestAccounts" });
+      const address = await provider.request({ method: 'eth_requestAccounts' });
       return address[0];
     } catch (error) {
       // console.log(error);
     }
   };
-  if (wallet?.type === "injected") {
+  if (wallet?.type === 'injected') {
     return connectToInjected();
   }
-  if (wallet?.type === "walletconnect") {
-    return connectTo("walletconnect", connectors.ConnectToWalletConnect);
+  if (wallet?.type === 'walletconnect') {
+    return connectTo('walletconnect', connectors.ConnectToWalletConnect);
   }
 };
 
@@ -74,7 +74,7 @@ export const formatFrom = (_amount: BigNumber, _decimals: number = 18) =>
 // Format return token data
 export const formatReturnData = (item: any) => {
   const tdata: TokenData = {
-    name: item.contract_ticker_symbol.replace("-", "/"),
+    name: item.contract_ticker_symbol.replace('-', '/'),
     full_name: item.contract_name,
     amount: formatFrom(item.balance || 0, item.contract_decimals),
     symbol: item.contract_ticker_symbol,
@@ -83,7 +83,7 @@ export const formatReturnData = (item: any) => {
     rate: item.quote_rate,
     rate_24: item.quote_rate_24h,
     address: item.contract_address,
-    liquidity: item.contract_name.includes("LP"),
+    liquidity: item.contract_name.includes('LP'),
     icon: `https://app.spiritswap.finance/images/tokens/${item.contract_ticker_symbol}.png`, // TODO: set creepyswap url
     staked: true,
     // decimals: item.contract_decimals,

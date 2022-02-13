@@ -3,8 +3,8 @@ import {
   combineReducers,
   configureStore,
   ThunkAction,
-} from "@reduxjs/toolkit";
-import storage from "./storage";
+} from '@reduxjs/toolkit';
+import storage from './storage';
 import {
   FLUSH,
   PAUSE,
@@ -13,15 +13,15 @@ import {
   PURGE,
   REGISTER,
   REHYDRATE,
-} from "redux-persist";
+} from 'redux-persist';
 
-import user from "./user";
-import sidebar from "./sidebar";
+import user from './user';
+import sidebar from './sidebar';
 
-import { tokenApi } from "@/services/api";
+import { tokenApi } from '@/services/api';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
 };
 
@@ -35,7 +35,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  devTools: process.env.NODE_ENV !== "production",
+  devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

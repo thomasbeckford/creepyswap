@@ -1,5 +1,5 @@
-import ConnectToInjected from "./injected";
-import ConnectToWalletConnect from "./walletconnect";
+import ConnectToInjected from './injected';
+import ConnectToWalletConnect from './walletconnect';
 
 const connectors = {
   ConnectToInjected,

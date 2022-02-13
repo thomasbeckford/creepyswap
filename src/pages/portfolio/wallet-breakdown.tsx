@@ -1,6 +1,6 @@
-import CountUpNumber from "@/components/CountUp";
+import CountUpNumber from '@/components/CountUp';
 // import { formatAMPM } from "@/helpers/dates";
-import { TokenData } from "@/types";
+import { TokenData } from '@/types';
 import {
   Table,
   TableCaption,
@@ -11,14 +11,14 @@ import {
   Td,
   Text,
   Image,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 const WalletBreakdown = ({ tokens }: any) => (
   <>
     {tokens.tokenList.length ? (
       <Table size="sm">
-        <TableCaption textAlign={"right"}>
-          <Text fontWeight={"bold"}>Total Value</Text>
+        <TableCaption textAlign={'right'}>
+          <Text fontWeight={'bold'}>Total Value</Text>
           <CountUpNumber
             value={tokens.total24ValueNumber}
             prefix="$"
@@ -33,7 +33,7 @@ const WalletBreakdown = ({ tokens }: any) => (
           </Tr>
         </Thead>
 
-        <Tbody overflowX={"hidden"} overflowY="scroll">
+        <Tbody overflowX={'hidden'} overflowY="scroll">
           {tokens?.tokenList?.map((token: TokenData) => (
             <Tr key={token.address + token.name}>
               <Td display="flex" alignItems="center" gap="3">
@@ -41,12 +41,12 @@ const WalletBreakdown = ({ tokens }: any) => (
                   src={token.icon}
                   width="34px"
                   height="34px"
-                  fallbackSrc={"https://via.placeholder.com/24"}
+                  fallbackSrc={'https://via.placeholder.com/24'}
                   borderRadius={15}
                   alt={token.name}
                 />
 
-                <Text fontSize="large" fontWeight={"700"}>
+                <Text fontSize="large" fontWeight={'700'}>
                   {token.symbol}
                 </Text>
               </Td>

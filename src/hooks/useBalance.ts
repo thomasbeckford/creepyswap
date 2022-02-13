@@ -1,9 +1,9 @@
-import { formatReturnData } from "@/helpers/web3";
-import { useAppSelector } from "@/redux/hooks";
-import { selectAddress, selectNetwork } from "@/redux/user/selectors";
-import { useGetTokenByIdQuery } from "@/services/api";
-import { TokenData } from "@/types";
-import { useEffect, useState } from "react";
+import { formatReturnData } from '@/helpers/web3';
+import { useAppSelector } from '@/redux/hooks';
+import { selectAddress, selectNetwork } from '@/redux/user/selectors';
+import { useGetTokenByIdQuery } from '@/services/api';
+import { TokenData } from '@/types';
+import { useEffect, useState } from 'react';
 
 const useBalance = () => {
   const address = useAppSelector(selectAddress);
@@ -32,7 +32,7 @@ const useBalance = () => {
     {
       pollingInterval: 60000,
       skip: !address,
-    }
+    },
   );
 
   const tokenList: Array<TokenData> = [];
@@ -50,12 +50,12 @@ const useBalance = () => {
       const item = data.data.items[x];
       const tdata = formatReturnData(item);
 
-      const isAnLPToken = item.contract_name.includes("CREEPY");
+      const isAnLPToken = item.contract_name.includes('CREEPY');
 
       if (
-        item.type === "cryptocurrency" &&
+        item.type === 'cryptocurrency' &&
         !isAnLPToken &&
-        item.contract_ticker_symbol !== "CREEPY"
+        item.contract_ticker_symbol !== 'CREEPY'
       ) {
         tokenCurrentTotal += item.quote || 0;
         token24Total += item.quote_24h || 0;

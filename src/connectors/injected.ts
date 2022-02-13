@@ -5,12 +5,12 @@ const ConnectToInjected = async () => {
     try {
       await window.ethereum.enable();
     } catch (error) {
-      throw new Error("User Rejected");
+      throw new Error('User Rejected');
     }
   } else if (window.web3) {
     provider = window.web3.currentProvider;
   } else {
-    throw new Error("No Web3 Provider found");
+    throw new Error('No Web3 Provider found');
   }
   return provider;
 };

@@ -6,27 +6,27 @@ import {
   Box,
   IconButton,
   // useToast,
-} from "@chakra-ui/react";
-import React from "react";
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+} from '@chakra-ui/react';
+import React from 'react';
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   selectAddress,
   // selectChain,
   selectIsLoggedIn,
-} from "@/redux/user/selectors";
-import useAuth from "@/hooks/useAuth";
-import LoginModal from "../Modals/Login";
-import { setSidebarIsOpen } from "@/redux/sidebar";
-import { selectSidebarIsOpen } from "@/redux/sidebar/selectors";
-import AddressModal from "../Modals/Address";
+} from '@/redux/user/selectors';
+import useAuth from '@/hooks/useAuth';
+import LoginModal from '../Modals/Login';
+import { setSidebarIsOpen } from '@/redux/sidebar';
+import { selectSidebarIsOpen } from '@/redux/sidebar/selectors';
+import AddressModal from '../Modals/Address';
 // import { NetworkInterface, networks } from "@/utils/networks";
 
 // import { Select } from "chakra-react-select";
 // import { setChain } from "@/redux/user";
 // import { chainIdToString } from "@/helpers/chain";
 // import { selectStyles } from "@/theme/components/select";
-import { IWallet } from "@/helpers/types";
+import { IWallet } from '@/helpers/types';
 
 function Topbar() {
   const {
@@ -115,13 +115,13 @@ function Topbar() {
   return (
     <>
       <Box px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             variant="outline"
-            size={"md"}
+            size={'md'}
             icon={sidebarIsOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
-            display={{ md: "none" }}
+            aria-label={'Open Menu'}
+            display={{ md: 'none' }}
             onClick={toggleSidebar}
           />
 
@@ -144,12 +144,12 @@ function Topbar() {
             ) : (
               <>
                 <Button
-                  variant={"outline"}
-                  cursor={"pointer"}
+                  variant={'outline'}
+                  cursor={'pointer'}
                   onClick={handleAddressModal}
                   width={120}
                 >
-                  {address && address.replace(/(.{7})..+/, "$1…")}
+                  {address && address.replace(/(.{7})..+/, '$1…')}
                 </Button>
               </>
             )}

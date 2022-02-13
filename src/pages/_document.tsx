@@ -1,5 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { AppConfig } from "@/config";
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { AppConfig } from '@/config';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {

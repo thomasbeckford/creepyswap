@@ -1,11 +1,11 @@
-import { extendTheme, ThemeConfig } from "@chakra-ui/react";
+import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 
-import { Button, Modal, Text, Switch, Tabs } from "./components";
-import { globalStyles as styles } from "./styles";
-import { breakpoints } from "./base/breakpoints";
+import { Button, Modal, Text, Switch, Tabs } from './components';
+import { globalStyles as styles } from './styles';
+import { breakpoints } from './base/breakpoints';
 
 const config: ThemeConfig = {
-  initialColorMode: "dark",
+  initialColorMode: 'dark',
   useSystemColorMode: false,
 };
 

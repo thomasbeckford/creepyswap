@@ -1,11 +1,11 @@
-import { ChakraStylesConfig } from "chakra-react-select";
+import { ChakraStylesConfig } from 'chakra-react-select';
 
 export const selectStyles: ChakraStylesConfig = {
   dropdownIndicator: (provided) => ({
     ...provided,
     p: 0,
-    w: "25px",
-    background: "transparent",
+    w: '25px',
+    background: 'transparent',
   }),
   indicatorSeparator: (provided) => ({
     ...provided,
@@ -14,18 +14,18 @@ export const selectStyles: ChakraStylesConfig = {
   control: (provided) => ({
     ...provided,
     p: 0,
-    w: "120px",
-    cursor: "pointer",
+    w: '120px',
+    cursor: 'pointer',
     _hover: {
-      background: "rgba(255, 255, 255, 0.08)",
+      background: 'rgba(255, 255, 255, 0.08)',
     },
   }),
   menu: (provided) => ({
     ...provided,
-    borderRadius: "4x",
-    border: "none",
-    boxShadow: "none",
+    borderRadius: '4x',
+    border: 'none',
+    boxShadow: 'none',
     p: 0,
-    w: "100px",
+    w: '100px',
   }),
 };

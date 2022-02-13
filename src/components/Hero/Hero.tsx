@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Center } from "@chakra-ui/react";
+import { Box, Heading, Stack, Center } from '@chakra-ui/react';
 
 export default function Hero({ heading, children }: any) {
   return (
@@ -6,14 +6,14 @@ export default function Hero({ heading, children }: any) {
       <Center>
         <Stack
           as={Box}
-          textAlign={"center"}
+          textAlign={'center'}
           spacing={{ base: 8, md: 14 }}
           py={{ base: 20, md: 36 }}
         >
           <Heading
             fontWeight={600}
-            fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
-            lineHeight={"110%"}
+            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+            lineHeight={'110%'}
           >
             {heading}
           </Heading>

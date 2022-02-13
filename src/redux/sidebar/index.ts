@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: {
   isOpen: boolean;
@@ -7,7 +7,7 @@ const initialState: {
 };
 
 export const sidebarReducer = createSlice({
-  name: "sidebarReducer",
+  name: 'sidebarReducer',
   initialState,
   reducers: {
     setSidebarIsOpen: (state, action) => {
