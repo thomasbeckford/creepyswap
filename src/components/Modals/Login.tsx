@@ -149,7 +149,6 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                     src={network.activeLogo}
                     bg="#212a3b"
                     filter={acceptTerms ? "grayscale(0%)" : "grayscale(80%)"}
-                    alt={network.name}
                     borderRadius="50%"
                     border="none"
                     size="lg"
@@ -214,7 +213,6 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   <Avatar
                     size="lg"
                     src={wallet.src}
-                    alt={wallet.alt}
                     bg="#212a3b"
                     p="10px"
                     m="10px"
