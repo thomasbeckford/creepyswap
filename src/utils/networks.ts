@@ -10,9 +10,7 @@ export const networks: NetworkInterface[] = [
     symbol: 'FTM',
     blockExp: ['https://ftmscan.com/'],
     decimals: 18,
-    activeLogo: 'https://app.1inch.io/assets/images/network-logos/ethereum.svg',
-    inactiveLogo:
-      'https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg',
+    logo: './assets/logos/fantom.png',
   },
   {
     id: 1,
@@ -23,9 +21,7 @@ export const networks: NetworkInterface[] = [
     symbol: 'ETH',
     blockExp: 'Ethereum',
     decimals: 18,
-    activeLogo: 'https://app.1inch.io/assets/images/network-logos/ethereum.svg',
-    inactiveLogo:
-      'https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg',
+    logo: 'https://app.1inch.io/assets/images/network-logos/ethereum.svg',
   },
   {
     id: 56,
@@ -36,21 +32,17 @@ export const networks: NetworkInterface[] = [
     symbol: 'BNB',
     blockExp: ['https://bscscan.com'],
     decimals: 18,
-    activeLogo: 'https://app.1inch.io/assets/images/network-logos/ethereum.svg',
-    inactiveLogo:
-      'https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg',
+    logo: './assets/logos/binance.png',
   },
-  {
-    id: 137,
-    network: 'Polygon',
-    hex: '89',
-    rpc: ['https://polygon-rpc.com'],
-    name: 'Polygon',
-    symbol: 'MATIC',
-    blockExp: ['https://polygonscan.com/'],
-    decimals: 18,
-    activeLogo: 'https://app.1inch.io/assets/images/network-logos/ethereum.svg',
-    inactiveLogo:
-      'https://app.1inch.io/assets/images/network-logos/ethereum-disabled.svg',
-  },
+  // {
+  //   id: 137,
+  //   network: 'Polygon',
+  //   hex: '89',
+  //   rpc: ['https://polygon-rpc.com'],
+  //   name: 'Polygon',
+  //   symbol: 'MATIC',
+  //   blockExp: ['https://polygonscan.com/'],
+  //   decimals: 18,
+  //   logo: 'https://app.1inch.io/assets/images/network-logos/ethereum.svg',
+  // },
 ];

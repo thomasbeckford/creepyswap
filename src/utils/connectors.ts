@@ -6,13 +6,13 @@ export const RPC_URLS: { [chainId: number]: string[] } = {
 export const wallets = [
   {
     name: 'Metamask',
-    src: '/assets/images/metamask.png',
+    src: '/assets/logos/metamask.png',
     alt: 'Metamask',
     type: 'injected',
   },
   {
     name: 'Wallet Connect',
-    src: '/assets/images/walletconnect.ico',
+    src: '/assets/logos/walletconnect.ico',
     alt: 'walletconnect',
     type: 'walletconnect',
   },

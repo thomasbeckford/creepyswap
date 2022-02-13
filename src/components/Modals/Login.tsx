@@ -34,7 +34,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
   const dispatch = useAppDispatch();
 
   const handleSelectNetwork = (selected: string) => {
-    dispatch(setNetwork(selected));
+    if (acceptTerms) dispatch(setNetwork(selected));
   };
 
   const handleClose = () => {
@@ -42,24 +42,37 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
   };
 
   const handleConnect = (wallet: IWallet) => {
-    handleLoginClick(wallet);
+    if (acceptTerms && selectedNetwork) handleLoginClick(wallet);
   };
 
   const handleTerms = (e: any) => {
     dispatch(setAcceptTerms(e.target.checked));
   };
 
+  const IconNumber = (number: number) => (
+    <Center
+      alignSelf="flex-start"
+      borderRadius="md"
+      bg="blue.600"
+      fontWeight="bold"
+      width="26px"
+      height="26px"
+    >
+      {number}
+    </Center>
+  );
+
   return (
     <Modal size={'6xl'} isOpen={isOpen} onClose={handleClose}>
       <ModalOverlay />
       <ModalContent
         padding={{
-          base: '0',
+          base: '0px',
           md: '20px',
         }}
-        width="670px"
+        width="600px"
       >
-        <ModalCloseButton color="blue.500" />
+        <ModalCloseButton color="blue.300" />
         <ModalHeader>Connect wallet</ModalHeader>
         <ModalBody>
           <Box
@@ -70,18 +83,9 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             borderRadius="md"
           >
             <HStack mb="20px">
-              <Center
-                alignSelf="flex-start"
-                borderRadius="md"
-                bg="blue.600"
-                fontWeight="bold"
-                width="26px"
-                height="26px"
-              >
-                1
-              </Center>
+              {IconNumber(1)}
 
-              <VStack fontSize="18px">
+              <VStack fontSize="lg">
                 <Text>
                   Accept{' '}
                   <Link color="blue.500" href="">
@@ -92,7 +96,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                     Privacy Policy{' '}
                   </Link>
                 </Text>
-                <Box alignSelf="flex-start" fontSize="18px">
+                <Box alignSelf="flex-start" fontSize="lg">
                   <Checkbox isChecked={acceptTerms} onChange={handleTerms}>
                     <Text>I read and accept</Text>
                   </Checkbox>
@@ -101,23 +105,14 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             </HStack>
           </Box>
           <Box
-            p={{
-              base: '5px',
+            padding={{
+              base: '0',
               md: '10px',
             }}
             borderRadius="md"
-            mb="20px"
           >
-            <HStack mb="10px">
-              <Center
-                borderRadius="md"
-                bg={acceptTerms ? 'blue.600' : 'gray.900'}
-                fontWeight="bold"
-                width="26px"
-                height="26px"
-              >
-                2
-              </Center>
+            <HStack mb="20px">
+              {IconNumber(2)}
 
               <Center fontSize="18px">Choose Network</Center>
             </HStack>
@@ -145,7 +140,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   }
                 >
                   <Avatar
-                    src={network.activeLogo}
+                    src={network.logo}
                     bg="#212a3b"
                     filter={acceptTerms ? 'grayscale(0%)' : 'grayscale(80%)'}
                     borderRadius="50%"
@@ -153,7 +148,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                     size="lg"
                   >
                     {selectedNetwork.name === network.name && (
-                      <AvatarBadge border="2px">
+                      <AvatarBadge border="2px" bg="#fff">
                         <Icon
                           as={CheckCircleIcon}
                           w="5"
@@ -172,22 +167,19 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             </Grid>
           </Box>
 
-          <Box p="5px" borderRadius="md" mb="20px">
+          <Box
+            padding={{
+              base: '0',
+              md: '10px',
+            }}
+            borderRadius="md"
+          >
             <HStack mb="10px">
-              <Center
-                borderRadius="md"
-                bg={acceptTerms ? 'blue.600' : 'gray.900'}
-                fontWeight="bold"
-                width="26px"
-                height="26px"
-              >
-                3
-              </Center>
-
+              {IconNumber(3)}
               <Center fontSize="18px">Choose Wallet</Center>
             </HStack>
 
-            <Grid templateColumns="repeat(2, 1fr)">
+            <Grid templateColumns="repeat(4, 1fr)">
               {wallets.map((wallet) => (
                 <Flex
                   key={wallet.name}
@@ -210,20 +202,14 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   }
                 >
                   <Avatar
-                    size="lg"
                     src={wallet.src}
                     bg="#212a3b"
-                    p="10px"
-                    m="10px"
+                    filter={acceptTerms ? 'grayscale(0%)' : 'grayscale(80%)'}
                     borderRadius="50%"
                     border="none"
-                    filter={
-                      selectedNetwork && acceptTerms
-                        ? 'grayscale(0%)'
-                        : 'grayscale(80%)'
-                    }
-                  ></Avatar>
-                  <Text mt="5px" fontSize="14px" lineHeight="16px">
+                    size="lg"
+                  />
+                  <Text mt="5px" fontSize="13px" lineHeight="16px">
                     {wallet.name}
                   </Text>
                 </Flex>

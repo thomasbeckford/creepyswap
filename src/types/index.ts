@@ -24,6 +24,5 @@ export interface NetworkInterface {
   blockExp: string | string[];
   decimals: number;
   // wss: string[];
-  activeLogo?: string;
-  inactiveLogo?: string;
+  logo?: string;
 }
