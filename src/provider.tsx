@@ -8,6 +8,7 @@ export const WalletProvider = ({ children, value }: any) => {
 
   useEffect(() => {
     setProvider(value);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const values = {

@@ -18,15 +18,15 @@ import {
   Avatar,
   AvatarBadge,
   Icon,
-} from "@chakra-ui/react";
-import { wallets } from "@/utils/connectors";
+} from '@chakra-ui/react';
+import { wallets } from '@/utils/connectors';
 
-import { networks } from "@/utils/networks";
-import { CheckCircleIcon } from "@chakra-ui/icons";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setAcceptTerms, setNetwork } from "@/redux/user";
-import { selectAcceptTerms, selectNetwork } from "@/redux/user/selectors";
-import { IWallet } from "@/helpers/types";
+import { networks } from '@/utils/networks';
+import { CheckCircleIcon } from '@chakra-ui/icons';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { setAcceptTerms, setNetwork } from '@/redux/user';
+import { selectAcceptTerms, selectNetwork } from '@/redux/user/selectors';
+import { IWallet } from '@/helpers/types';
 
 export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
   const selectedNetwork = useAppSelector(selectNetwork);
@@ -50,12 +50,12 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
   };
 
   return (
-    <Modal size={"6xl"} isOpen={isOpen} onClose={handleClose}>
+    <Modal size={'6xl'} isOpen={isOpen} onClose={handleClose}>
       <ModalOverlay />
       <ModalContent
         padding={{
-          base: "0",
-          md: "20px",
+          base: '0',
+          md: '20px',
         }}
         width="670px"
       >
@@ -64,8 +64,8 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
         <ModalBody>
           <Box
             padding={{
-              base: "0",
-              md: "10px",
+              base: '0',
+              md: '10px',
             }}
             borderRadius="md"
           >
@@ -83,13 +83,13 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
 
               <VStack fontSize="18px">
                 <Text>
-                  Accept{" "}
+                  Accept{' '}
                   <Link color="blue.500" href="">
-                    Terms of Service{" "}
+                    Terms of Service{' '}
                   </Link>
-                  and{" "}
+                  and{' '}
                   <Link color="blue.500" href="">
-                    Privacy Policy{" "}
+                    Privacy Policy{' '}
                   </Link>
                 </Text>
                 <Box alignSelf="flex-start" fontSize="18px">
@@ -102,8 +102,8 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
           </Box>
           <Box
             p={{
-              base: "5px",
-              md: "10px",
+              base: '5px',
+              md: '10px',
             }}
             borderRadius="md"
             mb="20px"
@@ -111,7 +111,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             <HStack mb="10px">
               <Center
                 borderRadius="md"
-                bg={acceptTerms ? "blue.600" : "gray.900"}
+                bg={acceptTerms ? 'blue.600' : 'gray.900'}
                 fontWeight="bold"
                 width="26px"
                 height="26px"
@@ -135,19 +135,19 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   _hover={
                     acceptTerms
                       ? {
-                          bg: "gray.900",
-                          borderRadius: "md",
-                          cursor: "pointer",
+                          bg: 'gray.900',
+                          borderRadius: 'md',
+                          cursor: 'pointer',
                         }
                       : {
-                          cursor: "default",
+                          cursor: 'default',
                         }
                   }
                 >
                   <Avatar
                     src={network.activeLogo}
                     bg="#212a3b"
-                    filter={acceptTerms ? "grayscale(0%)" : "grayscale(80%)"}
+                    filter={acceptTerms ? 'grayscale(0%)' : 'grayscale(80%)'}
                     borderRadius="50%"
                     border="none"
                     size="lg"
@@ -176,7 +176,7 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
             <HStack mb="10px">
               <Center
                 borderRadius="md"
-                bg={acceptTerms ? "blue.600" : "gray.900"}
+                bg={acceptTerms ? 'blue.600' : 'gray.900'}
                 fontWeight="bold"
                 width="26px"
                 height="26px"
@@ -200,12 +200,12 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                   _hover={
                     selectedNetwork && acceptTerms
                       ? {
-                          bg: "gray.900",
-                          borderRadius: "md",
-                          cursor: "pointer",
+                          bg: 'gray.900',
+                          borderRadius: 'md',
+                          cursor: 'pointer',
                         }
                       : {
-                          cursor: "default",
+                          cursor: 'default',
                         }
                   }
                 >
@@ -219,8 +219,8 @@ export default function LoginModal({ handleLoginClick, isOpen, onClose }: any) {
                     border="none"
                     filter={
                       selectedNetwork && acceptTerms
-                        ? "grayscale(0%)"
-                        : "grayscale(80%)"
+                        ? 'grayscale(0%)'
+                        : 'grayscale(80%)'
                     }
                   ></Avatar>
                   <Text mt="5px" fontSize="14px" lineHeight="16px">

@@ -26,6 +26,7 @@ export default function Listeners({ children }: any) {
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <>{children}</>;

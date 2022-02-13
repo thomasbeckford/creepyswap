@@ -1,12 +1,12 @@
-import { IWallet } from "@/helpers/types";
-import { connectWallet } from "@/helpers/web3";
-import { WalletContext } from "@/provider";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setAddress, setNetwork } from "@/redux/user";
-import { selectNetwork } from "@/redux/user/selectors";
-import { networks } from "@/utils/networks";
-import { useContext } from "react";
-import { useRouter } from "next/router";
+import { IWallet } from '@/helpers/types';
+import { connectWallet } from '@/helpers/web3';
+import { WalletContext } from '@/provider';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { setAddress, setNetwork } from '@/redux/user';
+import { selectNetwork } from '@/redux/user/selectors';
+import { networks } from '@/utils/networks';
+import { useContext } from 'react';
+import { useRouter } from 'next/router';
 
 const useAuth = () => {
   const dispatch = useAppDispatch();
@@ -18,7 +18,7 @@ const useAuth = () => {
     const address = await connectWallet(wallet, network.id, setProvider);
     if (!address) return;
     dispatch(setAddress(address));
-    router.push("/portfolio");
+    router.push('/portfolio');
   };
 
   const handleLogout = async () => {
@@ -31,7 +31,7 @@ const useAuth = () => {
         setProvider({});
       }
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
   return {

@@ -5,7 +5,7 @@ import { Icon } from "@chakra-ui/react";
 import { GiSuspensionBridge } from "react-icons/gi";
 import { BiHome } from "react-icons/bi";
 import { BiLineChart } from "react-icons/bi";
-import { FiSettings } from "react-icons/fi";
+// import { FiSettings } from "react-icons/fi";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/redux/hooks";
 import { setSidebarIsOpen } from "@/redux/sidebar";
@@ -79,6 +79,7 @@ export const Navigation = ({
     if (isMobile && sidebarIsOpen) {
       dispatch(setSidebarIsOpen(!sidebarIsOpen));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useClickOutside(sidebarRef, () => {
