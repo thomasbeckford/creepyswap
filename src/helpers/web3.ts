@@ -66,9 +66,9 @@ export const connectWallet = async (
     return connectTo("walletconnect", connectors.ConnectToWalletConnect);
   }
 
-  if (wallet?.type === "binance") {
-    return connectTo("binannce", connectors.ConnectToBinance);
-  }
+  // if (wallet?.type === "binance") {
+  //   return connectTo("binannce", connectors.ConnectToBinance);
+  // }
 };
 
 // Formats ether amounts into readible format

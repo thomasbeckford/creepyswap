@@ -12,8 +12,6 @@ const ConnectToBinance = () => {
     try {
       const provider = new Web3("https://bsc-dataseed1.binance.org:443");
 
-      console.log("aa", provider);
-
       resolve(provider);
     } catch (error) {
       reject(error);
