@@ -1,4 +1,4 @@
-## My own DeFi portal
+## My DeFi portal
 
 ### Built with nextjs, ethersjs, chakraUI
 
